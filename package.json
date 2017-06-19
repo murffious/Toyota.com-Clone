@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/murffious/personal-project#readme",
   "dependencies": {
+    "angular-animate": "^1.6.4",
     "babel-preset-es2015": "^6.24.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
