@@ -83,6 +83,7 @@ input, select {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+
 a {
   text-decoration: none; }
 
@@ -90,7 +91,7 @@ a {
   height: 30px;
   width: 100%;
   background-color: #F5F5F5;
-  line-height: 1.1;
+  line-height: 1;
   letter-spacing: .03125em;
   border-bottom: 1px solid #D8D8D8;
   display: -webkit-box;
@@ -143,4 +144,36 @@ a {
 .toy-logo-nav {
   height: 60px;
   border-bottom: 1px solid #D8D8D8;
-  width: 100%; }
+  width: 100%;
+  letter-spacing: .03125em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 1em;
+  font-size: 14px; }
+  .toy-logo-nav .toy-logo-nav-wrapper {
+    width: 876px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 auto;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .toy-logo-nav .toy-logo-nav-wrapper img {
+      -ms-flex-item-align: initial;
+      align-self: initial;
+      margin-right: 119px; }
+  .toy-logo-nav li {
+    list-style: none;
+    padding: 0 18px;
+    letter-spacing: normal;
+    word-spacing: normal; }
+  .toy-logo-nav a {
+    color: black; }
+  .toy-logo-nav i {
+    color: #CB2027;
+    font-size: 1em; }

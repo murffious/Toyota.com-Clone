@@ -7,7 +7,7 @@ a {
     height: 30px;
     width: 100%;
     background-color: #F5F5F5;
-    line-height: 1.1;
+    line-height: 1;
     letter-spacing: .03125em;
     border-bottom: 1px solid #D8D8D8;
     display: flex;
@@ -17,7 +17,7 @@ a {
     margin: 0 auto;
     justify-content: flex-end;
     align-items: center;
-}
+    }
     li {
         list-style: none;
         border-right: 1px solid #D8D8D8;
@@ -54,9 +54,40 @@ a {
     display: inline-block;
 }
 
-
+//=================Toyota Logo Main Nav ============
 .toy-logo-nav {
     height: 60px;
     border-bottom: 1px solid #D8D8D8;
     width: 100%; 
+    letter-spacing: .03125em;
+    display: flex;
+    line-height: 1em;
+        font-size: 14px;
+    .toy-logo-nav-wrapper{
+    width: 876px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: flex-end;
+    align-items: center;
+    
+     img {
+        align-self: initial;
+        margin-right: 119px;
+    }
+    }
+    li {
+        list-style: none;
+        padding: 0 18px;
+        letter-spacing: normal;
+        word-spacing: normal;
+        
+    }
+    a {
+        color: black;
+    }
+    i {
+        color: #CB2027;
+        font-size: 1em;
+    }
+    
 }

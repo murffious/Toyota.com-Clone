@@ -1,6 +1,18 @@
 'use strict';
 
-angular.module('toyota', []);
+angular.module('toyota', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.when('', '/');
+
+    $stateProvider
+    // .state('home', {
+    //     url: '/',
+    //     templateUrl: "/home.html" 
+    // })
+    .state('build-all', {
+        url: '/build-all',
+        templateUrl: './views/build-all.html'
+    });
+});
 // module.exports =  {
 //    database: "postgres://fuelabhf:IpEbVtebA3qOAy4s-91u-1wvyYbq1qzS@stampy.db.elephantsql.com:5432/fuelabhf",
 //    user: "fuelabhf",
@@ -13,6 +25,14 @@ angular.module('toyota', []);
 // config.user
 // config.password
 "use strict";
+"use strict";
+
+angular.module("toyota").directive("build-all-cars-minivans", function () {
+    return {
+        restrict: "E",
+        templateUrl: ""
+    };
+});
 'use strict';
 
 angular.module('toyota').controller('controller', function ($scope) {
