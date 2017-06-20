@@ -177,3 +177,61 @@ a {
   .toy-logo-nav i {
     color: #CB2027;
     font-size: 1em; }
+
+.build-all-section-wrapper {
+  width: 876px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto; }
+  .build-all-section-wrapper a {
+    width: 239px;
+    height: 180px;
+    padding: 8.5% 20px 100px;
+    margin: 0 5px 5px 0;
+    border: 1px solid transparent;
+    -webkit-transition: border-color .4s ease-in-out;
+    transition: border-color .4s ease-in-out; }
+
+a:hover {
+  border: 1px solid red; }
+
+.build-all-header-wrapper {
+  margin: 0 auto;
+  width: 876px;
+  padding-top: 20px; }
+  .build-all-header-wrapper h1 {
+    font-size: 1.625rem;
+    margin-top: 8px;
+    margin-bottom: 15px; }
+  .build-all-header-wrapper h2 {
+    font-weight: normal;
+    font-size: .7445rem; }
+  .build-all-header-wrapper h3 {
+    margin-top: 15px;
+    border-top: 1px solid #D8D8D8;
+    padding-left: 6px;
+    padding-top: 20px;
+    font-size: 1.625rem; }
+
+.title {
+  padding-top: 20px;
+  padding-left: 7%;
+  margin-bottom: 5px;
+  font-weight: 900; }
+  .title span {
+    font-weight: normal; }
+
+.as-shown {
+  padding-left: 7%;
+  margin-top: 5px;
+  color: #999;
+  font-size: 10px; }
+
+.msrp-build-all {
+  padding-left: 7%;
+  margin-top: 5px;
+  margin-bottom: 4px;
+  font-size: 13px; }
+  .msrp-build-all span {
+    font-weight: 900; }
