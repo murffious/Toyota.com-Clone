@@ -1,18 +1,18 @@
 angular.module('toyota').controller('build-tacoma', function($scope){
     $scope.broken = 'working'
 
-var slideIndex = 1;
-showSlides(slideIndex);
+$scope.slideIndex = 1;
+$scope.showSlides($scope.slideIndex);
 
-function plusSlides(n) {
+$scope. plusSlides = (n) => {
   showSlides(slideIndex += n);
 }
 
-function currentSlide (n) {
+ $scope.currentSlide = (n) => {
   showSlides(slideIndex = n);
 }
 
-function showSlides(n) {
+$scope.showSlides = (n) => {
   var i;
   var slides = document.getElementsByClassName("mySlides");
   var dots = document.getElementsByClassName("dot");
