@@ -3,12 +3,17 @@ angular.module('toyota', ['ui.router'])
 $urlRouterProvider.when('', '/')
 
 $stateProvider
-// .state('home', {
-//     url: '/',
-//     templateUrl: "/home.html" 
-// })
+.state('home', {
+    url: '/',
+    templateUrl: "./app/views/home.html" 
+})
 .state('build-all', {
     url: '/build-all',
-    templateUrl: './views/build-all.html'
+    templateUrl: './app/views/build-all.html'
+})
+.state('build-tacoma', {
+    url: '/build-tacoma',
+    templateUrl: './app/views/build-tacoma.html',
+    controller: 'build-tacoma'
 })
 })

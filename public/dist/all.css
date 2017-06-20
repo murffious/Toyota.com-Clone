@@ -84,6 +84,183 @@ input, select {
   box-sizing: border-box; }
 
 
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 680px;
+  position: relative;
+  margin: auto;
+  height: 287px; }
+
+.mySlides {
+  display: none; }
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  -webkit-transition: 0.6s ease;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0; }
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px; }
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8); }
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center; }
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0; }
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  -webkit-transition: background-color 0.6s ease;
+  transition: background-color 0.6s ease; }
+
+.active, .dot:hover {
+  background-color: #717171; }
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s; }
+
+@-webkit-keyframes fade {
+  from {
+    opacity: .4; }
+  to {
+    opacity: 1; } }
+
+@keyframes fade {
+  from {
+    opacity: .4; }
+  to {
+    opacity: 1; } }
+
+* {
+  box-sizing: border-box; }
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 680px;
+  position: relative;
+  margin: auto;
+  height: 287px; }
+
+.mySlides {
+  display: none; }
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0; }
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px; }
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8); }
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center; }
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0; }
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease; }
+
+.active, .dot:hover {
+  background-color: #717171; }
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s; }
+
+@-webkit-keyframes fade {
+  from {
+    opacity: .4; }
+  to {
+    opacity: 1; } }
+
+@keyframes fade {
+  from {
+    opacity: .4; }
+  to {
+    opacity: 1; } }
+
 a {
   text-decoration: none; }
 
@@ -151,6 +328,10 @@ a {
   display: flex;
   line-height: 1em;
   font-size: 14px; }
+  .toy-logo-nav img {
+    width: 124px;
+    height: 32px;
+    cursor: pointer; }
   .toy-logo-nav .toy-logo-nav-wrapper {
     width: 876px;
     display: -webkit-box;
@@ -172,29 +353,15 @@ a {
     padding: 0 18px;
     letter-spacing: normal;
     word-spacing: normal; }
+    .toy-logo-nav li:hover {
+      color: red; }
   .toy-logo-nav a {
-    color: black; }
+    color: #333; }
+    .toy-logo-nav a:hover {
+      color: red; }
   .toy-logo-nav i {
     color: #CB2027;
     font-size: 1em; }
-
-.build-all-section-wrapper {
-  width: 876px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0 auto; }
-  .build-all-section-wrapper a {
-    width: 239px;
-    height: 180px;
-    padding: 8.5% 20px 100px;
-    margin: 0 5px 5px 0;
-    border: 1px solid transparent;
-    -webkit-transition: border-color .4s ease-in-out;
-    transition: border-color .4s ease-in-out; }
-
-a:hover {
-  border: 1px solid red; }
 
 .build-all-header-wrapper {
   margin: 0 auto;
@@ -214,24 +381,90 @@ a:hover {
     padding-top: 20px;
     font-size: 1.625rem; }
 
-.title {
-  padding-top: 20px;
-  padding-left: 7%;
-  margin-bottom: 5px;
-  font-weight: 900; }
-  .title span {
-    font-weight: normal; }
+.build-all-section-container {
+  width: 876px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto; }
+  .build-all-section-container .build-all-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    border: 1px solid white;
+    padding: 20px 30px;
+    cursor: pointer; }
+    .build-all-section-container .build-all-wrap:hover {
+      border: 1px solid red; }
+    .build-all-section-container .build-all-wrap img {
+      height: 65px; }
+    .build-all-section-container .build-all-wrap car-title {
+      padding-top: 20px;
+      padding-left: 7%;
+      margin-bottom: 3px;
+      font-weight: 900; }
+      .build-all-section-container .build-all-wrap car-title span {
+        padding-top: 15px;
+        font-weight: normal; }
+    .build-all-section-container .build-all-wrap .msrp-build-all {
+      padding-left: 7%;
+      margin-top: 5px;
+      margin-bottom: 4px;
+      font-size: 13px; }
+      .build-all-section-container .build-all-wrap .msrp-build-all span {
+        font-weight: 900; }
+        .build-all-section-container .build-all-wrap .msrp-build-all span sup {
+          vertical-align: super;
+          font-size: smaller; }
+    .build-all-section-container .build-all-wrap .as-shown {
+      padding-left: 7%;
+      margin-top: 5px;
+      color: #999;
+      font-size: 10px; }
 
-.as-shown {
-  padding-left: 7%;
-  margin-top: 5px;
-  color: #999;
-  font-size: 10px; }
+.gray-half-top-wrap {
+  height: 202px;
+  width: 100%;
+  background-color: #EDF0F5;
+  position: absolute;
+  top: 100px;
+  z-index: -100; }
 
-.msrp-build-all {
-  padding-left: 7%;
-  margin-top: 5px;
-  margin-bottom: 4px;
-  font-size: 13px; }
-  .msrp-build-all span {
-    font-weight: 900; }
+.build-tacoma {
+  background-color: #252525;
+  height: 85px; }
+  .build-tacoma .tacoma-nav-container {
+    width: 876px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 auto;
+    color: #FCEFEF; }
+    .build-tacoma .tacoma-nav-container div {
+      height: 85px;
+      font-size: 13px;
+      text-align: center;
+      letter-spacing: .025em;
+      width: 14.2857%;
+      border-left: 1px solid #444444;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+      .build-tacoma .tacoma-nav-container div span {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-item-align: center;
+        align-self: center; }
+      .build-tacoma .tacoma-nav-container div:last-child {
+        border-right: 1px solid #444444; }
+      .build-tacoma .tacoma-nav-container div svg {
+        fill: #FCEFEF; }
+
