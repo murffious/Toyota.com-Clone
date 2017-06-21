@@ -5,36 +5,25 @@
   <span>2017 Tacoma SR</span>
   </div>
 <div class="gray-half-top-wrap">
+<!--<div class="container slider">
+    <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
+         ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
+         ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
 
+    <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
+    <a class="arrow next" href="#" ng-click="prevSlide()"></a>
+    <nav class="nav">
+        <div class="wrapper">
+            <ul class="dots">
+                <li class="dot" ng-repeat="slide in slides">
+                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                       ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>-->
 </div>
-  <div class="slideshow-container">
-    <div class="mySlides fade">
-      <!--<div class="numbertext">1 / 3</div>-->
-      <img src="./app/images/build-tacoma-home/sr-1.png" style="width:100%">
-    </div>
-    <div class="mySlides fade">
-      <!--<div class="numbertext">2 / 3</div>-->
-      <img src="./app/images/build-tacoma-home/sr-2.png" style="width:100%">
-    </div>
-    <div class="mySlides fade">
-      <!--<div class="numbertext">3 / 3</div>-->
-      <img src="./app/images/build-tacoma-home/sr-3.png" style="width:100%">
-    </div>
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  </div>
-  <br>
-
-  <div style="text-align:center">
-    <span>Exterior</span>
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span>Interior</span>
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-  </div>
+   
   <span>$24,320</span>
   <span>Starting MSRP<sup>1</sup></span>
   <button>Request A Quote</button>
@@ -65,3 +54,31 @@
 
   </div>
 </nav>
+<!--==============Grades View =================-->
+<div class="grades-wrapper">
+    <div class="grades-view-container">
+    <div class="grades-sub-header">Select From 6 Grades</div>
+  <div id="tacoma-grade-build-card">
+    <img src="https://www.toyota.com/config/pub/static/images/TOY/2017/tacoma/grade/images/d413c30ad4f7847beb639bfddec35a0370b370e99c6af339f1a230f9dc6ebfa0_Tacoma_ext_AC_SR_0040_png_v030_002.png">
+    <div class="card-content">
+        <div class="grade-title">SR</div>
+            <div class="msrp-mpg-wrap">
+                <div>$24,320 <span>starting msrp<sup>1</sup></span></div>
+                <div class="mpg">19/23  <span>est. mpg<sup>2</sup></span></div>
+            </div>
+        <dl>
+            <dd>2.7L 4-cylinder or 3.5L V6</dd>
+            <dd>Available in Rear-Wheel Drive or 4WDemand part-time 4WD</dd>
+        </dl>  
+        <button id="view-details-button">VIEW DETAILS</button>
+        <button>COMPARE</button>   
+    </div> <!--card content-->
+        <button class="select-button">SELECT</button>
+        <div class="grade-card-footer">
+      <div class="comes-in">COMES IN:</div>
+      <div>ACCESS CAB, DOUBLE CAB</div>
+      <div>SHORT BED, LONG BED</div>
+  </div>
+  </div> <!--tacoma grade build card div-->
+  </div>
+</div> <!--grades-wrapper-->
