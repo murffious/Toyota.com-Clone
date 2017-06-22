@@ -275,7 +275,7 @@ a {
   display: -ms-flexbox;
   display: flex; }
   .main-top-nav .nav-wrapper {
-    width: 876px;
+    width: 977px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -327,13 +327,13 @@ a {
   display: -ms-flexbox;
   display: flex;
   line-height: 1em;
-  font-size: 14px; }
+  font-size: 14px;
+  padding-right: 8px; }
   .toy-logo-nav img {
-    width: 124px;
-    height: 32px;
+    width: 131px;
     cursor: pointer; }
   .toy-logo-nav .toy-logo-nav-wrapper {
-    width: 876px;
+    width: 977px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -347,7 +347,7 @@ a {
     .toy-logo-nav .toy-logo-nav-wrapper img {
       -ms-flex-item-align: initial;
       align-self: initial;
-      margin-right: 119px; }
+      margin-right: 190px; }
   .toy-logo-nav li {
     list-style: none;
     padding: 0 18px;
@@ -365,7 +365,7 @@ a {
 
 .build-all-header-wrapper {
   margin: 0 auto;
-  width: 876px;
+  width: 977px;
   padding-top: 20px; }
   .build-all-header-wrapper h1 {
     font-size: 1.625rem;
@@ -382,7 +382,7 @@ a {
     font-size: 1.625rem; }
 
 .build-all-section-container {
-  width: 876px;
+  width: 977px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -426,19 +426,81 @@ a {
       color: #999;
       font-size: 10px; }
 
+.tacoma-build-top-wrap {
+  position: relative; }
+  .tacoma-build-top-wrap .your-build {
+    position: absolute;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #2b2b2b;
+    left: 477px; }
+  .tacoma-build-top-wrap .your-build:after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 1px;
+    top: 26px;
+    background: red; }
+  .tacoma-build-top-wrap .build-grab-title {
+    position: absolute;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-weight: 300;
+    letter-spacing: -.02em;
+    color: #000;
+    left: 477px;
+    top: 34px;
+    font-size: 40px;
+    max-width: 180px; }
+
+.build-image-wrapper {
+  width: 977px;
+  margin: 0 auto; }
+
 .gray-half-top-wrap {
   height: 202px;
   width: 100%;
   background-color: #EDF0F5;
   position: absolute;
-  top: 90px;
-  z-index: -100; }
+  z-index: -100;
+  top: 0; }
+
+.opening-build-price {
+  color: #000;
+  -webkit-transition: color .3s ease 1s;
+  transition: color .3s ease 1s;
+  width: auto;
+  text-align: left;
+  position: absolute;
+  right: 467px;
+  top: 20px; }
+
+.opening-build-msrp {
+  text-align: left;
+  position: absolute;
+  right: 467px;
+  top: 40px; }
+
+.build-request-top {
+  text-align: left;
+  position: absolute;
+  right: 467px;
+  top: 61px;
+  width: 130px;
+  height: 40px;
+  text-align: center;
+  border: 2px solid #666;
+  font-size: 13px;
+  background-color: transparent; }
 
 .build-tacoma {
   background-color: #252525;
   height: 85px; }
   .build-tacoma .tacoma-nav-container {
-    width: 876px;
+    width: 977px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -472,49 +534,70 @@ a {
   background-color: #EDF0F5; }
 
 .grades-view-container {
-  width: 876px;
-  margin: 0 auto; }
+  width: 977px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+
+.grades-sub-header {
+  margin-bottom: 40px;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 50px; }
 
 #tacoma-grade-build-card {
   max-width: 310px;
   max-height: 620px;
-  border: 1px solid red;
-  background-color: white; }
+  background-color: white;
+  -webkit-box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.025);
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.025);
+  margin-bottom: 24px; }
   #tacoma-grade-build-card img {
-    margin-right: 20px; }
+    width: 100%;
+    padding: 15px; }
   #tacoma-grade-build-card .card-content {
-    padding-top: 35px;
-    padding-left: 20px;
+    padding-left: 24px;
     padding-right: 15px;
     margin-bottom: 24px; }
     #tacoma-grade-build-card .card-content button {
       border: none;
       background-color: white;
-      color: red; }
+      color: red;
+      font-size: .8rem; }
       #tacoma-grade-build-card .card-content button:last-child {
         border-left: .5px solid gray; }
     #tacoma-grade-build-card .card-content sup {
       vertical-align: super;
-      font-size: smaller;
+      font-size: .5rem;
       color: red; }
     #tacoma-grade-build-card .card-content #view-details-button {
       border-right: .5px solid gray; }
     #tacoma-grade-build-card .card-content .mpg {
-      padding-left: 60px; }
+      padding-left: 40px; }
 
 dl {
   display: list-item;
   list-style: none;
-  margin-bottom: 19px;
+  line-height: 1.3;
+  margin-bottom: 14px;
   color: #666;
   font-size: .875rem;
   padding-left: 8px; }
   dl dd::before {
     content: "\25AA";
+    font-size: 1rem;
     color: red;
     display: inline-block;
-    width: .8em;
+    width: .9em;
     margin-left: -.8em;
+    padding-left: 1px; }
+  dl dd {
     padding-left: 8px; }
 
 .grade-title {
@@ -530,15 +613,16 @@ dl {
   position: relative;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  margin-top: 20px;
+  margin-top: 17px;
   margin-right: 75px;
   margin-bottom: 30px;
   font-size: 1.5rem;
   color: #242424;
   font-weight: 200; }
-  .msrp-mpg-wrap span {
+  .msrp-mpg-wrap p {
     color: #666;
-    font-size: 13px; }
+    font-size: 13px;
+    margin-top: -2px; }
 
 .card-content .msrp-mpg-wrap .mpg:before {
   content: "";
@@ -560,7 +644,7 @@ dl {
   padding-left: 25px;
   border-top: 1px solid #e5e5e5; }
   .grade-card-footer div {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     color: #333;
     font-size: 12px;
     font-weight: 600; }
@@ -573,9 +657,9 @@ dl {
     font-weight: 400; }
 
 .select-button {
-  margin: 0px 20px 25px;
+  margin: 0px 25px 37px;
   height: 50px;
-  width: 268px;
+  width: 260px;
   background-color: #2C2C2C;
   color: #F4F4F4;
   border: none; }

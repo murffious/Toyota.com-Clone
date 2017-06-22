@@ -1,10 +1,8 @@
 @import 'build-tacoma';
-$site-width: 876px;
+$site-width: 977px;
 a {
     text-decoration: none;
-}
-
-// ==============Top Nav Bar ================
+} // ==============Top Nav Bar ================
 .main-top-nav {
     height: 30px;
     width: 100%;
@@ -14,7 +12,7 @@ a {
     border-bottom: 1px solid #D8D8D8;
     display: flex;
     .nav-wrapper {
-        width: 876px;
+        width: $site-width;
         display: flex;
         margin: 0 auto;
         justify-content: flex-end;
@@ -54,9 +52,7 @@ a {
     color: #999;
     fill: #999;
     display: inline-block;
-}
-
-//=================Toyota Logo Main Nav ============
+} //=================Toyota Logo Main Nav ============
 .toy-logo-nav {
     height: 60px;
     border-bottom: 1px solid #D8D8D8;
@@ -65,20 +61,20 @@ a {
     display: flex;
     line-height: 1em;
     font-size: 14px;
+    padding-right: 8px;
     img {
-        width: 124px;
-        height: 32px;
+        width: 131px;
         cursor: pointer;
     }
     .toy-logo-nav-wrapper {
-        width: 876px;
+        width: $site-width;
         display: flex;
         margin: 0 auto;
         justify-content: flex-end;
         align-items: center;
         img {
             align-self: initial;
-            margin-right: 119px;
+            margin-right: 190px;
         }
     }
     li {
@@ -100,12 +96,10 @@ a {
         color: #CB2027;
         font-size: 1em;
     }
-}
-
-//================ Build all View ===============
+} //================ Build all View ===============
 .build-all-header-wrapper {
     margin: 0 auto;
-    width: 876px;
+    width: $site-width;
     padding-top: 20px;
     h1 {
         font-size: 1.625rem;
@@ -126,7 +120,7 @@ a {
 }
 
 .build-all-section-container {
-    width: 876px;
+    width: $site-width;
     display: flex;
     margin: 0 auto;
     .build-all-wrap {
@@ -171,16 +165,83 @@ a {
             font-size: 10px;
         }
     }
+} // ==================Tacoma Build =====================
+.tacoma-build-top-wrap {
+    position: relative;
+    .your-build {
+        position: absolute;
+        text-align: left;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #2b2b2b;
+        left: 477px;
+    }
+    .your-build:after {
+        display: block;
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 1px;
+        top: 26px;
+        background: red;
+    }
+    .build-grab-title {
+        position: absolute;
+        text-align: left;
+        font-size: 1.1rem;
+        font-weight: 500;
+        font-weight: 300;
+        letter-spacing: -.02em;
+        color: #000;
+        left: 477px;
+        top: 34px;
+        font-size: 40px;
+        max-width: 180px;
+    }
 }
 
-// ==================Tacoma Build =====================
+.build-image-wrapper {
+    width: $site-width;
+    margin: 0 auto;
+}
+
 .gray-half-top-wrap {
     height: 202px;
     width: 100%;
     background-color: #EDF0F5;
     position: absolute;
-    top: 90px;
     z-index: -100;
+    top: 0;
+}
+
+.opening-build-price {
+    color: #000;
+    transition: color .3s ease 1s;
+    width: auto;
+    text-align: left;
+    position: absolute;
+    right: 467px;
+    top: 20px;
+}
+
+.opening-build-msrp {
+    text-align: left;
+    position: absolute;
+    right: 467px;
+    top: 40px;
+}
+
+.build-request-top {
+    text-align: left;
+    position: absolute;
+    right: 467px;
+    top: 61px;
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    border: 2px solid #666;
+    font-size: 13px;
+    background-color: transparent;
 }
 
 .build-tacoma {
@@ -212,47 +273,59 @@ a {
             }
         }
     }
-}
-
-// ============Tacoma Grade Bottom Build Section=======
+} // ============Tacoma Grade Bottom Build Section=======
 .grades-wrapper {
     background-color: #EDF0F5;
 }
+
 .grades-view-container {
     width: $site-width;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
+
+.grades-sub-header {
+    margin-bottom: 40px;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 50px;
+}
+
 #tacoma-grade-build-card {
     max-width: 310px;
     max-height: 620px;
-    border: 1px solid red;
     background-color: white;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, .025); // width: calc(33% -12px);
+    margin-bottom: 24px;
     img {
-        margin-right: 20px;
+        width: 100%;
+        padding: 15px;
     }
     .card-content {
-        padding-top: 35px;
-        padding-left: 20px;
+        padding-left: 24px;
         padding-right: 15px;
         margin-bottom: 24px;
         button {
             border: none;
             background-color: white;
             color: red;
+            font-size: .8rem;
             &:last-child {
                 border-left: .5px solid gray;
             }
         }
         sup {
             vertical-align: super;
-            font-size: smaller;
+            font-size: .5rem;
             color: red;
         }
         #view-details-button {
             border-right: .5px solid gray;
         }
         .mpg {
-            padding-left: 60px
+            padding-left: 40px;
         }
     }
 }
@@ -260,16 +333,21 @@ a {
 dl {
     display: list-item;
     list-style: none;
-    margin-bottom: 19px;
+    line-height: 1.3;
+    margin-bottom: 14px;
     color: #666;
     font-size: .875rem;
     padding-left: 8px;
     dd::before {
         content: "\25AA";
+        font-size: 1rem;
         color: red;
         display: inline-block;
-        width: .8em;
+        width: .9em;
         margin-left: -.8em;
+        padding-left: 1px;
+    }
+    dd {
         padding-left: 8px;
     }
 }
@@ -285,15 +363,16 @@ dl {
     display: flex;
     position: relative;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 17px;
     margin-right: 75px;
     margin-bottom: 30px;
     font-size: 1.5rem;
     color: #242424;
     font-weight: 200;
-    span {
+    p {
         color: #666;
         font-size: 13px;
+        margin-top: -2px;
     }
 }
 
@@ -315,13 +394,13 @@ dl {
     padding-left: 25px;
     border-top: 1px solid #e5e5e5;
     div {
-        margin-bottom: 4px;
+        margin-bottom: 6px;
         color: #333;
         font-size: 12px;
         font-weight: 600;
         &:last-child {
-           margin-bottom: 0px;
-           padding-bottom: 20px;     
+            margin-bottom: 0px;
+            padding-bottom: 20px;
         }
     }
     .comes-in {
@@ -332,10 +411,12 @@ dl {
 }
 
 .select-button {
-    margin: 0px 20px 25px;
+    margin: 0px 25px 37px;
     height: 50px;
-    width: 268px;
+    width: 260px;
     background-color: #2C2C2C;
     color: #F4F4F4;
     border: none;
 }
+
+

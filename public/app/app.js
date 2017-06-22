@@ -1,4 +1,4 @@
-angular.module('toyota', ['ui.router']) 
+angular.module('toyota', ['ui.router', 'ui.bootstrap']) 
 .config(function ($stateProvider, $urlRouterProvider){
 $urlRouterProvider.when('', '/')
 
