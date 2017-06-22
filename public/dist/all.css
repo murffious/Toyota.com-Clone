@@ -524,7 +524,8 @@ a {
         display: -ms-flexbox;
         display: flex;
         -ms-flex-item-align: center;
-        align-self: center; }
+        align-self: center;
+        font-size: 15px; }
       .build-tacoma .tacoma-nav-container div:last-child {
         border-right: 1px solid #444444; }
       .build-tacoma .tacoma-nav-container div svg {
@@ -663,4 +664,16 @@ dl {
   background-color: #2C2C2C;
   color: #F4F4F4;
   border: none; }
+
+.cabs-beds-view-container {
+  width: 977px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
 

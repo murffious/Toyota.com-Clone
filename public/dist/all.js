@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('toyota', ['ui.router', 'ui.bootstrap']).config(function ($stateProvider, $urlRouterProvider) {
+angular.module('toyota', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.when('', '/');
 
     $stateProvider.state('home', {
