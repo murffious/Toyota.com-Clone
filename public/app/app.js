@@ -9,7 +9,8 @@ $stateProvider
 })
 .state('build-all', {
     url: '/build-all',
-    templateUrl: './app/views/build-all.html'
+    templateUrl: './app/views/build-all.html',
+    controller: 'buildAllCtrl'
 })
 .state('build-tacoma', {
     url: '/build-tacoma',

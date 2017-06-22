@@ -330,7 +330,12 @@ a {
         }
     }
 }
-
+.grade-title {
+    font-size: 1.5rem;
+    line-height: 1.3em;
+    font-weight: 500;
+    color: #252525;
+}
 dl {
     display: list-item;
     list-style: none;
@@ -353,12 +358,7 @@ dl {
     }
 }
 
-.grade-title {
-    font-size: 1.5rem;
-    line-height: 1.3em;
-    font-weight: 500;
-    color: #252525;
-}
+
 
 .msrp-mpg-wrap {
     display: flex;
@@ -427,4 +427,26 @@ dl {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+#tacoma-cabs-beds-build-card {
+    max-width: 310px;
+    max-height: 620px;
+    background-color: white;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, .025); // width: calc(33% -12px);
+    margin-bottom: 24px;
+  
+    .card-content {
+        padding-left: 24px;
+        padding-right: 15px;
+        margin-bottom: 24px;
+    }
+
+}
+.cabs-card-title {
+    font-size: 1.5rem;
+    line-height: 1.3em;
+    font-weight: 500;
+    color: #252525;
+    padding-top:25px;
+    margin-bottom:  50px;
 }

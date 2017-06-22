@@ -21,4 +21,12 @@
         <div class="msrp-build-all"><span>$26,255</span><sup>1</sup>  Starting MSRP</div>
         <div class="as-shown">$26,2551 As Shown</div>
     </div> 
+
+    <div ng-repeat="car in getCarsAndVans1" class="build-all-section-container">
+    <div ui-sref="build-tacoma" class="build-all-wrap">
+        <img src="{{car.imageurl}}">
+        <car-title><span>{{car.year}}</span>{{car.model}} </car-title>
+        <div class="msrp-build-all"><span>{{car.pricestartingmsrp}}</span><sup>1</sup>  Starting MSRP</div>
+        <div class="as-shown">{{car.priceasshown}}1 As Shown</div>
+    </div> 
 </div>

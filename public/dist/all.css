@@ -582,6 +582,12 @@ a {
     #tacoma-grade-build-card .card-content .mpg {
       padding-left: 40px; }
 
+.grade-title {
+  font-size: 1.5rem;
+  line-height: 1.3em;
+  font-weight: 500;
+  color: #252525; }
+
 dl {
   display: list-item;
   list-style: none;
@@ -600,12 +606,6 @@ dl {
     padding-left: 1px; }
   dl dd {
     padding-left: 8px; }
-
-.grade-title {
-  font-size: 1.5rem;
-  line-height: 1.3em;
-  font-weight: 500;
-  color: #252525; }
 
 .msrp-mpg-wrap {
   display: -webkit-box;
@@ -676,4 +676,24 @@ dl {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between; }
+
+#tacoma-cabs-beds-build-card {
+  max-width: 310px;
+  max-height: 620px;
+  background-color: white;
+  -webkit-box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.025);
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.025);
+  margin-bottom: 24px; }
+  #tacoma-cabs-beds-build-card .card-content {
+    padding-left: 24px;
+    padding-right: 15px;
+    margin-bottom: 24px; }
+
+.cabs-card-title {
+  font-size: 1.5rem;
+  line-height: 1.3em;
+  font-weight: 500;
+  color: #252525;
+  padding-top: 25px;
+  margin-bottom: 50px; }
 

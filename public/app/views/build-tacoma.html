@@ -55,10 +55,10 @@
 <nav class="build-tacoma">
   <div class="tacoma-nav-container">
     <div>
-      <span>Grade</span>
+      <span ng-class="{active:item == 1}" ng-click="opencontent(1)">Grade</span>
     </div>
     <div>
-      <span>Cabs &amp; Beds</span>
+      <span ng-class="{active:item == 2}" ng-click="opencontent(2)">Cabs &amp; Beds</span>
     </div>
     <div>
       <span>Configuration</span>
@@ -81,7 +81,7 @@
 <!--==============Grades View =================-->
 <div class="grades-wrapper">
   <div class="grades-sub-header">Select From 6 Grades</div>
-    <div class="grades-view-container">
+    <div ng-init="item =  1" ng-show='item == 1' class="grades-view-container">
     
   <!--Grade Card to Copy-->
   <div id="tacoma-grade-build-card">
@@ -174,7 +174,8 @@
   </div>
   </div> <!--tacoma grade build card div-->
   <div id="tacoma-grade-build-card">
-    <img src="https://www.toyota.com/config/pub/static/images/TOY/2017/tacoma/grade/images/d413c30ad4f7847beb639bfddec35a0370b370e99c6af339f1a230f9dc6ebfa0_Tacoma_ext_AC_SR_0040_png_v030_002.png">
+    <img src="./app/images/build-tacoma-home/sr-1.png">
+
     <div class="card-content">
         <div class="grade-title">SR</div>
             <div class="msrp-mpg-wrap">
@@ -218,9 +219,26 @@
   </div>
   </div> <!--tacoma grade build card div-->
   </div>  <!--container for width-->
-<div class="cabs-beds-view-container">
-
-    dafadf
+<div ng-show='item == 2' class="cabs-beds-view-container">
+   <div id="tacoma-cabs-beds-build-card">
+       <div class="card-content">
+       <div class="cabs-card-title">Access Cab with 6-ft. Long Bed</div>
+       <dl>
+            <dd> Access Cab</dd>
+            <dd>Seating for four</dd>
+            <dd>Fiber-reinforced Sheet-Molded Composite (SMC) inner bed</dd>
+            <dd>Deck rail system</dd>
+            <dd>Easy lower, lockable and removable tailgate</dd>
+            <dd>6-ft. Long Bed</dd>
+            <hr/>
+            <dt>Inside bed:</dt>
+            <dd>73.7 inches long</dd>
+            <dd>41.5 inches between the wheel wells</dd>
+            <dd>19.1 inches deep</dd>
+        </dl> 
+        </div>
+    <button class="select-button">SELECT</button>
+    </div>
 </div>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="56.984" height="36.77" viewBox="0 0 56.984 36.77"><g fill="none" stroke="#09f" stroke-width="4" stroke-miterlimit="10"><path d="M21.922 36.062L.707 14.85M56.277.707L20.922 36.062"></path></g></svg>
 </div> <!--grades-wrapper for background-->
