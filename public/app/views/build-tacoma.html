@@ -6,45 +6,12 @@
   </div>
   <slider1></slider1> 
  
-
-<div class="gray-half-top-wrap">
-
-
-
- 
-
-
-<!--<ui-carousel 
-  slides="ctrl.slides"
-  slides-to-show="3"
-  slides-to-scroll="1"
-  initial-slide="1"
-  autoplay="true"
-  autoplay-speed="2000"
-  dots="true">
- 
-  <carousel-item>
-    <h3>{{ item + 1 }}</h3>
-  </carousel-item>
-</ui-carousel>-->
-
-<!--<div class="container slider">
-    <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
-         ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
-         ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
-    <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
-    <a class="arrow next" href="#" ng-click="prevSlide()"></a>
-    <nav class="nav">
-        <div class="wrapper">
-            <ul class="dots">
-                <li class="dot" ng-repeat="slide in slides">
-                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
-                       ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>-->
- 
+<!--<div ng-repeat="cohort in user.cohorts" ng-click="setSelected(cohort.id)">
+      
+      If I remember right this is all you need to do. You just have an ng-click on the ng-repeat
+      and pass in the id from the ng-repeated item. so since the ng-repeat is cohort in
+      cohorts in the ng-click we pass in the cohort.id as the parameter to the ng-click funtion-->
+<div class="gray-half-top-wrap"> 
  <span class="opening-build-price">$24,320</span>
 <span class="opening-build-msrp">Starting MSRP<sup>1</sup></span>
 <button class="build-request-top">Request A Quote</button>
