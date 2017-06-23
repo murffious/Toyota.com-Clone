@@ -10,7 +10,7 @@ const basePath = './public/app';
 const normalizePath = `${basePath}/styles/reset.css`;
 
 const paths = {
-    jsSrc: [`${basePath}/app.js`, `${basePath}/**/*.js`],
+    jsSrc: [`${basePath}/app.js`, `${basePath}/**/**/*.js`],
     scssSrc: [`${normalizePath}`, `${basePath}/styles/*.scss`]
 };
 

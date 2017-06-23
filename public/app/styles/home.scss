@@ -118,11 +118,16 @@ a {
         font-size: 1.625rem;
     }
 }
-
-.build-all-section-container {
+.carsandvanswrap {
     width: $site-width;
+    max-width: $site-width;
     display: flex;
     margin: 0 auto;
+    flex-wrap: wrap;
+}
+.build-all-section-container {
+    width: 25%;
+    display: flex;
     .build-all-wrap {
         display: flex;
         flex-direction: column;

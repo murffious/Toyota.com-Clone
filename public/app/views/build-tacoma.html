@@ -4,7 +4,7 @@
   <div><span class="your-build">YOUR BUILD</span>
   <span class="build-grab-title">2017 Tacoma SR</span>
   </div>
-  <div class="build-image-wrapper"><img src="https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/1/864_477_PNG/af00b31-ed3b036-d5b169f-88ac67c-e7e9359-fe3c93a-469c2bf-cb4bfdb-75ff6b4-1cce8f3-0e3ddd3-0e44209-c9df76a-096cb71-30f9e80-54f8546-f318d67-9955d94-265e76d-ec56c89.png"></div> 
+  <slider1></slider1> 
  
 
 <div class="gray-half-top-wrap">
@@ -32,7 +32,6 @@
     <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
          ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
          ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
-
     <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
     <a class="arrow next" href="#" ng-click="prevSlide()"></a>
     <nav class="nav">
@@ -45,8 +44,7 @@
         </div>
     </nav>
 </div>-->
-</div>
-   
+ 
  <span class="opening-build-price">$24,320</span>
 <span class="opening-build-msrp">Starting MSRP<sup>1</sup></span>
 <button class="build-request-top">Request A Quote</button>
@@ -54,11 +52,11 @@
 </div>
 <nav class="build-tacoma">
   <div class="tacoma-nav-container">
-    <div>
-      <span ng-class="{active:item == 1}" ng-click="opencontent(1)">Grade</span>
+    <div ng-class="{active:item == 1}" ng-click="opencontent(1)">
+      <span >Grade</span>
     </div>
-    <div>
-      <span ng-class="{active:item == 2}" ng-click="opencontent(2)">Cabs &amp; Beds</span>
+    <div ng-class="{active:item == 2}" ng-click="opencontent(2)">
+      <span >Cabs &amp; Beds</span>
     </div>
     <div>
       <span>Configuration</span>
@@ -173,6 +171,28 @@
       <div>SHORT BED</div>
   </div>
   </div> <!--tacoma grade build card div-->
+   <div id="tacoma-grade-build-card">
+    <img src="https://www.toyota.com/config/pub/static/images/TOY/2017/tacoma/grade/images/d413c30ad4f7847beb639bfddec35a0370b370e99c6af339f1a230f9dc6ebfa0_Tacoma_ext_AC_SR_0040_png_v030_002.png">
+    <div class="card-content">
+        <div class="grade-title">SR</div>
+            <div class="msrp-mpg-wrap">
+                <div>$24,320 <p>starting msrp<sup>1</sup></p></div>
+                <div class="mpg">19/23  <p>est. mpg<sup>2</sup></p></div>
+            </div>
+        <dl>
+            <dd>2.7L 4-cylinder or 3.5L V6</dd>
+            <dd>Available in Rear-Wheel Drive or 4WDemand part-time 4WD</dd>
+        </dl>  
+        <button id="view-details-button">VIEW DETAILS</button>
+        <button>COMPARE</button>   
+    </div> <!--card content-->
+        <button class="select-button">SELECT</button>
+        <div class="grade-card-footer">
+      <div class="comes-in">COMES IN:</div>
+      <div>ACCESS CAB, DOUBLE CAB</div>
+      <div>SHORT BED</div>
+  </div>
+  </div> <!--tacoma grade build card div-->
   <div id="tacoma-grade-build-card">
     <img src="./app/images/build-tacoma-home/sr-1.png">
 
@@ -196,29 +216,9 @@
       <div>SHORT BED</div>
   </div>
   </div> <!--tacoma grade build card div-->
-   <div id="tacoma-grade-build-card">
-    <img src="https://www.toyota.com/config/pub/static/images/TOY/2017/tacoma/grade/images/d413c30ad4f7847beb639bfddec35a0370b370e99c6af339f1a230f9dc6ebfa0_Tacoma_ext_AC_SR_0040_png_v030_002.png">
-    <div class="card-content">
-        <div class="grade-title">SR</div>
-            <div class="msrp-mpg-wrap">
-                <div>$24,320 <p>starting msrp<sup>1</sup></p></div>
-                <div class="mpg">19/23  <p>est. mpg<sup>2</sup></p></div>
-            </div>
-        <dl>
-            <dd>2.7L 4-cylinder or 3.5L V6</dd>
-            <dd>Available in Rear-Wheel Drive or 4WDemand part-time 4WD</dd>
-        </dl>  
-        <button id="view-details-button">VIEW DETAILS</button>
-        <button>COMPARE</button>   
-    </div> <!--card content-->
-        <button class="select-button">SELECT</button>
-        <div class="grade-card-footer">
-      <div class="comes-in">COMES IN:</div>
-      <div>ACCESS CAB, DOUBLE CAB</div>
-      <div>SHORT BED</div>
-  </div>
-  </div> <!--tacoma grade build card div-->
   </div>  <!--container for width-->
+
+  <!--maybe make a directive for each tab-->
 <div ng-show='item == 2' class="cabs-beds-view-container">
    <div id="tacoma-cabs-beds-build-card">
        <div class="card-content">
@@ -240,5 +240,5 @@
     <button class="select-button">SELECT</button>
     </div>
 </div>
-<svg xmlns="http://www.w3.org/2000/svg" width="56.984" height="36.77" viewBox="0 0 56.984 36.77"><g fill="none" stroke="#09f" stroke-width="4" stroke-miterlimit="10"><path d="M21.922 36.062L.707 14.85M56.277.707L20.922 36.062"></path></g></svg>
+
 </div> <!--grades-wrapper for background-->

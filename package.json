@@ -29,6 +29,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^3.1.0",
     "massive": "^3.0.0-rc1",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "slick-carousel": "^1.6.0"
   }
 }

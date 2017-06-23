@@ -381,12 +381,21 @@ a {
     padding-top: 20px;
     font-size: 1.625rem; }
 
-.build-all-section-container {
+.carsandvanswrap {
   width: 977px;
+  max-width: 977px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0 auto; }
+  margin: 0 auto;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.build-all-section-container {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
   .build-all-section-container .build-all-wrap {
     display: -webkit-box;
     display: -ms-flexbox;

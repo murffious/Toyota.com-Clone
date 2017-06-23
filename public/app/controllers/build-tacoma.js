@@ -1,10 +1,27 @@
 angular.module('toyota').controller('build-tacoma', function($scope){
     $scope.broken = 'working'
 
-
+$('.variable-width').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  centerMode: true,
+  variableWidth: true
+});
 
 $scope.opencontent = function (num) {
  $scope.item = num; console.log($scope.item)
+
+
+// Psuedo-code: when I click on grade it changes 1. the price 2. the picture set and 3. the title  (it flashed blue as it changes not that important) 4. if not button one then it will change to the selected button class
+
+// it also pushes that item to the summary sheet and totals price  
+
+// on leaving the view page for that selected tab the tab will put in a blue check mark 
+
+// there is a next button at them bottom which has the same affect as clicking the tab section above
+// the problem is that there are some set defaults that correlate with price 
 }
 
 

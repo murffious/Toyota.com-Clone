@@ -1,9 +1,9 @@
 <!--================== Build All Page ============================-->
-    <div class="build-all-header-wrapper">
+<div class="build-all-header-wrapper">
     <h1>Build Your Toyota</h1>
-<h2>Customize your own Toyota car, truck, SUV, crossover, hybrid or minivan by selecting the below models to get started.</h2>
- <h3>Cars & Minivans</h3>
- </div>
+    <h2>Customize your own Toyota car, truck, SUV, crossover, hybrid or minivan by selecting the below models to get started.</h2>
+    <h3>Cars & Minivans</h3>
+</div>
 <!--
 <div class="build-all-section-wrapper">
     <div class="build-all-wrap">
@@ -14,19 +14,26 @@
     </div> 
 </div>-->
 
-<div class="build-all-section-container">
+
+
+<!--my original piece-->
+<!--<div class="build-all-section-container">
     <div ui-sref="build-tacoma" class="build-all-wrap">
         <img src="./app/images/BuildandPrice-all/201786.png">
         <car-title><span>2017</span> 86</car-title>
         <div class="msrp-build-all"><span>$26,255</span><sup>1</sup>  Starting MSRP</div>
         <div class="as-shown">$26,2551 As Shown</div>
     </div> 
+    </div>-->
 
+
+<div class="carsandvanswrap">
     <div ng-repeat="car in getCarsAndVans1" class="build-all-section-container">
-    <div ui-sref="build-tacoma" class="build-all-wrap">
-        <img src="{{car.imageurl}}">
-        <car-title><span>{{car.year}}</span>{{car.model}} </car-title>
-        <div class="msrp-build-all"><span>{{car.pricestartingmsrp}}</span><sup>1</sup>  Starting MSRP</div>
-        <div class="as-shown">{{car.priceasshown}}1 As Shown</div>
-    </div> 
+        <div ui-sref="build-tacoma" class="build-all-wrap">
+            <img src="{{car.imageurl}}">
+            <car-title><span>{{car.year}}</span> {{car.model}}</car-title>
+            <div class="msrp-build-all"><span>${{car.pricestartingmsrp}}</span><sup>1</sup> Starting MSRP</div>
+            <div class="as-shown">${{car.priceasshown}}<sup>1</sup> As Shown</div>
+        </div>
+    </div>
 </div>

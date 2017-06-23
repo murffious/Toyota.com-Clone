@@ -5,13 +5,13 @@
     <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./dist/all.css">
+    
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous">
-    
-    <!--<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>-->
-<!--<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/Variable-Width.css"/>-->
-				
+    <link rel="stylesheet" type="text/css" href="./app/lib/slick-1.6.0/slick-1.6.0/slick/slick.css" />
+
+    <link rel="stylesheet" type="text/css" href="./app/lib/slick-1.6.0/slick-1.6.0/slick/slick-theme.css" />
+    <link rel="stylesheet" href="./dist/all.css">
 </head>
 
 <body ng-controller="mainCtrl">
@@ -49,33 +49,39 @@
 
         </div>
     </nav>
-    
+
 
     <!--================= Toyota Logo Main Nav=====================-->
-<nav class="toy-logo-nav">
-    
-<div class="toy-logo-nav-wrapper">
-    <img ui-sref="home" src="./app/images/toyota-lgp-logo (1).jpg">
-<li><a href="#">Select Vehicles  <i class="fa fa-chevron-down" aria-hidden="true"></i></li>
+    <nav class="toy-logo-nav">
+
+        <div class="toy-logo-nav-wrapper">
+            <img ui-sref="home" src="./app/images/toyota-lgp-logo (1).jpg">
+            <li><a href="#">Select Vehicles  <i class="fa fa-chevron-down" aria-hidden="true"></i></li>
 <li><a href="#">Shopping Tools   <i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
-<li><a href="#">Find a Dealer</a></li>
-<li><a ui-sref='build-all'>Build &amp Price</a></li>
-<li><a href="#">Local Specials</a></li> 
-</div>
-</nav>
+            <li><a href="#">Find a Dealer</a></li>
+            <li><a ui-sref='build-all'>Build &amp Price</a></li>
+            <li><a href="#">Local Specials</a></li>
+        </div>
+    </nav>
     <h1>{{broken}}</h1>
-<ui-view></ui-view>
+    <ui-view></ui-view>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
-    <script src="./dist/all.js"></script>
-    <script
+    
+    <!--<script
   src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
-<!--    
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>-->
+
+    <!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>-->
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="./app/lib/slick-1.6.0/slick-1.6.0/slick/slick.js"></script>
+    <script src="./dist/all.js"></script>
+    <!--    
    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.10.3/TweenMax.min.js"></script>-->
-   <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>-->
 </body>
 
 </html>
