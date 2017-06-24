@@ -23,6 +23,7 @@
     "body-parser": "^1.17.2",
     "cors": "^2.8.3",
     "express": "^4.15.3",
+    "express-session": "^1.15.3",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^6.1.2",

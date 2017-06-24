@@ -129,6 +129,19 @@ angular.module("toyota").directive("build-all-cars-minivans", function () {
 });
 "use strict";
 
+angular.module('toyota').directive("summary", function () {
+
+    return {
+
+        templateUrl: "./app/directives/summary/summary_cart.html"
+        // link: function (scope, element, attribute) {
+
+        // }
+        // controller: 
+    };
+});
+"use strict";
+
 angular.module('toyota').directive("slider1", function () {
 
     return {

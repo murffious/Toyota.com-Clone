@@ -20,25 +20,26 @@
 <nav class="build-tacoma">
   <div class="tacoma-nav-container">
     <div ng-class="{active:item == 1}" ng-click="opencontent(1)">
-      <span >Grade</span>
+      <img src="./app/images/svg/gradetruck.svg">
+      <p>Grade</p>
     </div>
     <div ng-class="{active:item == 2}" ng-click="opencontent(2)">
-      <span >Cabs &amp; Beds</span>
+      <p>Cabs &amp; Beds</p>
     </div>
     <div>
-      <span>Configuration</span>
+      <p>Configuration</p>
     </div>
     <div>
-      <span>Colors</span>
+      <p>Colors</p>
     </div>
     <div>
-      <span>Packages</span>
+      <p>Packages</p>
     </div>
     <div ng-class="{active:item == 6}" ng-click="opencontent(6)">
-      <span>Accessories</span>
+      <p>Accessories</p>
     </div>
-    <div>
-      <span>Summary</span>
+    <div "{active:item == 7}" ng-click="opencontent(7)">
+      <p>Summary</p>
     </div>
 
   </div>
@@ -210,5 +211,5 @@
 </div>
 
 <accessories-dir ng-init="item =  6" ng-show='item == 6' ></accessories-dir>
-
+<summary ng-show='item == 7'></summary>
 </div> <!--grades-wrapper for background-->

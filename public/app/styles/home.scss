@@ -268,7 +268,8 @@ a {
             border-left: 1px solid#444444;
             display: flex;
             justify-content: center;
-            span {
+            flex-direction: column;
+            p {
                 display: flex;
                 align-self: center;
                 font-size: 15px;

@@ -571,8 +571,12 @@ a {
       display: flex;
       -webkit-box-pack: center;
       -ms-flex-pack: center;
-      justify-content: center; }
-      .build-tacoma .tacoma-nav-container div span {
+      justify-content: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column; }
+      .build-tacoma .tacoma-nav-container div p {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -767,4 +771,25 @@ dl {
   color: #252525;
   padding-top: 25px;
   margin-bottom: 50px; }
+
+.summary-header {
+  margin-bottom: 40px;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 50px; }
+
+.summary-container {
+  width: 977px;
+  margin: 0 auto;
+  padding: 36px 29px;
+  max-width: 976px;
+  background-color: #fff;
+  letter-spacing: .033em;
+  text-align: left;
+  -webkit-box-shadow: 0 0 6px rgba(43, 43, 43, 0.1);
+  box-shadow: 0 0 6px rgba(43, 43, 43, 0.1); }
+  .summary-container section {
+    position: relative;
+    width: 100%;
+    padding: 30px 0; }
 

@@ -4,18 +4,25 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     massive = require('massive'),
     config = require('./config')
+const session = require('express-session')
 const vehiclesCtrl = require('./vehiclesCtrl');
 
 const app = express();
 //middleware
 app.use(bodyParser.json())
 app.use(cors());
+app.use(session ({
+   secret: config.secret,
+   resave: false,
+   saveUninitialized: false 
+}))
 
 massive(config.database).then(db => {
     app.set('db', db)
 }).catch((err) => {
     console.log(err)
 })
+
 
 //endpoints here
 app.get('/carsandvans', vehiclesCtrl.getVehicles1)
