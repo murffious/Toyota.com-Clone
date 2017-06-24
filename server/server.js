@@ -19,7 +19,7 @@ massive(config.database).then(db => {
 
 //endpoints here
 app.get('/carsandvans', vehiclesCtrl.getVehicles1)
-
+app.get('/TRDaccessories', vehiclesCtrl.getTRDacc)
 
 //listening
 const port = 3000;

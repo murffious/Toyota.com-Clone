@@ -35,6 +35,21 @@
     img {
         width: 100%;
     }
+    a {
+    display: inline-block;
+    position: relative;
+    width: 41%;
+    height: 14px;
+    margin-right: 8%;
+    margin-bottom: 28px;
+    color: #666;
+    font-size: 13px;
+    text-align: right;
+    text-decoration: none;
+    color: #c00;
+    font-weight: 500;
+    text-transform: uppercase;
+}
 }
 
 .acc-title {
@@ -56,8 +71,30 @@
     font-size: 18px;
     margin-bottom: 5px;
 }
-
-a {
+sup {
+    vertical-align: super;
+    font-size: .59rem;
+    display: inline-block;
+    position: relative;
+    color: #c00;
+    line-height: 1em;
+    text-align: left;
+    z-index: 1;
+    box-sizing: content-box;
+}
+.test-it-accessory-card-wrap {
+    max-width: 310px;
+    max-height: 328px;
+    background-color: white;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, .025); // width: calc(33% -12px);
+    margin-bottom: 24px;
+    border: 1px solid red; 
+    img {
+        width: 100%;
+        /* test out max-height: 200px;
+     animation-play-state: paused;*/
+    }
+    a {
     display: inline-block;
     position: relative;
     width: 41%;
@@ -72,15 +109,21 @@ a {
     font-weight: 500;
     text-transform: uppercase;
 }
-
-sup {
-    vertical-align: super;
-    font-size: .59rem;
-    display: inline-block;
-    position: relative;
-    color: #c00;
-    line-height: 1em;
-    text-align: left;
-    z-index: 1;
-    box-sizing: content-box;
 }
+
+
+/*background-color: rgba(0,174,239,.8);
+    background-color: rgba(215,25,33,.8);
+    
+    display: none;display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: baseline;
+        color: #900;*/

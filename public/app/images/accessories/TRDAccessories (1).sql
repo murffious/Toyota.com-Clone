@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS trdaccessories CASCADE
-
 CREATE TABLE TRDAccessories(
     id              SERIAL PRIMARY KEY
    ,Grade      VARCHAR(12) NOT NULL

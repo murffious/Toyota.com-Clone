@@ -14,6 +14,9 @@ $scope.opencontent = function (num) {
  $scope.item = num; console.log($scope.item)
 
 
+  $scope.selectedIndex = 0;
+  
+ 
 // Psuedo-code: when I click on grade it changes 1. the price 2. the picture set and 3. the title  (it flashed blue as it changes not that important) 4. if not button one then it will change to the selected button class
 
 // it also pushes that item to the summary sheet and totals price  

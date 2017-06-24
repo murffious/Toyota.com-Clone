@@ -427,6 +427,27 @@ dl {
     border: none;
 }
 
+.selected-button {
+    margin-top: 0px; 
+    margin-bottom: 33px;
+    margin-right: 28px;
+    margin-left: 22px;
+    height: 48px;
+    width: 266px;
+    background-color: white;
+    color: #0099FF;
+    border: 2px solid #0099FF;
+   
+    i {
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: 200;
+        font-size: 1.4rem;
+        margin-right: 7px;
+        padding-bottom: 6px;
+    }
+
+}
 // =================== Cabs & Beds View -TRD ============
 .cabs-beds-view-container {
     width: $site-width;

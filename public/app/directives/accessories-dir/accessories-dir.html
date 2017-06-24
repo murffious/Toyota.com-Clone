@@ -11,38 +11,25 @@
 </div>
 
 <div class="accessory-view-container">
-    <div class="accessory-card-wrap">
+    <div ng-repeat='acc in TRDacc' ng-class="{ 'test-it-accessory-card-wrap': $index == selectedIndex }" ng-click="itemClicked($index)" class="accessory-card-wrap">
+        <img src="{{acc.imageurl}}">
+        <div class="acc-title">{{acc.model}}<sup>{{acc.disclaimer}}</sup>
+        </div>
+        <div class="acc-msrp">${{acc.price}} msrp</div>
+        <a>VIEW DETAILS</a>
+    </div>
+    <!--accessory-card-wrap-->
+
+    <!--test div below original-->
+    <!--<div class="accessory-card-wrap">
         <img src="./app/images/accessories/Customize Your Own Car_ Truck_ SUV or Hybrid/trdaccessories (2).jpg">
         <div class="acc-title">3-In. Round Tube Steps - Chrome<sup>44</sup>
         </div>
         <div class="acc-msrp">$425 msrp</div>
         <a>VIEW DETAILS</a>
-    </div>
+    </div>-->
     <!--accessory-card-wrap-->
-    <div class="accessory-card-wrap">
-        <img src="./app/images/accessories/Customize Your Own Car_ Truck_ SUV or Hybrid/trdaccessories (2).jpg">
-        <div class="acc-title">3-In. Round Tube Steps - Chrome<sup>44</sup>
-        </div>
-        <div class="acc-msrp">$425 msrp</div>
-        <a>VIEW DETAILS</a>
-    </div>
-    <!--accessory-card-wrap-->
-    <div class="accessory-card-wrap">
-        <img src="./app/images/accessories/Customize Your Own Car_ Truck_ SUV or Hybrid/trdaccessories (2).jpg">
-        <div class="acc-title">3-In. Round Tube Steps - Chrome<sup>44</sup>
-        </div>
-        <div class="acc-msrp">$425 msrp</div>
-        <a>VIEW DETAILS</a>
-    </div>
-    <!--accessory-card-wrap-->
-    <div class="accessory-card-wrap">
-        <img src="./app/images/accessories/Customize Your Own Car_ Truck_ SUV or Hybrid/trdaccessories (2).jpg">
-        <div class="acc-title">3-In. Round Tube Steps - Chrome<sup>44</sup>
-        </div>
-        <div class="acc-msrp">$425 msrp</div>
-        <a>VIEW DETAILS</a>
-    </div>
-    <!--accessory-card-wrap-->
+    
 </div>
 <!--accessory-view-container-->
 

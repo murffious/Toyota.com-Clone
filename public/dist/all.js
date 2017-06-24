@@ -31,7 +31,9 @@ angular.module('toyota').controller('buildTacoma', function ($scope) {
   });
 
   $scope.opencontent = function (num) {
-    $scope.item = num;console.log($scope.item
+    $scope.item = num;console.log($scope.item);
+
+    $scope.selectedIndex = 0;
 
     // Psuedo-code: when I click on grade it changes 1. the price 2. the picture set and 3. the title  (it flashed blue as it changes not that important) 4. if not button one then it will change to the selected button class
 
@@ -41,7 +43,6 @@ angular.module('toyota').controller('buildTacoma', function ($scope) {
 
     // there is a next button at them bottom which has the same affect as clicking the tab section above
     // the problem is that there are some set defaults that correlate with price 
-    );
   };
 
   //    $scope.myInterval = 5000;
@@ -74,6 +75,16 @@ angular.module('toyota').controller('mainCtrl', function ($scope) {
 });
 'use strict';
 
+angular.module('toyota').service('accessories_dirSvc', function ($http) {
+
+    var devUrl = 'http://localhost:3000';
+
+    this.TRDaccessories = function () {
+        return $http.get(devUrl + '/TRDaccessories');
+    };
+});
+'use strict';
+
 angular.module('toyota').service('buildAllSvc', function ($http) {
 
     var devUrl = 'http://localhost:3000';
@@ -91,9 +102,20 @@ angular.module('toyota').directive("accessoriesDir", function () {
 
     return {
 
-        templateUrl: "./app/directives/accessories-dir/accessories-dir.html"
-        // controller: "buildTacoma"
+        templateUrl: "./app/directives/accessories-dir/accessories-dir.html",
+        controller: function controller($scope, accessories_dirSvc) {
 
+            accessories_dirSvc.TRDaccessories().then(function (res) {
+                console.log(res);
+                $scope.TRDacc = res.data;
+            });
+
+            $scope.itemClicked = function ($index) {
+                console.log($index);
+                console.log("clicked");
+                $scope.selectedIndex = $index;
+            };
+        }
 
     };
 });
