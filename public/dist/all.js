@@ -13,12 +13,12 @@ angular.module('toyota', ['ui.router']).config(function ($stateProvider, $urlRou
     }).state('build-tacoma', {
         url: '/build-tacoma',
         templateUrl: './app/views/build-tacoma.html',
-        controller: 'build-tacoma'
+        controller: 'buildTacoma'
     });
 });
 'use strict';
 
-angular.module('toyota').controller('build-tacoma', function ($scope) {
+angular.module('toyota').controller('buildTacoma', function ($scope) {
   $scope.broken = 'working';
 
   $('.variable-width').slick({
@@ -85,6 +85,46 @@ angular.module('toyota').service('buildAllSvc', function ($http) {
 'use strict';
 
 angular.module('toyota').service('service', function () {});
+"use strict";
+
+angular.module('toyota').directive("accessoriesDir", function () {
+
+    return {
+
+        templateUrl: "./app/directives/accessories-dir/accessories-dir.html"
+        // controller: "buildTacoma"
+
+
+    };
+});
+"use strict";
+
+angular.module("toyota").directive("build-all-cars-minivans", function () {
+    return {
+        restrict: "E",
+        templateUrl: "build-all-cars-minivans.html"
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("slider1", function () {
+
+    return {
+
+        templateUrl: "./app/directives/slider1-dir/slider1.html",
+        link: function link(scope, element, attribute) {
+            $('.variable-width').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                centerMode: true,
+                variableWidth: true
+            });
+        }
+
+    };
+});
 "use strict";
 
 /*
@@ -6443,34 +6483,6 @@ angular.module('ui.bootstrap.carousel').run(function () {
   !angular.$$csp().noInlineStyle && !angular.$$uibPositionCss && angular.element(document).find("head").prepend('<style type="text/css">.uib-position-measure{display:block !important;visibility:hidden !important;position:absolute !important;top:-9999px !important;left:-9999px !important;}.uib-position-scrollbar-measure{position:absolute !important;top:-9999px !important;width:50px !important;height:50px !important;overflow:scroll !important;}.uib-position-body-scrollbar-measure{overflow:scroll !important;}</style>'), angular.$$uibPositionCss = !0;
 }), angular.module("ui.bootstrap.carousel").run(function () {
   !angular.$$csp().noInlineStyle && !angular.$$uibCarouselCss && angular.element(document).find("head").prepend('<style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style>'), angular.$$uibCarouselCss = !0;
-});
-"use strict";
-
-angular.module("toyota").directive("build-all-cars-minivans", function () {
-    return {
-        restrict: "E",
-        templateUrl: "build-all-cars-minivans.html"
-    };
-});
-"use strict";
-
-angular.module('toyota').directive("slider1", function () {
-
-    return {
-
-        templateUrl: "./app/directives/slider1-dir/slider1.html",
-        link: function link(scope, element, attribute) {
-            $('.variable-width').slick({
-                dots: true,
-                infinite: true,
-                speed: 300,
-                slidesToShow: 1,
-                centerMode: true,
-                variableWidth: true
-            });
-        }
-
-    };
 });
 'use strict';
 

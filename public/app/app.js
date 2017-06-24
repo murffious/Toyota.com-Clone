@@ -15,6 +15,6 @@ $stateProvider
 .state('build-tacoma', {
     url: '/build-tacoma',
     templateUrl: './app/views/build-tacoma.html',
-    controller: 'build-tacoma'
+    controller: 'buildTacoma'
 })
 })

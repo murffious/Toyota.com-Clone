@@ -1,4 +1,4 @@
-angular.module('toyota').controller('build-tacoma', function($scope){
+angular.module('toyota').controller('buildTacoma', function($scope){
     $scope.broken = 'working'
 
 $('.variable-width').slick({

@@ -34,7 +34,7 @@
     <div>
       <span>Packages</span>
     </div>
-    <div>
+    <div ng-class="{active:item == 6}" ng-click="opencontent(6)">
       <span>Accessories</span>
     </div>
     <div>
@@ -46,7 +46,7 @@
 <!--==============Grades View =================-->
 <div class="grades-wrapper">
   <div class="grades-sub-header">Select From 6 Grades</div>
-    <div ng-init="item =  1" ng-show='item == 1' class="grades-view-container">
+    <div  ng-show='item == 1' class="grades-view-container">
     
   <!--Grade Card to Copy-->
   <div id="tacoma-grade-build-card">
@@ -207,5 +207,7 @@
     <button class="select-button">SELECT</button>
     </div>
 </div>
+
+<accessories-dir ng-init="item =  6" ng-show='item == 6' ></accessories-dir>
 
 </div> <!--grades-wrapper for background-->
