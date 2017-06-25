@@ -1,6 +1,22 @@
-angular.module('toyota').controller('buildTacoma', function($scope){
+angular.module('toyota').controller('buildTacoma', function($scope, buildTacomaSvc){
     $scope.broken = 'working'
 
+
+$scope.class = "select-button";
+    
+    $scope.changeClass = () =>{
+        if ($scope.class === "select-button")
+            $scope.class = "selected-button";
+         else if ($scope.class === "selected-button")
+            $scope.class = "select-button";
+    };
+     $scope.toggle = true;
+    
+    $scope.$watch('toggle', () => {
+        $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
+    })
+
+// Slider or Carousel
 $('.variable-width').slick({
   dots: true,
   infinite: true,
@@ -10,13 +26,28 @@ $('.variable-width').slick({
   variableWidth: true
 });
 
+// Current method for changing pages....may use nested routing for more options with $locaition
 $scope.opencontent = function (num) {
  $scope.item = num; console.log($scope.item)
-
-
   $scope.selectedIndex = 0;
-  
- 
+
+ // make shift cart for summary  
+$scope.products = productService.getProducts(); 
+$scope.addToSummary = (product) => {
+    console.log(`Going to service with ${product.name}`)
+    cartService.addToSummary(product).then(() => {
+      // Get the latest cart from the server. It has been updated.
+      cartService.getSummary().then((res)=> {
+        $scope.summary = res.data;
+      })
+    })
+  }
+
+cartService.getSummary().then((res) => {
+    console.log(res);
+    $scope.cart = res.data;
+  })
+
 // Psuedo-code: when I click on grade it changes 1. the price 2. the picture set and 3. the title  (it flashed blue as it changes not that important) 4. if not button one then it will change to the selected button class
 
 // it also pushes that item to the summary sheet and totals price  

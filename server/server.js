@@ -6,6 +6,7 @@ const express = require('express'),
     config = require('./config')
 const session = require('express-session')
 const vehiclesCtrl = require('./vehiclesCtrl');
+const summaryCtrl = require('./summaryCtrl')
 
 const app = express();
 //middleware
@@ -25,9 +26,14 @@ massive(config.database).then(db => {
 
 
 //endpoints here
+// requests to db for ng repeats
 app.get('/carsandvans', vehiclesCtrl.getVehicles1)
 app.get('/TRDaccessories', vehiclesCtrl.getTRDacc)
 
+
+// summary page cart like feature
+app.post('/summary', summaryCtrl.addItemToSummary)
+app.get('/summary', summaryCtrl.reqSummary)
 //listening
 const port = 3000;
 app.listen(port, () => {

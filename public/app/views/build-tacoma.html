@@ -1,215 +1,66 @@
 <h1>{{broken}}</h1>
 <!---->
 <div class="tacoma-build-top-wrap">
-  <div><span class="your-build">YOUR BUILD</span>
-  <span class="build-grab-title">2017 Tacoma SR</span>
-  </div>
-  <slider1></slider1> 
- <!--some ng repeat index stuff-->
-<!--<div ng-repeat="cohort in user.cohorts" ng-click="setSelected(cohort.id)">
+    <div><span class="your-build">YOUR BUILD</span>
+        <span class="build-grab-title">2017 Tacoma SR</span>
+    </div>
+    <slider1></slider1>
+    <!--some ng repeat index stuff-->
+    <!--<div ng-repeat="cohort in user.cohorts" ng-click="setSelected(cohort.id)">
       
       If I remember right this is all you need to do. You just have an ng-click on the ng-repeat
       and pass in the id from the ng-repeated item. so since the ng-repeat is cohort in
       cohorts in the ng-click we pass in the cohort.id as the parameter to the ng-click funtion-->
-<div class="gray-half-top-wrap"> 
- <span class="opening-build-price">$24,320</span>
-<span class="opening-build-msrp">Starting MSRP<sup>1</sup></span>
-<button class="build-request-top">Request A Quote</button>
+    <div class="gray-half-top-wrap">
+        <span class="opening-build-price">$24,320</span>
+        <span class="opening-build-msrp">Starting MSRP<sup>1</sup></span>
+        <button class="build-request-top">Request A Quote</button>
 
+    </div>
+    <nav class="build-tacoma">
+        <div class="tacoma-nav-container">
+            <div ng-class="{active:item == 1}" ng-click="opencontent(1)">
+                <img src="./app/images/svg/gradetruck.svg">
+                <p>Grade</p>
+            </div>
+            <div ng-class="{active:item == 2}" ng-click="opencontent(2)">
+                <img src="./app/images/svg/cabandbeds.svg">
+                <p>Cabs &amp; Beds</p>
+            </div>
+            <div ng-class="{active:item == 3}" ng-click="opencontent(3)">
+                <img src="./app/images/svg/configuremotor.svg">
+                <p>Configuration</p>
+            </div>
+            <div ng-class="{active:item == 4}" ng-click="opencontent(4)">
+                <img src="./app/images/svg/colors.svg">
+                <p>Colors</p>
+            </div>
+            <div ng-class="{active:item == 5}" ng-click="opencontent(5)">
+                <img src="./app/images/svg/packages.svg">
+                <p>Packages</p>
+            </div>
+            <div ng-class="{active:item == 6}" ng-click="opencontent(6)">
+                <img src="./app/images/svg/accessories.svg">
+                <p>Accessories</p>
+            </div>
+            <div "{active:item == 7}" ng-click="opencontent(7)">
+                <p>Summary</p>
+            </div>
+
+        </div>
+    </nav>
 </div>
-<nav class="build-tacoma">
-  <div class="tacoma-nav-container">
-    <div ng-class="{active:item == 1}" ng-click="opencontent(1)">
-      <img src="./app/images/svg/gradetruck.svg">
-      <p>Grade</p>
-    </div>
-    <div ng-class="{active:item == 2}" ng-click="opencontent(2)">
-      <p>Cabs &amp; Beds</p>
-    </div>
-    <div>
-      <p>Configuration</p>
-    </div>
-    <div>
-      <p>Colors</p>
-    </div>
-    <div>
-      <p>Packages</p>
-    </div>
-    <div ng-class="{active:item == 6}" ng-click="opencontent(6)">
-      <p>Accessories</p>
-    </div>
-    <div "{active:item == 7}" ng-click="opencontent(7)">
-      <p>Summary</p>
-    </div>
-
-  </div>
-</nav>
+<!--this div above me was placed here on Sat 6/24 trying to resolve lost close div for top half of page very first div?????? very bad news-->
 <!--==============Grades View =================-->
 <div class="grades-wrapper">
-  <div class="grades-sub-header">Select From 6 Grades</div>
-    <div  ng-show='item == 1' class="grades-view-container">
-    
-  <!--Grade Card to Copy-->
-  <div id="tacoma-grade-build-card">
-    <img src="https://www.toyota.com/config/pub/static/images/TOY/2017/tacoma/grade/images/d413c30ad4f7847beb639bfddec35a0370b370e99c6af339f1a230f9dc6ebfa0_Tacoma_ext_AC_SR_0040_png_v030_002.png">
-    <div class="card-content">
-        <div class="grade-title">SR</div>
-            <div class="msrp-mpg-wrap">
-                <div>$24,320 <p>starting msrp<sup>1</sup></p></div>
-                <div class="mpg">19/23  <p>est. mpg<sup>2</sup></p></div>
-            </div>
-        <dl>
-            <dd>2.7L 4-cylinder or 3.5L V6</dd>
-            <dd>Available in Rear-Wheel Drive or 4WDemand part-time 4WD</dd>
-        </dl>  
-        <button id="view-details-button">VIEW DETAILS</button>
-        <button>COMPARE</button>   
-    </div> <!--card content-->
-        <button class="select-button">SELECT</button>
-       <!--<button class="selected-button"><i class="fa fa-check" aria-hidden="true"></i>  SELECTED</button>-->
-        <div class="grade-card-footer">
-      <div class="comes-in">COMES IN:</div>
-      <div>ACCESS CAB, DOUBLE CAB</div>
-      <div>SHORT BED</div>
-  </div>
-  </div> <!--tacoma grade build card div-->
-  <div id="tacoma-grade-build-card">
-    <img src="https://www.toyota.com/config/pub/static/images/TOY/2017/tacoma/grade/images/d413c30ad4f7847beb639bfddec35a0370b370e99c6af339f1a230f9dc6ebfa0_Tacoma_ext_AC_SR_0040_png_v030_002.png">
-    <div class="card-content">
-        <div class="grade-title">SR</div>
-            <div class="msrp-mpg-wrap">
-                <div>$24,320 <p>starting msrp<sup>1</sup></p></div>
-                <div class="mpg">19/23  <p>est. mpg<sup>2</sup></p></div>
-            </div>
-        <dl>
-            <dd>2.7L 4-cylinder or 3.5L V6</dd>
-            <dd>Available in Rear-Wheel Drive or 4WDemand part-time 4WD</dd>
-        </dl>  
-        <button id="view-details-button">VIEW DETAILS</button>
-        <button>COMPARE</button>   
-    </div> <!--card content-->
-        <button class="select-button">SELECT</button>
-        <div class="grade-card-footer">
-      <div class="comes-in">COMES IN:</div>
-      <div>ACCESS CAB, DOUBLE CAB</div>
-      <div>SHORT BED</div>
-  </div>
-  </div> <!--tacoma grade build card div-->
-   <div id="tacoma-grade-build-card">
-    <img src="https://www.toyota.com/config/pub/static/images/TOY/2017/tacoma/grade/images/d413c30ad4f7847beb639bfddec35a0370b370e99c6af339f1a230f9dc6ebfa0_Tacoma_ext_AC_SR_0040_png_v030_002.png">
-    <div class="card-content">
-        <div class="grade-title">SR</div>
-            <div class="msrp-mpg-wrap">
-                <div>$24,320 <p>starting msrp<sup>1</sup></p></div>
-                <div class="mpg">19/23  <p>est. mpg<sup>2</sup></p></div>
-            </div>
-        <dl>
-            <dd>2.7L 4-cylinder or 3.5L V6</dd>
-            <dd>Available in Rear-Wheel Drive or 4WDemand part-time 4WD</dd>
-        </dl>  
-        <button id="view-details-button">VIEW DETAILS</button>
-        <button>COMPARE</button>   
-    </div> <!--card content-->
-        <button class="select-button">SELECT</button>
-        <div class="grade-card-footer">
-      <div class="comes-in">COMES IN:</div>
-      <div>ACCESS CAB, DOUBLE CAB</div>
-      <div>SHORT BED</div>
-  </div>
-  </div> <!--tacoma grade build card div-->
-   <!--Grade Card to Copy-->
-  <div id="tacoma-grade-build-card">
-    <img src="https://www.toyota.com/config/pub/static/images/TOY/2017/tacoma/grade/images/d413c30ad4f7847beb639bfddec35a0370b370e99c6af339f1a230f9dc6ebfa0_Tacoma_ext_AC_SR_0040_png_v030_002.png">
-    <div class="card-content">
-        <div class="grade-title">SR</div>
-            <div class="msrp-mpg-wrap">
-                <div>$24,320 <p>starting msrp<sup>1</sup></p></div>
-                <div class="mpg">19/23  <p>est. mpg<sup>2</sup></p></div>
-            </div>
-        <dl>
-            <dd>2.7L 4-cylinder or 3.5L V6</dd>
-            <dd>Available in Rear-Wheel Drive or 4WDemand part-time 4WD</dd>
-        </dl>  
-        <button id="view-details-button">VIEW DETAILS</button>
-        <button>COMPARE</button>   
-    </div> <!--card content-->
-        <button class="select-button">SELECT</button>
-        <div class="grade-card-footer">
-      <div class="comes-in">COMES IN:</div>
-      <div>ACCESS CAB, DOUBLE CAB</div>
-      <div>SHORT BED</div>
-  </div>
-  </div> <!--tacoma grade build card div-->
-   <div id="tacoma-grade-build-card">
-    <img src="https://www.toyota.com/config/pub/static/images/TOY/2017/tacoma/grade/images/d413c30ad4f7847beb639bfddec35a0370b370e99c6af339f1a230f9dc6ebfa0_Tacoma_ext_AC_SR_0040_png_v030_002.png">
-    <div class="card-content">
-        <div class="grade-title">SR</div>
-            <div class="msrp-mpg-wrap">
-                <div>$24,320 <p>starting msrp<sup>1</sup></p></div>
-                <div class="mpg">19/23  <p>est. mpg<sup>2</sup></p></div>
-            </div>
-        <dl>
-            <dd>2.7L 4-cylinder or 3.5L V6</dd>
-            <dd>Available in Rear-Wheel Drive or 4WDemand part-time 4WD</dd>
-        </dl>  
-        <button id="view-details-button">VIEW DETAILS</button>
-        <button>COMPARE</button>   
-    </div> <!--card content-->
-        <button class="select-button">SELECT</button>
-        <div class="grade-card-footer">
-      <div class="comes-in">COMES IN:</div>
-      <div>ACCESS CAB, DOUBLE CAB</div>
-      <div>SHORT BED</div>
-  </div>
-  </div> <!--tacoma grade build card div-->
-  <div id="tacoma-grade-build-card">
-    <img src="./app/images/build-tacoma-home/sr-1.png">
 
-    <div class="card-content">
-        <div class="grade-title">SR</div>
-            <div class="msrp-mpg-wrap">
-                <div>$24,320 <p>starting msrp<sup>1</sup></p></div>
-                <div class="mpg">19/23  <p>est. mpg<sup>2</sup></p></div>
-            </div>
-        <dl>
-            <dd>2.7L 4-cylinder or 3.5L V6</dd>
-            <dd>Available in Rear-Wheel Drive or 4WDemand part-time 4WD</dd>
-        </dl>  
-        <button id="view-details-button">VIEW DETAILS</button>
-        <button>COMPARE</button>   
-    </div> <!--card content-->
-        <button class="select-button">SELECT</button>
-        <div class="grade-card-footer">
-      <div class="comes-in">COMES IN:</div>
-      <div>ACCESS CAB, DOUBLE CAB</div>
-      <div>SHORT BED</div>
-  </div>
-  </div> <!--tacoma grade build card div-->
-  </div>  <!--container for width-->
-
-  <!--maybe make a directive for each tab-->
-<div ng-show='item == 2' class="cabs-beds-view-container">
-   <div id="tacoma-cabs-beds-build-card">
-       <div class="card-content">
-       <div class="cabs-card-title">Access Cab with 6-ft. Long Bed</div>
-       <dl>
-            <dd> Access Cab</dd>
-            <dd>Seating for four</dd>
-            <dd>Fiber-reinforced Sheet-Molded Composite (SMC) inner bed</dd>
-            <dd>Deck rail system</dd>
-            <dd>Easy lower, lockable and removable tailgate</dd>
-            <dd>6-ft. Long Bed</dd>
-            <hr/>
-            <dt>Inside bed:</dt>
-            <dd>73.7 inches long</dd>
-            <dd>41.5 inches between the wheel wells</dd>
-            <dd>19.1 inches deep</dd>
-        </dl> 
-        </div>
-    <button class="select-button">SELECT</button>
-    </div>
+      <!-- make a directive for each tab-->
+    <grades-initial ng-init="item =  1" ng-show='item == 1' ></grades-initial>
+     <cabs-beds ng-show='item == 2'></cabs-beds>
+    <configure-motor ng-show='item == 3'></configure-motor>
+    <tacoma-color ng-show='item == 4'></tacoma-color>
+    <packages ng-show='item == 5'></packages>
+    <accessories-dir  ng-show='item == 6'></accessories-dir>
+    <summary ng-show='item == 7'></summary>
 </div>
-
-<accessories-dir ng-init="item =  6" ng-show='item == 6' ></accessories-dir>
-<summary ng-show='item == 7'></summary>
-</div> <!--grades-wrapper for background-->
+<!--grades-wrapper for background-->

@@ -18,10 +18,22 @@ angular.module('toyota', ['ui.router']).config(function ($stateProvider, $urlRou
 });
 'use strict';
 
-angular.module('toyota').controller('buildTacoma', function ($scope) {
+angular.module('toyota').controller('buildTacoma', function ($scope, buildTacomaSvc) {
   $scope.broken = 'working';
 
-  $('.variable-width').slick({
+  $scope.class = "select-button";
+
+  $scope.changeClass = function () {
+    if ($scope.class === "select-button") $scope.class = "selected-button";else if ($scope.class === "selected-button") $scope.class = "select-button";
+  };
+  $scope.toggle = true;
+
+  $scope.$watch('toggle', function () {
+    $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
+  }
+
+  // Slider or Carousel
+  );$('.variable-width').slick({
     dots: true,
     infinite: true,
     speed: 300,
@@ -30,10 +42,27 @@ angular.module('toyota').controller('buildTacoma', function ($scope) {
     variableWidth: true
   });
 
+  // Current method for changing pages....may use nested routing for more options with $locaition
   $scope.opencontent = function (num) {
     $scope.item = num;console.log($scope.item);
-
     $scope.selectedIndex = 0;
+
+    // make shift cart for summary  
+    $scope.products = productService.getProducts();
+    $scope.addToSummary = function (product) {
+      console.log('Going to service with ' + product.name);
+      cartService.addToSummary(product).then(function () {
+        // Get the latest cart from the server. It has been updated.
+        cartService.getSummary().then(function (res) {
+          $scope.summary = res.data;
+        });
+      });
+    };
+
+    cartService.getSummary().then(function (res) {
+      console.log(res);
+      $scope.cart = res.data;
+    }
 
     // Psuedo-code: when I click on grade it changes 1. the price 2. the picture set and 3. the title  (it flashed blue as it changes not that important) 4. if not button one then it will change to the selected button class
 
@@ -43,6 +72,7 @@ angular.module('toyota').controller('buildTacoma', function ($scope) {
 
     // there is a next button at them bottom which has the same affect as clicking the tab section above
     // the problem is that there are some set defaults that correlate with price 
+    );
   };
 
   //    $scope.myInterval = 5000;
@@ -95,7 +125,46 @@ angular.module('toyota').service('buildAllSvc', function ($http) {
 });
 'use strict';
 
-angular.module('toyota').service('service', function () {});
+angular.module('toyota').service('buildTacomaSvc', function ($http) {
+
+  var devUrl = 'http://localhost:3000';
+
+  this.TRDaccessories = function () {
+    return $http.get(devUrl + '/TRDaccessories');
+  };
+  this.addToSummary = function (product) {
+    console.log('Adding ' + product.name + ' to cart');
+    return $http.post('/api/cart', product);
+  };
+
+  this.getCart = function () {
+    return $http.get('/api/cart');
+  };
+});
+'use strict';
+
+angular.module('toyota').service('service', function () {
+
+  //from plenty o stuff .com tst for cart summary in product service
+
+  var products = [{
+    id: 1,
+    name: 'Bike',
+    price: 200
+  }, {
+    id: 2,
+    name: 'Hat',
+    price: 20
+  }, {
+    id: 3,
+    name: 'Car',
+    price: 30000
+  }];
+
+  this.getProducts = function () {
+    return Array.from(products);
+  };
+});
 "use strict";
 
 angular.module('toyota').directive("accessoriesDir", function () {
@@ -129,11 +198,69 @@ angular.module("toyota").directive("build-all-cars-minivans", function () {
 });
 "use strict";
 
-angular.module('toyota').directive("summary", function () {
+angular.module('toyota').directive("cabsBeds", function () {
 
     return {
 
-        templateUrl: "./app/directives/summary/summary_cart.html"
+        templateUrl: "./app/directives/cabs_beds/cabs_beds.html"
+        // link: function (scope, element, attribute) {
+
+        // }
+        // controller: 
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("tacomaColor", function () {
+
+    return {
+
+        templateUrl: "./app/directives/colors_tacoma/tacoma-colors.html"
+
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("configureMotor", function () {
+
+    return {
+
+        templateUrl: "./app/directives/configuration/configuremotor.html"
+
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("gradesInitial", function () {
+
+    return {
+
+        templateUrl: "./app/directives/grades/gradesInitial.html",
+        // link: function (scope, element, attribute) {
+
+        // }
+        controller: function controller($scope) {
+            $scope.class = "select-button";
+
+            $scope.changeClass = function () {
+                if ($scope.class === "select-button") $scope.class = "selected-button";else if ($scope.class === "selected-button") $scope.class = "select-button";
+            };
+            $scope.toggle = true;
+
+            $scope.$watch('toggle', function () {
+                $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
+            });
+        }
+
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("packages", function () {
+
+    return {
+
+        templateUrl: "./app/directives/packages/tacoma_packages.html"
         // link: function (scope, element, attribute) {
 
         // }
@@ -158,6 +285,19 @@ angular.module('toyota').directive("slider1", function () {
             });
         }
 
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("summary", function () {
+
+    return {
+
+        templateUrl: "./app/directives/summary/summary_cart.html"
+        // link: function (scope, element, attribute) {
+
+        // }
+        // controller: 
     };
 });
 "use strict";

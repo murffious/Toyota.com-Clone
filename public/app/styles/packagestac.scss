@@ -1,0 +1,47 @@
+@import 'variables';
+.packages-price {
+font-size: 1.5rem;
+    line-height: 1.25;
+
+}
+#view-details-button2 {
+     border: none;
+            background-color: white;
+            color: red;
+            font-size: .8rem;
+}
+.cabs-header {
+     margin-bottom: 40px;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 50px;
+}
+.cabs-beds-view-container {
+    width: $site-width;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#tacoma-cabs-beds-build-card {
+    max-width: 310px;
+    max-height: 620px;
+    background-color: white;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, .025); // width: calc(33% -12px);
+    margin-bottom: 24px;
+  
+    .card-content {
+        padding-left: 24px;
+        padding-right: 15px;
+        margin-bottom: 24px;
+    }
+
+}
+.cabs-card-title {
+    font-size: 1.5rem;
+    line-height: 1.3em;
+    font-weight: 500;
+    color: #252525;
+    padding-top:25px;
+    margin-bottom:  50px;
+}
