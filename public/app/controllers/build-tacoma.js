@@ -28,25 +28,28 @@ $('.variable-width').slick({
 
 // Current method for changing pages....may use nested routing for more options with $locaition
 $scope.opencontent = function (num) {
- $scope.item = num; console.log($scope.item)
-  $scope.selectedIndex = 0;
-
+ $scope.item = num; 
+//  console.log($scope.item)
+  
+}
+$scope.selectedIndex = 0;
  // make shift cart for summary  
-$scope.options = buildTacomaSvc.getSummary(); 
+// $scope.options = buildTacomaSvc.getSummary(); 
 $scope.addToSummary = (product) => {
-    console.log(`Going to service with ${product.name}`)
-    buildTacomaSvc.addToSummary(product).then(() => {
-      // Get the latest cart from the server. It has been updated.
-      buildTacomaSvc.getSummary().then((res)=> {
-        $scope.summary = res.data;
-      })
-    })
+    console.log(`Going to service with ${product}`)
+    console.log(product)
+    // buildTacomaSvc.addToSummary(product).then(() => {
+    //   Get the latest cart from the server. It has been updated.
+    //   buildTacomaSvc.getSummary().then((res)=> {
+    //     $scope.summary = res.data;
+    //   })
+    // })
   }
 
-buildTacomaSvc.getSummary().then((res) => {
-    console.log(res);
-    $scope.summary = res.data;
-  })
+// buildTacomaSvc.getSummary().then((res) => {
+//     console.log(res);
+//     $scope.summary = res.data;
+//   })
 
 // Psuedo-code: when I click on grade it changes 1. the price 2. the picture set and 3. the title  (it flashed blue as it changes not that important) 4. if not button one then it will change to the selected button class
 
@@ -56,7 +59,7 @@ buildTacomaSvc.getSummary().then((res) => {
 
 // there is a next button at them bottom which has the same affect as clicking the tab section above
 // the problem is that there are some set defaults that correlate with price 
-}
+
 
 
 

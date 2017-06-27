@@ -1,66 +1,65 @@
-<h1>{{broken}}</h1>
+<!--<h1>{{broken}}</h1>-->
 <!---->
 <div class="tacoma-build-top-wrap">
     <div><span class="your-build">YOUR BUILD</span>
         <span class="build-grab-title">2017 Tacoma SR</span>
     </div>
-    <slider1></slider1>
-    <!--some ng repeat index stuff-->
-    <!--<div ng-repeat="cohort in user.cohorts" ng-click="setSelected(cohort.id)">
-      
-      If I remember right this is all you need to do. You just have an ng-click on the ng-repeat
-      and pass in the id from the ng-repeated item. so since the ng-repeat is cohort in
-      cohorts in the ng-click we pass in the cohort.id as the parameter to the ng-click funtion-->
+    <div class="slider-wrap">
+        <!--<slider1></slider1>-->
+        <slider2 images="images"><slider2 />
+    </div>
     <div class="gray-half-top-wrap">
         <span class="opening-build-price">$24,320</span>
         <span class="opening-build-msrp">Starting MSRP<sup>1</sup></span>
         <button class="build-request-top">Request A Quote</button>
 
     </div>
-    <nav class="build-tacoma">
-        <div class="tacoma-nav-container">
-            <div ng-class="{active:item == 1}" ng-click="opencontent(1)">
-                <img src="./app/images/svg/gradetruck.svg">
-                <p>Grade</p>
-            </div>
-            <div ng-class="{active:item == 2}" ng-click="opencontent(2)">
-                <img src="./app/images/svg/cabandbeds.svg">
-                <p>Cabs &amp; Beds</p>
-            </div>
-            <div ng-class="{active:item == 3}" ng-click="opencontent(3)">
-                <img src="./app/images/svg/configuremotor.svg">
-                <p>Configuration</p>
-            </div>
-            <div ng-class="{active:item == 4}" ng-click="opencontent(4)">
-                <img src="./app/images/svg/colors.svg">
-                <p>Colors</p>
-            </div>
-            <div ng-class="{active:item == 5}" ng-click="opencontent(5)">
-                <img src="./app/images/svg/packages.svg">
-                <p>Packages</p>
-            </div>
-            <div ng-class="{active:item == 6}" ng-click="opencontent(6)">
-                <img src="./app/images/svg/accessories.svg">
-                <p>Accessories</p>
-            </div>
-            <div "{active:item == 7}" ng-click="opencontent(7)">
-                <p>Summary</p>
-            </div>
-
-        </div>
-    </nav>
 </div>
-<!--this div above me was placed here on Sat 6/24 trying to resolve lost close div for top half of page very first div?????? very bad news-->
+<!--nav bar for bulid tacoma-->
+<nav class="build-tacoma">
+    <div class="tacoma-nav-container">
+        <div ng-class="{active:item == 1}" ng-click="opencontent(1)">
+            <img src="./app/images/svg/gradetruck.svg">
+            <p>Grade</p>
+        </div>
+        <div ng-class="{active:item == 2}" ng-click="opencontent(2)">
+            <img src="./app/images/svg/cabandbeds.svg">
+            <p>Cabs &amp; Beds</p>
+        </div>
+        <div ng-class="{active:item == 3}" ng-click="opencontent(3)">
+            <img src="./app/images/svg/configuremotor.svg">
+            <p>Configuration</p>
+        </div>
+        <div ng-class="{active:item == 4}" ng-click="opencontent(4)">
+            <img src="./app/images/svg/colors.svg">
+            <p>Colors</p>
+        </div>
+        <div ng-class="{active:item == 5}" ng-click="opencontent(5)">
+            <img src="./app/images/svg/packages.svg">
+            <p>Packages</p>
+        </div>
+        <div ng-class="{active:item == 6}" ng-click="opencontent(6)">
+            <img src="./app/images/svg/accessories.svg">
+            <p>Accessories</p>
+        </div>
+        <div "{active:item == 7}" ng-click="opencontent(7)">
+            <p>Summary</p>
+        </div>
+
+    </div>
+</nav>
+
+<!--I moved this div to just before the nav ....it was ....here before and this explanation ...this div above me was placed here on Sat 6/24 trying to resolve lost close div for top half of page very first div?????? very bad news-->
 <!--==============Grades View =================-->
 <div class="grades-wrapper">
 
-      <!-- make a directive for each tab-->
-    <grades-initial ng-init="item =  1" ng-show='item == 1' ></grades-initial>
-     <cabs-beds ng-show='item == 2'></cabs-beds>
+    <!-- make a directive for each tab-->
+    <grades-initial ng-init="item =  1" ng-show='item == 1'></grades-initial>
+    <cabs-beds ng-show='item == 2'></cabs-beds>
     <configure-motor ng-show='item == 3'></configure-motor>
     <tacoma-color ng-show='item == 4'></tacoma-color>
     <packages ng-show='item == 5'></packages>
-    <accessories-dir  ng-show='item == 6'></accessories-dir>
+    <accessories-dir ng-show='item == 6'></accessories-dir>
     <summary ng-show='item == 7'></summary>
 </div>
 <!--grades-wrapper for background-->

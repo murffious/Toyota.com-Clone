@@ -22,7 +22,8 @@
             <button>COMPARE</button>
         </div>
         <!--card content-->
-        <button ng-class="class" ng-click="changeClass(); toggle = !toggle">
+        <!--class="select-button" ng-class="{'class': $index == selectedIndex}"-->
+        <button  ng-class='class' ng-click="changeClass(); toggle = !toggle; itemClicked($index);">
             <span ng-show="toggle">SELECT</span>
             <span ng-hide="toggle"><i class="fa fa-check" aria-hidden="true"></i>  SELECTED</span></button>
             <!--<button ng-class="class" ng-click="changeClass(); toggle = !toggle">{{toggleText}}</button>-->

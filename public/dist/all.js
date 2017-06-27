@@ -19,50 +19,53 @@ angular.module('toyota', ['ui.router']).config(function ($stateProvider, $urlRou
 'use strict';
 
 angular.module('toyota').controller('buildTacoma', function ($scope, buildTacomaSvc) {
-  $scope.broken = 'working';
+    $scope.broken = 'working';
 
-  $scope.class = "select-button";
+    $scope.class = "select-button";
 
-  $scope.changeClass = function () {
-    if ($scope.class === "select-button") $scope.class = "selected-button";else if ($scope.class === "selected-button") $scope.class = "select-button";
-  };
-  $scope.toggle = true;
+    $scope.changeClass = function () {
+        if ($scope.class === "select-button") $scope.class = "selected-button";else if ($scope.class === "selected-button") $scope.class = "select-button";
+    };
+    $scope.toggle = true;
 
-  $scope.$watch('toggle', function () {
-    $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
-  }
+    $scope.$watch('toggle', function () {
+        $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
+    }
 
-  // Slider or Carousel
-  );$('.variable-width').slick({
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    centerMode: true,
-    variableWidth: true
-  });
+    // Slider or Carousel
+    );$('.variable-width').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        centerMode: true,
+        variableWidth: true
+    });
 
-  // Current method for changing pages....may use nested routing for more options with $locaition
-  $scope.opencontent = function (num) {
-    $scope.item = num;console.log($scope.item);
+    // Current method for changing pages....may use nested routing for more options with $locaition
+    $scope.opencontent = function (num) {
+        $scope.item = num;
+        //  console.log($scope.item)
+    };
     $scope.selectedIndex = 0;
-
     // make shift cart for summary  
-    $scope.options = buildTacomaSvc.getSummary();
+    // $scope.options = buildTacomaSvc.getSummary(); 
     $scope.addToSummary = function (product) {
-      console.log('Going to service with ' + product.name);
-      buildTacomaSvc.addToSummary(product).then(function () {
-        // Get the latest cart from the server. It has been updated.
-        buildTacomaSvc.getSummary().then(function (res) {
-          $scope.summary = res.data;
-        });
-      });
+        console.log('Going to service with ' + product);
+        console.log(product
+        // buildTacomaSvc.addToSummary(product).then(() => {
+        //   Get the latest cart from the server. It has been updated.
+        //   buildTacomaSvc.getSummary().then((res)=> {
+        //     $scope.summary = res.data;
+        //   })
+        // })
+        );
     };
 
-    buildTacomaSvc.getSummary().then(function (res) {
-      console.log(res);
-      $scope.summary = res.data;
-    }
+    // buildTacomaSvc.getSummary().then((res) => {
+    //     console.log(res);
+    //     $scope.summary = res.data;
+    //   })
 
     // Psuedo-code: when I click on grade it changes 1. the price 2. the picture set and 3. the title  (it flashed blue as it changes not that important) 4. if not button one then it will change to the selected button class
 
@@ -72,42 +75,41 @@ angular.module('toyota').controller('buildTacoma', function ($scope, buildTacoma
 
     // there is a next button at them bottom which has the same affect as clicking the tab section above
     // the problem is that there are some set defaults that correlate with price 
-    );
-  };
 
-  //    $scope.myInterval = 5000;
-  //   var slides = $scope.slides = ["https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/1/864_477_PNG/af00b31-ed3b036-d5b169f-88ac67c-e7e9359-fe3c93a-4048061-cb4bfdb-75ff6b4-1cce8f3-0e3ddd3-0e44209-c9df76a-096cb71-30f9e80-54f8546-c13d5e1-90455cf-265e76d-ec56c89.png", "https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/2/864_477_PNG/ff8551f-ba459c1-3e65d71-954aca8-9c7d687-1d1b70b-e39f3ed-0f5b482-aa06481-7f50678-120b780-98e5b37-0db9f89-5c6bef0-98c10f3-6fb64ca-b21c68f-264e4f4-b5fcbaf-4146097-7394438.png"];
-  //   $scope.addSlide = function() {
-  //     var newWidth = 600 + slides.length + 1;
-  //     slides.push({
-  //       image: 'http://lorempixel.com/400/200/people' + newWidth + '/300',
-  //       text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
-  //         ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
-  //     });
-  //   };
-  //   for (var i=0; i<4; i++) {
-  //     $scope.addSlide();
-  //   }
+
+    //    $scope.myInterval = 5000;
+    //   var slides = $scope.slides = ["https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/1/864_477_PNG/af00b31-ed3b036-d5b169f-88ac67c-e7e9359-fe3c93a-4048061-cb4bfdb-75ff6b4-1cce8f3-0e3ddd3-0e44209-c9df76a-096cb71-30f9e80-54f8546-c13d5e1-90455cf-265e76d-ec56c89.png", "https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/2/864_477_PNG/ff8551f-ba459c1-3e65d71-954aca8-9c7d687-1d1b70b-e39f3ed-0f5b482-aa06481-7f50678-120b780-98e5b37-0db9f89-5c6bef0-98c10f3-6fb64ca-b21c68f-264e4f4-b5fcbaf-4146097-7394438.png"];
+    //   $scope.addSlide = function() {
+    //     var newWidth = 600 + slides.length + 1;
+    //     slides.push({
+    //       image: 'http://lorempixel.com/400/200/people' + newWidth + '/300',
+    //       text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
+    //         ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
+    //     });
+    //   };
+    //   for (var i=0; i<4; i++) {
+    //     $scope.addSlide();
+    //   }
 });
 'use strict';
 
 angular.module('toyota').controller('buildAllCtrl', function ($scope, buildAllSvc) {
 
     buildAllSvc.getCarsAndVans1().then(function (res) {
-        console.log(res);
+        // console.log(res);
         $scope.getCarsAndVans1 = res.data;
     });
 
     buildAllSvc.gettrucks1().then(function (res) {
-        console.log(res);
+        // console.log(res);
         $scope.gettrucks1 = res.data;
     });
     buildAllSvc.gethybrids1().then(function (res) {
-        console.log(res);
+        // console.log(res);
         $scope.gethybrids1 = res.data;
     });
     buildAllSvc.getcrossovers1().then(function (res) {
-        console.log(res);
+        // console.log(res);
         $scope.getcrossovers1 = res.data;
     });
 });
@@ -173,38 +175,23 @@ angular.module('toyota').service('buildTacomaSvc', function ($http) {
     };
 
     // cart or summary
-    this.addToSummary = function (product) {
-        console.log('Adding ' + product.name + ' to cart');
-        return $http.post('/summary', product);
-    };
+    // this.addToSummary = function(product) {
+    //     console.log(`Adding ${product} to cart`)
+    //     return $http.post('/summary', product)
+    //   }
 
-    this.getSummary = function () {
-        return $http.get('/summary');
-    };
+    //   this.getSummary = function() {
+    //     return $http.get('/summary')
+    //   }
+
 });
 'use strict';
 
 angular.module('toyota').service('service', function () {
 
-  //from plenty o stuff .com tst for cart summary in product service
+    //from plenty o stuff .com tst for cart summary in product service
 
-  var products = [{
-    id: 1,
-    name: 'Bike',
-    price: 200
-  }, {
-    id: 2,
-    name: 'Hat',
-    price: 20
-  }, {
-    id: 3,
-    name: 'Car',
-    price: 30000
-  }];
 
-  this.getProducts = function () {
-    return Array.from(products);
-  };
 });
 "use strict";
 
@@ -213,21 +200,29 @@ angular.module('toyota').directive("accessoriesDir", function () {
   return {
 
     templateUrl: "./app/directives/accessories-dir/accessories-dir.html",
-    controller: function controller($scope, accessories_dirSvc) {
+    controller: function controller($scope, buildTacomaSvc) {
 
-      accessories_dirSvc.TRDaccessories().then(function (res) {
+      buildTacomaSvc.TRDaccessories().then(function (res) {
         //  console.log(res);
         $scope.TRDacc = res.data;
       });
 
       $scope.itemClicked = function ($index) {
-        console.log($index);
-        console.log("clicked");
+        // console.log($index);
+        // console.log("clicked")
         $scope.selectedIndex = $index;
       };
     }
 
   };
+});
+"use strict";
+
+angular.module("toyota").directive("build-all-cars-minivans", function () {
+    return {
+        restrict: "E",
+        templateUrl: "build-all-cars-minivans.html"
+    };
 });
 "use strict";
 
@@ -250,14 +245,6 @@ angular.module('toyota').directive("cabsBeds", function () {
 });
 "use strict";
 
-angular.module("toyota").directive("build-all-cars-minivans", function () {
-    return {
-        restrict: "E",
-        templateUrl: "build-all-cars-minivans.html"
-    };
-});
-"use strict";
-
 angular.module('toyota').directive("tacomaColor", function () {
 
     return {
@@ -268,7 +255,7 @@ angular.module('toyota').directive("tacomaColor", function () {
             buildTacomaSvc.trdcolors().then(function (res) {
                 //  console.log(res);
                 $scope.trdcolors = res.data;
-                console.log($scope.trdcolors);
+                //  console.log($scope.trdcolors)
             });
         }
     };
@@ -283,7 +270,7 @@ angular.module('toyota').directive("configureMotor", function () {
         controller: function controller($scope, buildTacomaSvc) {
 
             buildTacomaSvc.trdconfiguration().then(function (res) {
-                console.log(res);
+                //  console.log(res);
                 $scope.trdconfiguration = res.data;
             });
         }
@@ -302,9 +289,15 @@ angular.module('toyota').directive("gradesInitial", function () {
         controller: function controller($scope, buildTacomaSvc) {
 
             buildTacomaSvc.tacomagrades().then(function (res) {
-                console.log(res);
+                //  console.log(res);
                 $scope.tacomagrades = res.data;
             });
+            $scope.selectedIndex = 0;
+            $scope.itemClicked = function ($index) {
+                // console.log($index);
+                // console.log("clicked")
+                $scope.selectedIndex = $index;
+            };
 
             $scope.class = "select-button";
 
@@ -313,9 +306,26 @@ angular.module('toyota').directive("gradesInitial", function () {
             };
             $scope.toggle = true;
 
-            $scope.$watch('toggle', function () {
-                $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
-            });
+            // summary 
+            // $scope.summmary = {}
+            $scope.addToSummary = function (product) {}
+            //     console.log(`Going to service with ${product}`)
+            // buildTacomaSvc.addToSummary(product).then(() => {
+            //     Get the latest cart from the server. It has been updated.
+            //     buildTacomaSvc.getSummary().then((res) => {
+            //         $scope.summary = res.data;
+            //     })
+            // })
+
+
+            // buildTacomaSvc.getSummary().then((res) => {
+            //     console.log(res);
+            //     $scope.summary = res.data;
+            // })
+            // alternative toggle   $scope.$watch('toggle', () => {
+            //     $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
+            // })
+            ;
         }
 
     };
@@ -333,7 +343,7 @@ angular.module('toyota').directive("packages", function () {
         controller: function controller($scope, buildTacomaSvc) {
 
             buildTacomaSvc.trdpackages().then(function (res) {
-                console.log(res);
+                //  console.log(res);
                 $scope.trdpackages = res.data;
             });
         }
@@ -347,14 +357,67 @@ angular.module('toyota').directive("slider1", function () {
 
         templateUrl: "./app/directives/slider1-dir/slider1.html",
         link: function link(scope, element, attribute) {
-            $('.variable-width').slick({
+            $('.single-item').slick({
                 dots: true,
                 infinite: true,
-                speed: 300,
                 slidesToShow: 1,
                 centerMode: true,
-                variableWidth: true
+                singleItem: true,
+                accessibility: true,
+                arrows: true
+
             });
+        }
+
+    };
+});
+"use strict";
+
+angular.module("toyota").directive("slider2", function ($timeout) {
+
+    return {
+        templateUrl: "./app/directives/slider2/slider2.html",
+        restrict: 'AE',
+        replace: true,
+        scope: {
+            images: '='
+        },
+        link: function link(scope, elem, attrs) {
+            scope.currentIndex = 0; // Initially the index is at the first image
+
+            scope.next = function () {
+                scope.currentIndex < scope.images.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
+            };
+
+            scope.prev = function () {
+                scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.images.length - 1;
+            };
+            scope.$watch('currentIndex', function () {
+                scope.images.forEach(function (image) {
+                    image.visible = false; // make every image invisible
+                });
+
+                scope.images[scope.currentIndex].visible = true; // make the current image visible
+            });
+        },
+        controller: function controller($scope) {
+            $scope.images = [{
+                src: 'https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/2/864_477_PNG/6d7ec0f-a4b295c-3e65d71-954aca8-cf26585-9c7d687-1d1b70b-8ed3f45-0f5b482-9994ad4-f9a364d-120b780-63a9ed3-c28d12f-92dcb1a-411afc3-24a0427-851d9eb-6bb6674-1b2a09a-6fa347b-2be27f1-560eb63.png',
+                title: 'Pic 1'
+            }, {
+                src: 'https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/1/864_477_PNG/af00b31-ed3b036-d5b169f-88ac67c-e7e9359-fe3c93a-4048061-cb4bfdb-75ff6b4-1cce8f3-0e3ddd3-0e44209-c9df76a-096cb71-30f9e80-54f8546-c13d5e1-90455cf-265e76d-ec56c89.png',
+                title: 'Pic 2'
+            }, {
+                src: 'https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/3/864_477_PNG/64428b8-9814f37-a8ba048-caab854-55f23c1-157140e-6e1fafd-f5b6ae0-847257e-6ecc6e6-a24a649-95c8a1d-688e5f2-72301c6-4816ec9-ba70585.png',
+                title: 'Pic 3'
+            }, {
+                src: 'https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/2/864_477_PNG/6d7ec0f-a4b295c-3e65d71-954aca8-cf26585-9c7d687-1d1b70b-8ed3f45-0f5b482-9994ad4-f9a364d-120b780-63a9ed3-c28d12f-92dcb1a-411afc3-24a0427-851d9eb-6bb6674-1b2a09a-6fa347b-2be27f1-560eb63.png',
+                title: 'Pic 4'
+            }, {
+                src: 'https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/3/864_477_PNG/64428b8-9814f37-a8ba048-caab854-55f23c1-157140e-6e1fafd-f5b6ae0-847257e-6ecc6e6-a24a649-95c8a1d-688e5f2-72301c6-4816ec9-ba70585.png',
+                title: 'Pic 5'
+
+            }];
         }
 
     };

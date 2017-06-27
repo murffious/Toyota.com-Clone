@@ -6,7 +6,7 @@ return {
     controller: ($scope, buildTacomaSvc) => {
 
           buildTacomaSvc.trdconfiguration().then((res) => {
-             console.log(res);
+            //  console.log(res);
              $scope.trdconfiguration = res.data
             })
             

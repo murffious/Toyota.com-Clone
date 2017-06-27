@@ -9,7 +9,7 @@ return {
    controller: ($scope, buildTacomaSvc) => {
 
           buildTacomaSvc.trdpackages().then((res) => {
-             console.log(res);
+            //  console.log(res);
              $scope.trdpackages = res.data
             })
             

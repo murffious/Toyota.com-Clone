@@ -57,7 +57,7 @@ module.exports = {
         // if 
         req.app.get('db').trdconfiguration().then((items) => {
             res.send(items)
-            console.log(items)
+            // console.log(items)
         }).catch(function (error) {
             console.log(error)
         })
@@ -81,7 +81,7 @@ module.exports = {
         })
     },
     getTRDacc: (req, res) => {
-        console.log("I am here")
+        
         // if 
         req.app.get('db').all_accessories().then((items) => {
             res.send(items)

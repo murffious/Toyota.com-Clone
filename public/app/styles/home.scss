@@ -221,7 +221,10 @@ a {
         max-width: 180px;
     }
 }
-
+.slider-wrap {
+    width: $site-width;
+    margin: 0 auto;
+}
 .build-image-wrapper {
     width: $site-width;
     margin: 0 auto;
@@ -515,7 +518,7 @@ dl {
     display: inline-block;
     width: calc(100% - 40px);
     height: 50px;
-    font-family: tcomBold,HelvNeueBold,Helvetica Bold,Arial Bold,Gadget,sans-serif;
+    font-family: Helvetica Bold,Arial Bold, sans-serif;
     font-weight: 400;
     border: none;
     text-transform: uppercase;
@@ -527,3 +530,73 @@ dl {
     background-image: linear-gradient(#414141,#2c2c2c,#2c2c2c,#2c2c2c);
     transition: background-position .3s;
 }
+
+
+// slider or carousel
+.slide.ng-hide-add,
+.slide.ng-hide-remove {
+  -webkit-transition: all linear 0.5s;
+  -moz-transition: all linear 0.5s;
+  -o-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+  display: block!important;
+}
+.slide.ng-hide-add.ng-hide-add-active,
+.slide.ng-hide-remove {
+  opacity: 0;
+}
+.slide.ng-hide-add,
+.slide.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
+}
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+.center-grey {
+  background: #f2f2f2;
+}
+.slider {
+  
+  padding: 5px;
+  width: 610px;
+  margin: auto;
+  margin-top: 40px;
+}
+.slide {
+ 
+  box-shadow: 0px 0px 15px #999;
+}
+.arrows {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 46px;
+    height: 94px;
+    box-sizing: border-box;
+    background: #2f3031;
+    transition: background-color .5s ease;
+    .arrows:before {
+        content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    left: 50%;
+    margin-left: -8px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    }
+}
+
+/*h1 {
+  text-align: center;
+  padding: 10px;
+  font-size: 40px;
+  color: #222;
+}
+*/
