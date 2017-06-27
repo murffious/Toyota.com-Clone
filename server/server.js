@@ -7,10 +7,12 @@ const express = require('express'),
 const session = require('express-session')
 const vehiclesCtrl = require('./vehiclesCtrl');
 const summaryCtrl = require('./summaryCtrl')
+const path = require("path")
 
 const app = express();
 //middleware
 app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, "..", "/public")))
 app.use(cors());
 app.use(session ({
    secret: config.secret,
@@ -27,13 +29,25 @@ massive(config.database).then(db => {
 
 //endpoints here
 // requests to db for ng repeats
+//build all view
 app.get('/carsandvans', vehiclesCtrl.getVehicles1)
+app.get('/trucks', vehiclesCtrl.gettrucks1)
+app.get('/crossovers', vehiclesCtrl.getcrossovers1)
+app.get('/hybrids', vehiclesCtrl.gethybrids1)
+
+//build tacoma 
+app.get('/tacomagrades', vehiclesCtrl.getTacomaGrades)
+app.get('/tacomacabsbeds', vehiclesCtrl.getTacomacabsbeds)
+app.get('/tacomaconfiguration', vehiclesCtrl.getTacomaconfiguration)
+app.get('/trdcolors', vehiclesCtrl.getTacomaColors)
+app.get('/tacomapackages', vehiclesCtrl.getTacomapackages)
 app.get('/TRDaccessories', vehiclesCtrl.getTRDacc)
+
 
 
 // summary page cart like feature
 app.post('/summary', summaryCtrl.addItemToSummary)
-app.get('/summary', summaryCtrl.reqSummary)
+app.get('/summary', summaryCtrl.getSummary)
 //listening
 const port = 3000;
 app.listen(port, () => {

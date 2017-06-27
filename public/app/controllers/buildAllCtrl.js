@@ -6,5 +6,17 @@ buildAllSvc.getCarsAndVans1().then((res) => {
     $scope.getCarsAndVans1 = res.data
 })
 
+buildAllSvc.gettrucks1().then((res) => {
+    console.log(res);
+    $scope.gettrucks1 = res.data
+})
+buildAllSvc.gethybrids1().then((res) => {
+    console.log(res);
+    $scope.gethybrids1 = res.data
+})
+buildAllSvc.getcrossovers1().then((res) => {
+    console.log(res);
+    $scope.getcrossovers1 = res.data
+})
 
 })

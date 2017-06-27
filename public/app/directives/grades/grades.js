@@ -6,7 +6,15 @@ angular.module('toyota').directive("gradesInitial", function () {
         // link: function (scope, element, attribute) {
 
         // }
-        controller: ($scope) => {
+        controller: ($scope, buildTacomaSvc) => {
+
+           buildTacomaSvc.tacomagrades().then((res) => {
+             console.log(res);
+             $scope.tacomagrades = res.data
+            })
+
+
+
             $scope.class = "select-button";
 
             $scope.changeClass = () => {

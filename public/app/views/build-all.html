@@ -37,3 +37,44 @@
         </div>
     </div>
 </div>
+ 
+ <div class="build-all-section-head-wrap"> 
+ <h3 class="build-all-section-head">Trucks</h3>
+</div>
+<div class="carsandvanswrap">
+    <div ng-repeat="car in gettrucks1" class="build-all-section-container">
+        <div ui-sref="build-tacoma" class="build-all-wrap">
+            <img src="{{car.imageurl}}">
+            <car-title><span>{{car.year}}</span> {{car.model}}</car-title>
+            <div class="msrp-build-all"><span>${{car.pricestartingmsrp}}</span><sup>1</sup> Starting MSRP</div>
+            <div class="as-shown">${{car.priceasshown}}<sup>1</sup> As Shown</div>
+        </div>
+    </div>
+</div>
+
+<div class="build-all-section-head-wrap"> 
+<h3 class="build-all-section-head">Crossovers & SUVs</h3>
+</div>
+<div class="carsandvanswrap">
+    <div ng-repeat="car in getcrossovers1" class="build-all-section-container">
+        <div ui-sref="build-tacoma" class="build-all-wrap">
+            <img src="{{car.imageurl}}">
+            <car-title><span>{{car.year}}</span> {{car.model}}</car-title>
+            <div class="msrp-build-all"><span>${{car.pricestartingmsrp}}</span><sup>1</sup> Starting MSRP</div>
+            <div class="as-shown">${{car.priceasshown}}<sup>1</sup> As Shown</div>
+        </div>
+    </div>
+</div>
+<div class="build-all-section-head-wrap"> 
+<h3 class="build-all-section-head">Hybrids & FCV</h3>
+</div>
+<div class="carsandvanswrap">
+    <div ng-repeat="car in gethybrids1" class="build-all-section-container">
+        <div ui-sref="build-tacoma" class="build-all-wrap">
+            <img src="{{car.imageurl}}">
+            <car-title><span>{{car.year}}</span> {{car.model}}</car-title>
+            <div class="msrp-build-all"><span>${{car.pricestartingmsrp}}</span><sup>1</sup> Starting MSRP</div>
+            <div class="as-shown">${{car.priceasshown}}<sup>1</sup> As Shown</div>
+        </div>
+    </div>
+</div>

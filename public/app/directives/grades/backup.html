@@ -178,3 +178,192 @@
         <!--tacoma grade build card div-->
     </div>
     <!--container for width-->
+
+
+    <!--second back up everything below here after ng repeat-->
+
+
+    <div class="grades-sub-header">Select From 6 Grades</div>
+<div class="grades-view-container">
+
+    <!--Grade Card to Copy-->
+    <div ng-repeat="grade in tacomagrades" id="tacoma-grade-build-card">
+        <img src="{{grade.imageurl}}">
+        <div class="card-content">
+            <div class="grade-title">{{grade.grade}}</div>
+            <div class="msrp-mpg-wrap">
+                <div>${{grade.price}}
+                    <p>starting msrp<sup>1</sup></p>
+                </div>
+                <div class="mpg">{{grade.fuel_efficiency}}
+                    <p>est. mpg<sup>2</sup></p>
+                </div>
+            </div>
+            <dl>
+                <dd>{{grade.details_1}}</dd>
+                <dd>{{grade.details_2}}</dd>
+            </dl>
+            <button id="view-details-button">VIEW DETAILS</button>
+            <button>COMPARE</button>
+        </div>
+        <!--card content-->
+        <button class="select-button">SELECT</button>
+        <!--<button class="selected-button"><i class="fa fa-check" aria-hidden="true"></i>  SELECTED</button>-->
+        <div class="grade-card-footer">
+            <div class="comes-in">COMES IN:</div>
+            <div>{{grade.availcab}}</div>
+            <div>{{grade.availbed}}</div>
+        </div>
+    </div>
+    <!--tacoma grade build card div-->
+    <div id="tacoma-grade-build-card">
+        <img src="./app/images/build-tacoma-home/tacomagrades2.png">
+        <div class="card-content">
+            <div class="grade-title">SR</div>
+            <div class="msrp-mpg-wrap">
+                <div>$24,320
+                    <p>starting msrp<sup>1</sup></p>
+                </div>
+                <div class="mpg">19/23
+                    <p>est. mpg<sup>2</sup></p>
+                </div>
+            </div>
+            <dl>
+                <dd>2.7L 4-cylinder or 3.5L V6</dd>
+                <dd>Available in Rear-Wheel Drive or 4WDemand part-time 4WD</dd>
+            </dl>
+            <button id="view-details-button">VIEW DETAILS</button>
+            <button>COMPARE</button>
+        </div>
+        <!--card content-->
+        <button class="select-button">SELECT</button>
+        <div class="grade-card-footer">
+            <div class="comes-in">COMES IN:</div>
+            <div>ACCESS CAB, DOUBLE CAB</div>
+            <div>SHORT BED</div>
+        </div>
+    </div>
+    <!--tacoma grade build card div-->
+    <div id="tacoma-grade-build-card">
+        <img src="https://www.toyota.com/config/pub/static/images/TOY/2017/tacoma/grade/images/d413c30ad4f7847beb639bfddec35a0370b370e99c6af339f1a230f9dc6ebfa0_Tacoma_ext_AC_SR_0040_png_v030_002.png">
+        <div class="card-content">
+            <div class="grade-title">SR</div>
+            <div class="msrp-mpg-wrap">
+                <div>$24,320
+                    <p>starting msrp<sup>1</sup></p>
+                </div>
+                <div class="mpg">19/23
+                    <p>est. mpg<sup>2</sup></p>
+                </div>
+            </div>
+            <dl>
+                <dd>2.7L 4-cylinder or 3.5L V6</dd>
+                <dd>Available in Rear-Wheel Drive or 4WDemand part-time 4WD</dd>
+            </dl>
+            <button id="view-details-button">VIEW DETAILS</button>
+            <button>COMPARE</button>
+        </div>
+        <!--card content-->
+        <button class="select-button">SELECT</button>
+        <div class="grade-card-footer">
+            <div class="comes-in">COMES IN:</div>
+            <div>ACCESS CAB, DOUBLE CAB</div>
+            <div>SHORT BED</div>
+        </div>
+    </div>
+    <!--tacoma grade build card div-->
+    <!--Grade Card to Copy-->
+    <div id="tacoma-grade-build-card">
+        <img src="https://www.toyota.com/config/pub/static/images/TOY/2017/tacoma/grade/images/d413c30ad4f7847beb639bfddec35a0370b370e99c6af339f1a230f9dc6ebfa0_Tacoma_ext_AC_SR_0040_png_v030_002.png">
+        <div class="card-content">
+            <div class="grade-title">SR</div>
+            <div class="msrp-mpg-wrap">
+                <div>$24,320
+                    <p>starting msrp<sup>1</sup></p>
+                </div>
+                <div class="mpg">19/23
+                    <p>est. mpg<sup>2</sup></p>
+                </div>
+            </div>
+            <dl>
+                <dd>2.7L 4-cylinder or 3.5L V6</dd>
+                <dd>Available in Rear-Wheel Drive or 4WDemand part-time 4WD</dd>
+            </dl>
+            <button id="view-details-button">VIEW DETAILS</button>
+            <button>COMPARE</button>
+        </div>
+        <!--card content-->
+        <button ng-class="class" ng-click="changeClass(); toggle = !toggle">
+            <span ng-show="toggle">SELECT</span>
+            <span ng-hide="toggle"><i class="fa fa-check" aria-hidden="true"></i>  SELECTED</span></button>
+            <!--<button ng-class="class" ng-click="changeClass(); toggle = !toggle">{{toggleText}}</button>-->
+            <!--<button class="selected-button"><i class="fa fa-check" aria-hidden="true"></i>  SELECTED</button>-->
+        <div class="grade-card-footer">
+            <div class="comes-in">COMES IN:</div>
+            <div>ACCESS CAB, DOUBLE CAB</div>
+            <div>SHORT BED</div>
+        </div>
+    </div>
+    <!--tacoma grade build card div-->
+    <div id="tacoma-grade-build-card">
+        <img src="https://www.toyota.com/config/pub/static/images/TOY/2017/tacoma/grade/images/d413c30ad4f7847beb639bfddec35a0370b370e99c6af339f1a230f9dc6ebfa0_Tacoma_ext_AC_SR_0040_png_v030_002.png">
+        <div class="card-content">
+            <div class="grade-title">SR</div>
+            <div class="msrp-mpg-wrap">
+                <div>$24,320
+                    <p>starting msrp<sup>1</sup></p>
+                </div>
+                <div class="mpg">19/23
+                    <p>est. mpg<sup>2</sup></p>
+                </div>
+            </div>
+            <dl>
+                <dd>2.7L 4-cylinder or 3.5L V6</dd>
+                <dd>Available in Rear-Wheel Drive or 4WDemand part-time 4WD</dd>
+            </dl>
+            <button id="view-details-button">VIEW DETAILS</button>
+            <button>COMPARE</button>
+        </div>
+        <!--card content-->
+        <button class="select-button">SELECT</button>
+        <div class="grade-card-footer">
+            <div class="comes-in">COMES IN:</div>
+            <div>ACCESS CAB, DOUBLE CAB</div>
+            <div>SHORT BED</div>
+        </div>
+    </div>
+    <!--tacoma grade build card div-->
+    <div id="tacoma-grade-build-card">
+        <img src="./app/images/build-tacoma-home/sr-1.png">
+
+        <div class="card-content">
+            <div class="grade-title">SR</div>
+            <div class="msrp-mpg-wrap">
+                <div>$24,320
+                    <p>starting msrp<sup>1</sup></p>
+                </div>
+                <div class="mpg">19/23
+                    <p>est. mpg<sup>2</sup></p>
+                </div>
+            </div>
+            <dl>
+                <dd>2.7L 4-cylinder or 3.5L V6</dd>
+                <dd>Available in Rear-Wheel Drive or 4WDemand part-time 4WD</dd>
+            </dl>
+            <button id="view-details-button">VIEW DETAILS</button>
+            <button>COMPARE</button>
+        </div>
+        <!--card content-->
+        <button class="select-button">SELECT</button>
+        <div class="grade-card-footer">
+            <div class="comes-in">COMES IN:</div>
+            <div>ACCESS CAB, DOUBLE CAB</div>
+            <div>SHORT BED</div>
+        </div>
+    </div>
+    <!--tacoma grade build card div-->
+</div>
+<!--container for width-->
+
+<!--maybe make a directive for each tab-->
+

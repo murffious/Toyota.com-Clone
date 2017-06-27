@@ -1,20 +1,20 @@
 <div class="cabs-header">Select From 3 Cabs &amp; Beds</div>
 <div class="cabs-beds-view-container">
-    <div id="tacoma-cabs-beds-build-card">
+    <div ng-repeat="cabbed in trdcabsbeds" id="tacoma-cabs-beds-build-card">
         <div class="card-content">
-            <div class="cabs-card-title">Access Cab with 6-ft. Long Bed</div>
+            <div class="cabs-card-title">{{cabbed.type}}</div>
             <dl>
-                <dd> Access Cab</dd>
-                <dd>Seating for four</dd>
-                <dd>Fiber-reinforced Sheet-Molded Composite (SMC) inner bed</dd>
-                <dd>Deck rail system</dd>
-                <dd>Easy lower, lockable and removable tailgate</dd>
-                <dd>6-ft. Long Bed</dd>
+                <dd>{{cabbed.feature1}}</dd>
+                <dd>{{cabbed.feature2}}</dd>
+                <dd>{{cabbed.feature3}}</dd>
+                <dd>{{cabbed.feature4}}</dd>
+                <dd>{{cabbed.feature5}}</dd>
+                <dd ng-if="cabbed.feature6">{{cabbed.feature6}}</dd>
                 <hr/>
                 <dt>Inside bed:</dt>
-                <dd>73.7 inches long</dd>
-                <dd>41.5 inches between the wheel wells</dd>
-                <dd>19.1 inches deep</dd>
+                <dd>{{cabbed.bedfeature1}}</dd>
+                <dd>{{cabbed.bedfeature2}}</dd>
+                <dd>{{cabbed.bedfeature3}}</dd>
             </dl>
         </div>
         <button class="select-button">SELECT</button>

@@ -32,20 +32,20 @@ $scope.opencontent = function (num) {
   $scope.selectedIndex = 0;
 
  // make shift cart for summary  
-$scope.products = productService.getProducts(); 
+$scope.options = buildTacomaSvc.getSummary(); 
 $scope.addToSummary = (product) => {
     console.log(`Going to service with ${product.name}`)
-    cartService.addToSummary(product).then(() => {
+    buildTacomaSvc.addToSummary(product).then(() => {
       // Get the latest cart from the server. It has been updated.
-      cartService.getSummary().then((res)=> {
+      buildTacomaSvc.getSummary().then((res)=> {
         $scope.summary = res.data;
       })
     })
   }
 
-cartService.getSummary().then((res) => {
+buildTacomaSvc.getSummary().then((res) => {
     console.log(res);
-    $scope.cart = res.data;
+    $scope.summary = res.data;
   })
 
 // Psuedo-code: when I click on grade it changes 1. the price 2. the picture set and 3. the title  (it flashed blue as it changes not that important) 4. if not button one then it will change to the selected button class

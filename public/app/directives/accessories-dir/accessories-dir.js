@@ -6,7 +6,7 @@ angular.module('toyota').directive("accessoriesDir", function () {
         controller: ($scope, accessories_dirSvc) => {
 
            accessories_dirSvc.TRDaccessories().then((res) => {
-             console.log(res);
+            //  console.log(res);
              $scope.TRDacc = res.data
             })
             
