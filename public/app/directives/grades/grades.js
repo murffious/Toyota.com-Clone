@@ -13,13 +13,22 @@ angular.module('toyota').directive("gradesInitial", function () {
                 $scope.tacomagrades = res.data
             })
             $scope.selectedIndex = 0;
+            
             $scope.itemClicked = ($index) => {
-                // console.log($index);
+                
+                console.log($index);
+                
                 // console.log("clicked")
                 $scope.selectedIndex = $index;
             }
 
-            $scope.class = "select-button";
+            // $scope.selected = 0;
+
+            // $scope.select = function (index) {
+            //     $scope.selected = index;
+            // };
+           
+            // $scope.class = "select-button";
 
             $scope.changeClass = () => {
                 if ($scope.class === "select-button")
@@ -28,27 +37,29 @@ angular.module('toyota').directive("gradesInitial", function () {
                     $scope.class = "select-button";
             };
             $scope.toggle = true;
-
+            //  $scope.toggleObject = {item: -1};
 
             // summary 
             // $scope.summmary = {}
             $scope.addToSummary = (product) => {
-            //     console.log(`Going to service with ${product}`)
-                // buildTacomaSvc.addToSummary(product).then(() => {
-                //     Get the latest cart from the server. It has been updated.
-                //     buildTacomaSvc.getSummary().then((res) => {
-                //         $scope.summary = res.data;
-                //     })
-                // })
+                console.log(product)
+                //     console.log(`Going to service with ${product}`)
+                buildTacomaSvc.addToSummary(product).then(() => {
+                    // Get the latest cart from the server. It has been updated.
+                    // buildTacomaSvc.getSummary().then((res) => {
+                    //     $scope.summary = res.data;
+                    // })
+
+                })
             }
 
             // buildTacomaSvc.getSummary().then((res) => {
             //     console.log(res);
             //     $scope.summary = res.data;
             // })
-            // alternative toggle   $scope.$watch('toggle', () => {
-            //     $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
-            // })
+             $scope.$watch('toggle', () => {
+                $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
+            })
         }
 
     }

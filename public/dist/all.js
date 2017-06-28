@@ -47,7 +47,7 @@ angular.module('toyota').controller('buildTacoma', function ($scope, buildTacoma
         $scope.item = num;
         //  console.log($scope.item)
     };
-    $scope.selectedIndex = 0;
+
     // make shift cart for summary  
     // $scope.options = buildTacomaSvc.getSummary(); 
     $scope.addToSummary = function (product) {
@@ -98,6 +98,7 @@ angular.module('toyota').controller('buildAllCtrl', function ($scope, buildAllSv
     buildAllSvc.getCarsAndVans1().then(function (res) {
         // console.log(res);
         $scope.getCarsAndVans1 = res.data;
+        console.log(res);
     });
 
     buildAllSvc.gettrucks1().then(function (res) {
@@ -175,10 +176,10 @@ angular.module('toyota').service('buildTacomaSvc', function ($http) {
     };
 
     // cart or summary
-    // this.addToSummary = function(product) {
-    //     console.log(`Adding ${product} to cart`)
-    //     return $http.post('/summary', product)
-    //   }
+    this.addToSummary = function (product) {
+        console.log('Adding ' + product + ' to cart');
+        return $http.post('/summary', product);
+    };
 
     //   this.getSummary = function() {
     //     return $http.get('/summary')
@@ -226,25 +227,6 @@ angular.module("toyota").directive("build-all-cars-minivans", function () {
 });
 "use strict";
 
-angular.module('toyota').directive("cabsBeds", function () {
-
-    return {
-
-        templateUrl: "./app/directives/cabs_beds/cabs_beds.html",
-        // link: function (scope, element, attribute) {
-
-        // }
-        controller: function controller($scope, buildTacomaSvc) {
-
-            buildTacomaSvc.trdcabsbeds().then(function (res) {
-                //  console.log(res);
-                $scope.trdcabsbeds = res.data;
-            });
-        }
-    };
-});
-"use strict";
-
 angular.module('toyota').directive("tacomaColor", function () {
 
     return {
@@ -278,6 +260,25 @@ angular.module('toyota').directive("configureMotor", function () {
 });
 "use strict";
 
+angular.module('toyota').directive("cabsBeds", function () {
+
+    return {
+
+        templateUrl: "./app/directives/cabs_beds/cabs_beds.html",
+        // link: function (scope, element, attribute) {
+
+        // }
+        controller: function controller($scope, buildTacomaSvc) {
+
+            buildTacomaSvc.trdcabsbeds().then(function (res) {
+                //  console.log(res);
+                $scope.trdcabsbeds = res.data;
+            });
+        }
+    };
+});
+"use strict";
+
 angular.module('toyota').directive("gradesInitial", function () {
 
     return {
@@ -293,39 +294,50 @@ angular.module('toyota').directive("gradesInitial", function () {
                 $scope.tacomagrades = res.data;
             });
             $scope.selectedIndex = 0;
+
             $scope.itemClicked = function ($index) {
-                // console.log($index);
+
+                console.log($index);
+
                 // console.log("clicked")
                 $scope.selectedIndex = $index;
             };
 
-            $scope.class = "select-button";
+            // $scope.selected = 0;
+
+            // $scope.select = function (index) {
+            //     $scope.selected = index;
+            // };
+
+            // $scope.class = "select-button";
 
             $scope.changeClass = function () {
                 if ($scope.class === "select-button") $scope.class = "selected-button";else if ($scope.class === "selected-button") $scope.class = "select-button";
             };
             $scope.toggle = true;
+            //  $scope.toggleObject = {item: -1};
 
             // summary 
             // $scope.summmary = {}
-            $scope.addToSummary = function (product) {}
-            //     console.log(`Going to service with ${product}`)
-            // buildTacomaSvc.addToSummary(product).then(() => {
-            //     Get the latest cart from the server. It has been updated.
-            //     buildTacomaSvc.getSummary().then((res) => {
-            //         $scope.summary = res.data;
-            //     })
-            // })
+            $scope.addToSummary = function (product) {
+                console.log(product
+                //     console.log(`Going to service with ${product}`)
+                );buildTacomaSvc.addToSummary(product).then(function () {
+                    // Get the latest cart from the server. It has been updated.
+                    // buildTacomaSvc.getSummary().then((res) => {
+                    //     $scope.summary = res.data;
+                    // })
 
+                });
+            };
 
             // buildTacomaSvc.getSummary().then((res) => {
             //     console.log(res);
             //     $scope.summary = res.data;
             // })
-            // alternative toggle   $scope.$watch('toggle', () => {
-            //     $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
-            // })
-            ;
+            $scope.$watch('toggle', function () {
+                $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
+            });
         }
 
     };
@@ -401,22 +413,37 @@ angular.module("toyota").directive("slider2", function ($timeout) {
             });
         },
         controller: function controller($scope) {
+
+            $scope.set_size = function (image) {
+                if (image.title === "Pic 6" || image.title === "Pic 7" || image.title === "Pic 8") {
+                    return { width: "500px", "box-shadow": "0 1px 5px 2px rgba(0,0,0,.15)", top: "34px", "margin-left": "56px" };
+                }
+            };
+
             $scope.images = [{
-                src: 'https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/2/864_477_PNG/6d7ec0f-a4b295c-3e65d71-954aca8-cf26585-9c7d687-1d1b70b-8ed3f45-0f5b482-9994ad4-f9a364d-120b780-63a9ed3-c28d12f-92dcb1a-411afc3-24a0427-851d9eb-6bb6674-1b2a09a-6fa347b-2be27f1-560eb63.png',
+                src: '../../app/images/build-tacoma-home/sr-1.png',
                 title: 'Pic 1'
             }, {
-                src: 'https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/1/864_477_PNG/af00b31-ed3b036-d5b169f-88ac67c-e7e9359-fe3c93a-4048061-cb4bfdb-75ff6b4-1cce8f3-0e3ddd3-0e44209-c9df76a-096cb71-30f9e80-54f8546-c13d5e1-90455cf-265e76d-ec56c89.png',
+                src: '../../app/images/build-tacoma-home/sr-2.png',
                 title: 'Pic 2'
             }, {
-                src: 'https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/3/864_477_PNG/64428b8-9814f37-a8ba048-caab854-55f23c1-157140e-6e1fafd-f5b6ae0-847257e-6ecc6e6-a24a649-95c8a1d-688e5f2-72301c6-4816ec9-ba70585.png',
+                src: '../../app/images/build-tacoma-home/sr-3.png',
                 title: 'Pic 3'
             }, {
-                src: 'https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/2/864_477_PNG/6d7ec0f-a4b295c-3e65d71-954aca8-cf26585-9c7d687-1d1b70b-8ed3f45-0f5b482-9994ad4-f9a364d-120b780-63a9ed3-c28d12f-92dcb1a-411afc3-24a0427-851d9eb-6bb6674-1b2a09a-6fa347b-2be27f1-560eb63.png',
+                src: '../../app/images/build-tacoma-home/sr-4.png',
                 title: 'Pic 4'
             }, {
-                src: 'https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/3/864_477_PNG/64428b8-9814f37-a8ba048-caab854-55f23c1-157140e-6e1fafd-f5b6ae0-847257e-6ecc6e6-a24a649-95c8a1d-688e5f2-72301c6-4816ec9-ba70585.png',
+                src: '../../app/images/build-tacoma-home/sr-5.png',
                 title: 'Pic 5'
-
+            }, {
+                src: '../../app/images/build-tacoma-home/sr-6-interior1.png',
+                title: 'Pic 6'
+            }, {
+                src: '../../app/images/build-tacoma-home/sr-7-interior2.png',
+                title: 'Pic 7'
+            }, {
+                src: '../../app/images/build-tacoma-home/sr-8-interior3.png',
+                title: 'Pic 8'
             }];
         }
 

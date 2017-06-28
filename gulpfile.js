@@ -11,15 +11,16 @@ const normalizePath = `${basePath}/styles/reset.css`;
 
 const paths = {
     jsSrc: [`${basePath}/app.js`, `${basePath}/**/**/*.js`],
-    scssSrc: [`${normalizePath}`, `${basePath}/styles/*.scss`]
+    scssSrc: [`${normalizePath}`, `${basePath}/styles/*.scss`],
+    server: './server/server.js'
 };
 
 // DEFINE TASKS ===================================
-// gulp.task('server', () => {
-//     nodemon({
-//         'script': paths.server
-//     })
-// });
+gulp.task('server', () => {
+    nodemon({
+        'script': paths.server
+    })
+});
 
 gulp.task('js-bundle', () =>  {
     gulp.src(paths.jsSrc)
@@ -47,4 +48,4 @@ gulp.task('watch', () => {
     gulp.watch(paths.scssSrc, ['scss-bundle']);
 });
 
-gulp.task('default', ['watch', 'js-bundle','scss-bundle']);
+gulp.task('default', ['watch', 'js-bundle','scss-bundle', 'server']);

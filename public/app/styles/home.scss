@@ -1,7 +1,5 @@
-
 $site-width: 977px;
-$build-section-header: 30px; 
-
+$build-section-header: 30px;
 a {
     text-decoration: none;
 } // ==============Top Nav Bar ================
@@ -114,12 +112,13 @@ a {
     }
     h3 {
         margin-top: 15px;
-       border-top: 1px solid #e3e3e3;
+        border-top: 1px solid #e3e3e3;
         padding-left: 6px;
         padding-top: 20px;
         font-size: 1.625rem;
     }
 }
+
 .carsandvanswrap {
     width: $site-width;
     max-width: $site-width;
@@ -127,6 +126,7 @@ a {
     margin: 0 auto;
     flex-wrap: wrap;
 }
+
 .build-all-section-container {
     width: 25%;
     display: flex;
@@ -173,23 +173,25 @@ a {
         }
     }
 }
+
 .build-all-section-head-wrap {
     margin: 0 auto;
     width: $site-width;
 }
+
 .build-all-section-head {
     margin-top: 16px;
     border-top: 1px solid #e3e3e3;
     padding: 27px 39px 0;
-     margin-top: 15px;
-        padding-left: 6px;
-        padding-top: 20px;
-        font-size: 1.625rem;
-}
-
- // ==================Tacoma Build =====================
+    margin-top: 15px;
+    padding-left: 6px;
+    padding-top: 20px;
+    font-size: 1.625rem;
+} // ==================Tacoma Build =====================
 .tacoma-build-top-wrap {
     position: relative;
+    height: 369px;
+   
     .your-build {
         position: absolute;
         text-align: left;
@@ -221,16 +223,7 @@ a {
         max-width: 180px;
     }
 }
-.slider-wrap {
-    width: $site-width;
-    margin: 0 auto;
-}
-.build-image-wrapper {
-    width: $site-width;
-    margin: 0 auto;
-}
-
-.gray-half-top-wrap {
+ .gray-half-top-wrap {
     height: 202px;
     width: 100%;
     background-color: #EDF0F5;
@@ -238,6 +231,17 @@ a {
     z-index: -100;
     top: 0;
 }
+.slider-wrap {
+    width: $site-width;
+    margin: 0 auto;
+}
+
+.build-image-wrapper {
+    width: $site-width;
+    margin: 0 auto;
+}
+
+
 
 .opening-build-price {
     color: #000;
@@ -272,6 +276,7 @@ a {
 .build-tacoma {
     background-color: #252525;
     height: 85px;
+    
     .tacoma-nav-container {
         width: $site-width;
         display: flex;
@@ -296,7 +301,7 @@ a {
             &:last-child {
                 border-right: 1px solid #444444;
             }
-            img{
+            img {
                 margin-bottom: 3px;
             }
             svg {
@@ -360,12 +365,14 @@ a {
         }
     }
 }
+
 .grade-title {
     font-size: 1.5rem;
     line-height: 1.3em;
     font-weight: 500;
     color: #252525;
 }
+
 dl {
     display: list-item;
     list-style: none;
@@ -387,8 +394,6 @@ dl {
         padding-left: 8px;
     }
 }
-
-
 
 .msrp-mpg-wrap {
     display: flex;
@@ -451,7 +456,7 @@ dl {
 }
 
 .selected-button {
-    margin-top: 0px; 
+    margin-top: 0px;
     margin-bottom: 33px;
     margin-right: 28px;
     margin-left: 22px;
@@ -460,7 +465,6 @@ dl {
     background-color: white;
     color: #0099FF;
     border: 2px solid #0099FF;
-   
     i {
         display: inline-block;
         vertical-align: middle;
@@ -469,15 +473,16 @@ dl {
         margin-right: 7px;
         padding-bottom: 6px;
     }
-
 }
+
 // =================== Cabs & Beds View -TRD ============
 .cabs-header {
-     margin-bottom: 40px;
+    margin-bottom: 40px;
     font-size: 30px;
     text-align: center;
     padding-top: 50px;
 }
+
 .cabs-beds-view-container {
     width: $site-width;
     margin: 0 auto;
@@ -485,40 +490,40 @@ dl {
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
 #tacoma-cabs-beds-build-card {
     max-width: 310px;
     max-height: 620px;
     background-color: white;
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, .025); // width: calc(33% -12px);
     margin-bottom: 24px;
-  
     .card-content {
         padding-left: 24px;
         padding-right: 15px;
         margin-bottom: 24px;
         height: 382px;
     }
-
 }
+
 .cabs-card-title {
     font-size: 1.5rem;
     line-height: 1.3em;
     font-weight: 500;
     color: #252525;
-    padding-top:25px;
-    margin-bottom:  50px;
+    padding-top: 25px;
+    margin-bottom: 50px;
 }
-
 
 .pick-button:hover {
     background-position: 0 100%;
 }
+
 .pick-button {
     margin: 0 20px 40px;
     display: inline-block;
     width: calc(100% - 40px);
     height: 50px;
-    font-family: Helvetica Bold,Arial Bold, sans-serif;
+    font-family: Helvetica Bold, Arial Bold, sans-serif;
     font-weight: 400;
     border: none;
     text-transform: uppercase;
@@ -527,69 +532,110 @@ dl {
     background-size: 100% 400%;
     color: #fff;
     background-color: #414141;
-    background-image: linear-gradient(#414141,#2c2c2c,#2c2c2c,#2c2c2c);
+    background-image: linear-gradient(#414141, #2c2c2c, #2c2c2c, #2c2c2c);
     transition: background-position .3s;
 }
 
-
-// slider or carousel
+// ===========================slider or carousel======================
 .slide.ng-hide-add,
 .slide.ng-hide-remove {
-  -webkit-transition: all linear 0.5s;
-  -moz-transition: all linear 0.5s;
-  -o-transition: all linear 0.5s;
-  transition: all linear 0.5s;
-  display: block!important;
+    -webkit-transition: all linear 0.5s;
+    -moz-transition: all linear 0.5s;
+    -o-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+    display: block!important;
 }
+
 .slide.ng-hide-add.ng-hide-add-active,
 .slide.ng-hide-remove {
-  opacity: 0;
+    opacity: 0;
 }
+
 .slide.ng-hide-add,
 .slide.ng-hide-remove.ng-hide-remove-active {
-  opacity: 1;
+    opacity: 1;
 }
+
 * {
-  font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
+
 .center-grey {
-  background: #f2f2f2;
+    background: #f2f2f2;
 }
+
 .slider {
-  
-  padding: 5px;
-  width: 610px;
-  margin: auto;
-  margin-top: 40px;
+    padding: 5px;
+    width: 610px;
+    margin: auto;
+    margin-top: 40px;
 }
+
 .slide {
- 
-  box-shadow: 0px 0px 15px #999;
-}
+    img {
+        position: absolute;
+        width: 862px;
+        top: -20px;
+        margin-left: -94px;
+        z-index: -5;
+        
+    }
+}     
+
 .arrows {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  width: 46px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 46px;
     height: 94px;
     box-sizing: border-box;
     background: #2f3031;
     transition: background-color .5s ease;
     .arrows:before {
         content: "";
+        position: absolute;
+        top: 50%;
+        margin-top: -8px;
+        left: 50%;
+        margin-left: -8px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 2px solid #fff;
+        border-top: none;
+        border-right: none;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
+.arrowsleft {
     position: absolute;
-    top: 50%;
-    margin-top: -8px;
-    left: 50%;
-    margin-left: -8px;
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border: 2px solid #fff;
-    border-top: none;
-    border-right: none;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
+    top: 10px;
+    left: 0px;
+    width: 46px;
+    height: 94px;
+    box-sizing: border-box;
+    background: #2f3031;
+    transition: background-color .5s ease;
+    i {
+        color: white;
+        font-size: 45px;
+    }
+    .arrowsleft:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        margin-top: -8px;
+        left: 50%;
+        margin-left: -8px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 2px solid #fff;
+        border-top: none;
+        border-right: none;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
     }
 }
 

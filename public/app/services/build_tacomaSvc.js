@@ -32,10 +32,10 @@ this.TRDaccessories = () => {
 
 
 // cart or summary
-// this.addToSummary = function(product) {
-//     console.log(`Adding ${product} to cart`)
-//     return $http.post('/summary', product)
-//   }
+this.addToSummary = function(product) {
+    console.log(`Adding ${product} to cart`)
+    return $http.post('/summary', product)
+  }
 
 //   this.getSummary = function() {
 //     return $http.get('/summary')

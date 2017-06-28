@@ -22,11 +22,30 @@
             <button>COMPARE</button>
         </div>
         <!--card content-->
+
+
         <!--class="select-button" ng-class="{'class': $index == selectedIndex}"-->
-        <button  ng-class='class' ng-click="changeClass(); toggle = !toggle; itemClicked($index);">
-            <span ng-show="toggle">SELECT</span>
-            <span ng-hide="toggle"><i class="fa fa-check" aria-hidden="true"></i>  SELECTED</span></button>
-            <!--<button ng-class="class" ng-click="changeClass(); toggle = !toggle">{{toggleText}}</button>-->
+        <!--{'select-button' :toggle, 'seleceted-button': !toggle}-->
+        <!--toggle = !toggle; itemClicked($index); addToSummary(grade);-->
+        <!--this is most recent semi working button-->
+
+        <button class="select-button" ng-class="{ 'selected-button': $index == selectedIndex }" ng-click="itemClicked($index)">
+            <span ng-hide="$index == selectedIndex" >SELECT</span>
+            <span  ng-show="$index == selectedIndex" ><i class="fa fa-check" aria-hidden="true"></i>  SELECTED</span></button>
+            
+
+            <!--ng-hide="showme"ng-click="showme=false;ng-if="selectedIndex = $index"-->
+            
+            <!--<button ng-class="class" ng-click="select($index); addToSummary(grade);">
+            <span>SELECT</span>
+
+            <button  class='selected-button'  ng-click="select($index); addToSummary(grade);">
+            <span ><i class="fa fa-check" aria-hidden="true"></i>  SELECTED</span></button>-->
+            
+            
+            
+            
+        <!--<button ng-class="class" ng-click="changeClass(); toggle = !toggle">{{toggleText}}</button>-->
         <!--<button class="selected-button"><i class="fa fa-check" aria-hidden="true"></i>  SELECTED</button>-->
         <div class="grade-card-footer">
             <div class="comes-in">COMES IN:</div>

@@ -1,3 +1,3 @@
-select year, model, pricestartingmsrp, priceasshown, imageurl
+select *
 from vehiclesbuildall
 where type = 'Cars & Minivans'

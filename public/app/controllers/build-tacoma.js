@@ -32,7 +32,7 @@ $scope.opencontent = function (num) {
 //  console.log($scope.item)
   
 }
-$scope.selectedIndex = 0;
+
  // make shift cart for summary  
 // $scope.options = buildTacomaSvc.getSummary(); 
 $scope.addToSummary = (product) => {
