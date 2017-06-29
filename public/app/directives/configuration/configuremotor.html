@@ -16,7 +16,9 @@
                 <dd ng-if="config.details6 && config.disclaimer">{{config.details6}}<sup>{{config.disclaimer}}</sup></dd>
             </dl>
         </div>
-        <button class="select-button">SELECT</button>
+        <button class="select-button" ng-class="{ 'selected-button': $index == selectedIndex }" ng-click="itemClicked($index);  addToSummary(grade)">
+            <span ng-hide="$index == selectedIndex" >SELECT</span>
+            <span  ng-show="$index == selectedIndex" ><i class="fa fa-check" aria-hidden="true"></i>  SELECTED</span></button>
     </div>
 </div>
 

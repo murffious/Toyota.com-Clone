@@ -7,7 +7,7 @@ return {
 
           buildTacomaSvc.trdcolors().then((res) => {
             //  console.log(res);
-             $scope.trdcolors = res.data
+             $scope.trdcolors = res
             //  console.log($scope.trdcolors)
             })
             

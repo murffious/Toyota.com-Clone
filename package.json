@@ -29,6 +29,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
     "massive": "^3.0.0-rc1",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",

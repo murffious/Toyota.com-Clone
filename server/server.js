@@ -42,7 +42,7 @@ app.get('/tacomaconfiguration', vehiclesCtrl.getTacomaconfiguration)
 app.get('/trdcolors', vehiclesCtrl.getTacomaColors)
 app.get('/tacomapackages', vehiclesCtrl.getTacomapackages)
 app.get('/TRDaccessories', vehiclesCtrl.getTRDacc)
-
+app.get('/getTRDphotos/:id', vehiclesCtrl.getTRDphotos)
 
 
 // summary page cart like feature

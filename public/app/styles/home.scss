@@ -190,7 +190,7 @@ a {
 } // ==================Tacoma Build =====================
 .tacoma-build-top-wrap {
     position: relative;
-    height: 369px;
+    height: 329px;
    
     .your-build {
         position: absolute;
@@ -198,7 +198,7 @@ a {
         font-size: 1.1rem;
         font-weight: 500;
         color: #2b2b2b;
-        left: 477px;
+        left: 303px;
     }
     .your-build:after {
         display: block;
@@ -217,7 +217,7 @@ a {
         font-weight: 300;
         letter-spacing: -.02em;
         color: #000;
-        left: 477px;
+        left: 303px;
         top: 34px;
         font-size: 40px;
         max-width: 180px;
@@ -229,7 +229,7 @@ a {
     background-color: #EDF0F5;
     position: absolute;
     z-index: -100;
-    top: 0;
+    top: -40px;
 }
 .slider-wrap {
     width: $site-width;
@@ -249,21 +249,21 @@ a {
     width: auto;
     text-align: left;
     position: absolute;
-    right: 467px;
+    right: 318px;
     top: 20px;
 }
 
 .opening-build-msrp {
     text-align: left;
     position: absolute;
-    right: 467px;
+    right: 318px;
     top: 40px;
 }
 
 .build-request-top {
     text-align: left;
     position: absolute;
-    right: 467px;
+    right: 318px;
     top: 61px;
     width: 130px;
     height: 40px;
@@ -575,8 +575,8 @@ dl {
     img {
         position: absolute;
         width: 862px;
-        top: -20px;
-        margin-left: -94px;
+        top: -98px;
+        margin-left: -124px;
         z-index: -5;
         
     }
@@ -584,8 +584,8 @@ dl {
 
 .arrows {
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 68px;
+    right: 0;
     width: 46px;
     height: 94px;
     box-sizing: border-box;
@@ -610,7 +610,7 @@ dl {
 }
 .arrowsleft {
     position: absolute;
-    top: 10px;
+    top: 68px;
     left: 0px;
     width: 46px;
     height: 94px;

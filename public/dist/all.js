@@ -153,7 +153,7 @@ angular.module('toyota').service('buildAllSvc', function ($http) {
 angular.module('toyota').service('buildTacomaSvc', function ($http) {
 
     var devUrl = 'http://localhost:3000';
-
+    var service = this;
     // build tacoma 
     this.tacomagrades = function () {
         return $http.get(devUrl + '/tacomagrades');
@@ -165,7 +165,10 @@ angular.module('toyota').service('buildTacomaSvc', function ($http) {
         return $http.get(devUrl + '/tacomaconfiguration');
     };
     this.trdcolors = function () {
-        return $http.get(devUrl + '/trdcolors');
+        return $http.get(devUrl + '/trdcolors').then(function (res) {
+            service.colors = res.data;
+            return res.data;
+        });
     };
     this.trdpackages = function () {
         return $http.get(devUrl + '/tacomapackages');
@@ -185,6 +188,42 @@ angular.module('toyota').service('buildTacomaSvc', function ($http) {
     //     return $http.get('/summary')
     //   }
 
+    var photos = [{
+        src: '../../app/images/build-tacoma-home/sr-1.png',
+        title: 'Pic 1'
+    }, {
+        src: '../../app/images/build-tacoma-home/sr-2.png',
+        title: 'Pic 2'
+    }, {
+        src: '../../app/images/build-tacoma-home/sr-3.png',
+        title: 'Pic 3'
+    }, {
+        src: '../../app/images/build-tacoma-home/sr-4.png',
+        title: 'Pic 4'
+    }, {
+        src: '../../app/images/build-tacoma-home/sr-5.png',
+        title: 'Pic 5'
+    }, {
+        src: '../../app/images/build-tacoma-home/sr-6-interior1.png',
+        title: 'Pic 6'
+    }, {
+        src: '../../app/images/build-tacoma-home/sr-7-interior2.png',
+        title: 'Pic 7'
+    }, {
+        src: '../../app/images/build-tacoma-home/sr-8-interior3.png',
+        title: 'Pic 8'
+    }];
+    service.photos = photos;
+    //endpoint that is getting new photos based on what truck you clicked..... .then((res) => {
+    // service.photos = res.data pass id with it in abackend
+    // })
+    this.getTRDphotos = function (id) {
+        $http.get(devUrl + '/getTRDphotos/' + id).then(function (res) {
+            service.photos = res.data;
+            console.log(service.photos);
+            return service.photos;
+        });
+    };
 });
 'use strict';
 
@@ -227,6 +266,50 @@ angular.module("toyota").directive("build-all-cars-minivans", function () {
 });
 "use strict";
 
+angular.module('toyota').directive("cabsBeds", function () {
+
+    return {
+
+        templateUrl: "./app/directives/cabs_beds/cabs_beds.html",
+        // link: function (scope, element, attribute) {
+
+        // }
+        controller: function controller($scope, buildTacomaSvc) {
+
+            buildTacomaSvc.trdcabsbeds().then(function (res) {
+                //  console.log(res);
+                $scope.trdcabsbeds = res.data;
+            });
+
+            $scope.selectedIndex = 0;
+            $scope.itemClicked = function ($index) {
+                console.log($index);
+                $scope.selectedIndex = $index;
+            };
+
+            // These methods are for builidng a cart or summary page  
+            // $scope.summmary = {}
+            $scope.addToSummary = function (product) {
+                console.log(product
+                //     console.log(`Going to service with ${product}`)
+                );buildTacomaSvc.addToSummary(product).then(function () {
+                    // Get the latest cart from the server. It has been updated.
+                    // buildTacomaSvc.getSummary().then((res) => {
+                    //     $scope.summary = res.data;
+                    // })
+
+                });
+            };
+
+            // buildTacomaSvc.getSummary().then((res) => {
+            //     console.log(res);
+            //     $scope.summary = res.data;
+            // })
+        }
+    };
+});
+"use strict";
+
 angular.module('toyota').directive("tacomaColor", function () {
 
     return {
@@ -236,7 +319,7 @@ angular.module('toyota').directive("tacomaColor", function () {
 
             buildTacomaSvc.trdcolors().then(function (res) {
                 //  console.log(res);
-                $scope.trdcolors = res.data;
+                $scope.trdcolors = res;
                 //  console.log($scope.trdcolors)
             });
         }
@@ -255,69 +338,14 @@ angular.module('toyota').directive("configureMotor", function () {
                 //  console.log(res);
                 $scope.trdconfiguration = res.data;
             });
-        }
-    };
-});
-"use strict";
 
-angular.module('toyota').directive("cabsBeds", function () {
-
-    return {
-
-        templateUrl: "./app/directives/cabs_beds/cabs_beds.html",
-        // link: function (scope, element, attribute) {
-
-        // }
-        controller: function controller($scope, buildTacomaSvc) {
-
-            buildTacomaSvc.trdcabsbeds().then(function (res) {
-                //  console.log(res);
-                $scope.trdcabsbeds = res.data;
-            });
-        }
-    };
-});
-"use strict";
-
-angular.module('toyota').directive("gradesInitial", function () {
-
-    return {
-
-        templateUrl: "./app/directives/grades/gradesInitial.html",
-        // link: function (scope, element, attribute) {
-
-        // }
-        controller: function controller($scope, buildTacomaSvc) {
-
-            buildTacomaSvc.tacomagrades().then(function (res) {
-                //  console.log(res);
-                $scope.tacomagrades = res.data;
-            });
             $scope.selectedIndex = 0;
-
             $scope.itemClicked = function ($index) {
-
                 console.log($index);
-
-                // console.log("clicked")
                 $scope.selectedIndex = $index;
             };
 
-            // $scope.selected = 0;
-
-            // $scope.select = function (index) {
-            //     $scope.selected = index;
-            // };
-
-            // $scope.class = "select-button";
-
-            $scope.changeClass = function () {
-                if ($scope.class === "select-button") $scope.class = "selected-button";else if ($scope.class === "selected-button") $scope.class = "select-button";
-            };
-            $scope.toggle = true;
-            //  $scope.toggleObject = {item: -1};
-
-            // summary 
+            // These methods are for builidng a cart or summary page  
             // $scope.summmary = {}
             $scope.addToSummary = function (product) {
                 console.log(product
@@ -335,12 +363,87 @@ angular.module('toyota').directive("gradesInitial", function () {
             //     console.log(res);
             //     $scope.summary = res.data;
             // })
-            $scope.$watch('toggle', function () {
-                $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
-            });
         }
-
     };
+});
+"use strict";
+
+angular.module('toyota').directive("gradesInitial", function () {
+
+            return {
+
+                        templateUrl: "./app/directives/grades/gradesInitial.html",
+                        // link: function (scope, element, attribute) {
+
+                        // }
+                        controller: function controller($scope, buildTacomaSvc) {
+                                    //   get info for grades selection cards for ng repeat
+                                    buildTacomaSvc.tacomagrades().then(function (res) {
+                                                //  console.log(res);
+                                                $scope.tacomagrades = res.data;
+                                    }
+
+                                    // zero in on ng repeat to have class chagne on button click etc
+                                    );$scope.selectedIndex = 0;
+                                    $scope.itemClicked = function ($index) {
+                                                console.log($index);
+                                                $scope.selectedIndex = $index;
+                                    };
+                                    //  all this below is code for chaning class that I originally was using save for reference
+                                    // $scope.selected = 0;
+
+                                    // $scope.select = function (index) {
+                                    //     $scope.selected = index;
+                                    // };
+
+                                    // $scope.class = "select-button";
+
+                                    // $scope.changeClass = () => {
+                                    //     if ($scope.class === "select-button")
+                                    //         $scope.class = "selected-button";
+                                    //     else if ($scope.class === "selected-button")
+                                    //         $scope.class = "select-button";
+                                    // };
+                                    // $scope.toggle = true;
+                                    //  $scope.toggleObject = {item: -1};
+                                    //  $scope.$watch('toggle', () => {
+                                    //     $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
+                                    // })
+
+
+                                    // grab photos for changint the slider
+
+                                    buildTacomaSvc.trdcolors().then(function (res) {
+                                                $scope.photos = res.images;
+                                    });
+
+                                    $scope.changeSliderPhotos = function (id) {
+                                                console.log(id);
+                                                return buildTacomaSvc.getTRDphotos(id);
+                                    };
+
+                                    // These methods are for builidng a cart or summary page  
+                                    // $scope.summmary = {}
+                                    $scope.addToSummary = function (product) {
+                                                console.log(product
+                                                //     console.log(`Going to service with ${product}`)
+                                                );buildTacomaSvc.addToSummary(product).then(function () {
+                                                            // Get the latest cart from the server. It has been updated.
+                                                            // buildTacomaSvc.getSummary().then((res) => {
+                                                            //     $scope.summary = res.data;
+                                                            // })
+
+                                                });
+                                    };
+
+                                    // buildTacomaSvc.getSummary().then((res) => {
+                                    //     console.log(res);
+                                    //     $scope.summary = res.data;
+                                    // })
+
+                        }
+
+            };
 });
 "use strict";
 
@@ -358,6 +461,31 @@ angular.module('toyota').directive("packages", function () {
                 //  console.log(res);
                 $scope.trdpackages = res.data;
             });
+
+            $scope.selectedIndex = 0;
+            $scope.itemClicked = function ($index) {
+                console.log($index);
+                $scope.selectedIndex = $index;
+            };
+
+            // These methods are for builidng a cart or summary page  
+            // $scope.summmary = {}
+            $scope.addToSummary = function (product) {
+                console.log(product
+                //     console.log(`Going to service with ${product}`)
+                );buildTacomaSvc.addToSummary(product).then(function () {
+                    // Get the latest cart from the server. It has been updated.
+                    // buildTacomaSvc.getSummary().then((res) => {
+                    //     $scope.summary = res.data;
+                    // })
+
+                });
+            };
+
+            // buildTacomaSvc.getSummary().then((res) => {
+            //     console.log(res);
+            //     $scope.summary = res.data;
+            // })
         }
     };
 });
@@ -412,39 +540,40 @@ angular.module("toyota").directive("slider2", function ($timeout) {
                 scope.images[scope.currentIndex].visible = true; // make the current image visible
             });
         },
-        controller: function controller($scope) {
+        controller: function controller($scope, buildTacomaSvc) {
 
             $scope.set_size = function (image) {
                 if (image.title === "Pic 6" || image.title === "Pic 7" || image.title === "Pic 8") {
                     return { width: "500px", "box-shadow": "0 1px 5px 2px rgba(0,0,0,.15)", top: "34px", "margin-left": "56px" };
                 }
             };
-
-            $scope.images = [{
-                src: '../../app/images/build-tacoma-home/sr-1.png',
-                title: 'Pic 1'
-            }, {
-                src: '../../app/images/build-tacoma-home/sr-2.png',
-                title: 'Pic 2'
-            }, {
-                src: '../../app/images/build-tacoma-home/sr-3.png',
-                title: 'Pic 3'
-            }, {
-                src: '../../app/images/build-tacoma-home/sr-4.png',
-                title: 'Pic 4'
-            }, {
-                src: '../../app/images/build-tacoma-home/sr-5.png',
-                title: 'Pic 5'
-            }, {
-                src: '../../app/images/build-tacoma-home/sr-6-interior1.png',
-                title: 'Pic 6'
-            }, {
-                src: '../../app/images/build-tacoma-home/sr-7-interior2.png',
-                title: 'Pic 7'
-            }, {
-                src: '../../app/images/build-tacoma-home/sr-8-interior3.png',
-                title: 'Pic 8'
-            }];
+            $scope.images = buildTacomaSvc.photos;
+            // $scope.images = [{
+            //     src: '../../app/images/build-tacoma-home/sr-1.png',
+            //     title: 'Pic 1'
+            // }, {
+            //     src: '../../app/images/build-tacoma-home/sr-2.png',
+            //     title: 'Pic 2'
+            // }, {
+            //     src: '../../app/images/build-tacoma-home/sr-3.png',
+            //     title: 'Pic 3'
+            // }, {
+            //     src: '../../app/images/build-tacoma-home/sr-4.png',
+            //     title: 'Pic 4'
+            // }, {
+            //     src: '../../app/images/build-tacoma-home/sr-5.png',
+            //     title: 'Pic 5'
+            // },
+            //  {
+            //     src: '../../app/images/build-tacoma-home/sr-6-interior1.png',
+            //     title: 'Pic 6'
+            // }, {
+            //     src: '../../app/images/build-tacoma-home/sr-7-interior2.png',
+            //     title: 'Pic 7'
+            // }, {
+            //     src: '../../app/images/build-tacoma-home/sr-8-interior3.png',
+            //     title: 'Pic 8'
+            // }];
         }
 
     };
@@ -12941,3 +13070,4 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }return a;
   };
 });
+//# sourceMappingURL=maps/all.js.map

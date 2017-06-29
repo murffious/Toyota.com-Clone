@@ -4,6 +4,7 @@ const babel = require('gulp-babel');
 const scss = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const nodemon = require('nodemon');
+const sourcemaps = require('gulp-sourcemaps');
 
 // File Paths ====================================
 const basePath = './public/app';
@@ -24,10 +25,12 @@ gulp.task('server', () => {
 
 gulp.task('js-bundle', () =>  {
     gulp.src(paths.jsSrc)
+        .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['es2015']
         }))
         .pipe(concat('all.js'))
+        .pipe(sourcemaps.write("./maps"))
         .pipe(gulp.dest('./public/dist'));
 });
 

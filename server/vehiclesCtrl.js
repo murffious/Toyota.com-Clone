@@ -44,6 +44,16 @@ module.exports = {
             console.log(error)
         })
     },
+
+    getTRDphotos: (req, res) => {
+   var id = req.params.id
+        // if 
+        req.app.get('db').trdphotos(id).then((items) => {
+            res.send(items)
+        }).catch(function (error) {
+            console.log(error)
+        })
+    },
     getTacomacabsbeds: (req, res) => {
 
         req.app.get('db').tacomacabsbeds().then((items) => {
