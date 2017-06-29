@@ -1,13 +1,23 @@
 angular.module('toyota').directive("summary", function () {
 
-return {
+    return {
 
-    templateUrl: "./app/directives/summary/summary_cart.html"
-    // link: function (scope, element, attribute) {
+        templateUrl: "./app/directives/summary/summary_cart.html",
+        // link: function (scope, element, attribute) {
+
+        // }
+        controller: ($scope, buildTacomaSvc) => {
+
         
-    // }
-    // controller: 
-}
+            buildTacomaSvc.getSummary().then((res) => {
+                $scope.summary = res.data;
+                console.log($scope.summary)
+                console.log("I am right here in the summary")
+            })
+
+
+        }
+    }
 
 
 

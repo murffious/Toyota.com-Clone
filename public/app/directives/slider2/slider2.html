@@ -2,8 +2,8 @@
   <div class="slide" ng-repeat="image in images" ng-show="image.visible">
     <img ng-style="set_size(image)" ng-src="{{image.src}}" />
   </div>
-  <div class="arrows">
-    	<i ng-click="prev()"class="fa fa-caret-right" aria-hidden="true"></i>
+  <div class="arrows" ng-click="prev()">
+    	<i class="fa fa-caret-right" aria-hidden="true"></i>
     <!--<a  >
       <img src="img/left-arrow.png" />
     </a>
@@ -12,10 +12,10 @@
     </a>-->
     
   </div>
-  <div class="arrowsleft">
+  <div class="arrowsleft" ng-click="next()">
     
 	
-		<i ng-click="next()" class="fa fa-caret-left" aria-hidden="true"></i>
+		<i  class="fa fa-caret-left" aria-hidden="true"></i>
     
     
   </div>

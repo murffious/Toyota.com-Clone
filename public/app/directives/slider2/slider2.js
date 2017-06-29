@@ -1,4 +1,4 @@
-angular.module("toyota").directive("slider2", function ($timeout) {
+angular.module("toyota").directive("slider2", function ($timeout, buildTacomaSvc) {
 
     return {
         templateUrl: "./app/directives/slider2/slider2.html",
@@ -7,23 +7,28 @@ angular.module("toyota").directive("slider2", function ($timeout) {
         scope: {
             images: '='
         },
-        link: function (scope, elem, attrs) {
+        link:  (scope, elem, attrs) => {
             scope.currentIndex = 0; // Initially the index is at the first image
 
-            scope.next = function () {
+            scope.next =  () => {
                 scope.currentIndex < scope.images.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
             };
 
-            scope.prev = function () {
+            scope.prev =  () => {
                 scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.images.length - 1;
             };
-            scope.$watch('currentIndex', function () {
-                scope.images.forEach(function (image) {
+            scope.$watch('currentIndex',  () => {
+                scope.images.forEach( (image) => {
                     image.visible = false; // make every image invisible
                 });
 
                 scope.images[scope.currentIndex].visible = true; // make the current image visible
+                
             });
+            // scope.$watch('buildTacomaSvc.photos', (newVal)=> {
+            //     console.log("hi")
+            //     scope.images = buildTacomaSvc.photos
+            // })
         },
         controller: ($scope, buildTacomaSvc) => {
             
@@ -33,6 +38,12 @@ angular.module("toyota").directive("slider2", function ($timeout) {
                     }
             }
             $scope.images = buildTacomaSvc.photos
+            // $scope.$apply()
+            // $scope.$watch('buildTacomaSvc.photos', (newVal)=> {
+            //     $scope.images = buildTacomaSvc.photos
+            //     console.log('hey')
+            // })
+            
             // $scope.images = [{
             //     src: '../../app/images/build-tacoma-home/sr-1.png',
             //     title: 'Pic 1'

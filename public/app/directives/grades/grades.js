@@ -16,7 +16,7 @@ angular.module('toyota').directive("gradesInitial", function () {
             // zero in on ng repeat to have class chagne on button click etc
             $scope.selectedIndex = 0;
             $scope.itemClicked = ($index) => {
-                console.log($index);
+                // console.log($index);
                 $scope.selectedIndex = $index;
             }
             //  all this below is code for chaning class that I originally was using save for reference
@@ -47,10 +47,8 @@ angular.module('toyota').directive("gradesInitial", function () {
                 $scope.photos = res.images
             })
             
-            
-
             $scope.changeSliderPhotos = (id) => {
-                console.log(id)
+                // console.log(id)
                  return  buildTacomaSvc.getTRDphotos(id) 
 
             }
@@ -62,9 +60,9 @@ angular.module('toyota').directive("gradesInitial", function () {
                 //     console.log(`Going to service with ${product}`)
                 buildTacomaSvc.addToSummary(product).then(() => {
                     // Get the latest cart from the server. It has been updated.
-                    // buildTacomaSvc.getSummary().then((res) => {
-                    //     $scope.summary = res.data;
-                    // })
+                    buildTacomaSvc.getSummary().then((res) => {
+                        $scope.summary = res.data;
+                    })
 
                 })
             }

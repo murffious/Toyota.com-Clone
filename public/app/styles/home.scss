@@ -591,7 +591,7 @@ dl {
     box-sizing: border-box;
     background: #2f3031;
     transition: background-color .5s ease;
-    .arrows:before {
+    :before {
         content: "";
         position: absolute;
         top: 50%;
@@ -602,8 +602,8 @@ dl {
         width: 16px;
         height: 16px;
         border: 2px solid #fff;
-        border-top: none;
-        border-right: none;
+        border-bottom: none;
+        border-left: none;
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg);
     }
@@ -621,7 +621,7 @@ dl {
         color: white;
         font-size: 45px;
     }
-    .arrowsleft:before {
+    :before {
         content: "";
         position: absolute;
         top: 50%;

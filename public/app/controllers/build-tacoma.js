@@ -27,24 +27,36 @@ $('.variable-width').slick({
 });
 
 // Current method for changing pages....may use nested routing for more options with $locaition
-$scope.opencontent = function (num) {
+$scope.opencontent =  (num) => {
  $scope.item = num; 
 //  console.log($scope.item)
   
 }
+$scope.viewSummary = () => {
+    buildTacomaSvc.getSummary().then((res) => {
+                $scope.summary = res.data;
+                console.log($scope.summary)
+                console.log("I am right here in the summary")
+            })
+}
+
+$scope.startingMSRP = 24,320
+$scope.getPriceandTitleChange = (grade) => {
+   $scope.startingMSRP = (grade.price)
+}
 
  // make shift cart for summary  
 // $scope.options = buildTacomaSvc.getSummary(); 
-$scope.addToSummary = (product) => {
-    console.log(`Going to service with ${product}`)
-    console.log(product)
-    // buildTacomaSvc.addToSummary(product).then(() => {
-    //   Get the latest cart from the server. It has been updated.
-    //   buildTacomaSvc.getSummary().then((res)=> {
-    //     $scope.summary = res.data;
-    //   })
-    // })
-  }
+// $scope.addToSummary = (product) => {
+//     console.log(`Going to service with ${product}`)
+//     console.log(product)
+//     buildTacomaSvc.addToSummary(product).then(() => {
+//       Get the latest cart from the server. It has been updated.
+//       buildTacomaSvc.getSummary().then((res)=> {
+//         $scope.summary = res.data;
+//       })
+//     })
+//   }
 
 // buildTacomaSvc.getSummary().then((res) => {
 //     console.log(res);

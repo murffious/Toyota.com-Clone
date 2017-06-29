@@ -2,12 +2,12 @@
 
 <div class="summary-container">
     <section class="head">
-        <h2>2017 Tacoma TRD Off-Road</h2>
-        <h3>4x4, 3.5L V6 Engine, 6-Speed Automatic Double Cab, 5-ft. Short Bed</h3>
+        <h2>{{summary.year}} {{summary.model}} {{summary.grade}}</h2>
+        <h3>4x4, {{summary.details_1}}, 6-Speed Automatic Double Cab, 5-ft. Short Bed</h3>
     </section>
     <section class="starting-msrp">
         <h4>STARTING MSRP</h4>
-        <div>$34,987</div>
+        <div>${{summary.price}}</div>
     </section>
     <div class="summary-colors-wrap">
         <section class="colors-exterior">

@@ -4,7 +4,10 @@ const devUrl = 'http://localhost:3000'
 const service = this
 // build tacoma 
 this.tacomagrades = () => {
-    return $http.get(devUrl + '/tacomagrades')
+    return $http.get(devUrl + '/tacomagrades').then( (res) => {
+        service.tacgrades = res.data
+        return res.data
+    })
 
 } 
 this.trdcabsbeds = () => {
@@ -39,9 +42,13 @@ this.addToSummary = function(product) {
     return $http.post('/summary', product)
   }
 
-//   this.getSummary = function() {
-//     return $http.get('/summary')
-//   }
+  this.getSummary = function() {
+      console.log("hello there pal")
+    return $http.get('/summary').then( (res) => {
+        console.log(res.data)
+        return res
+    })
+  }
 
 var photos = [{
                 src: '../../app/images/build-tacoma-home/sr-1.png',
@@ -69,6 +76,7 @@ var photos = [{
                 src: '../../app/images/build-tacoma-home/sr-8-interior3.png',
                 title: 'Pic 8'
             }];
+        // service.photos= {}
 service.photos = photos;
 //endpoint that is getting new photos based on what truck you clicked..... .then((res) => {
     // service.photos = res.data pass id with it in abackend
@@ -77,6 +85,7 @@ this.getTRDphotos = (id) => {
     $http.get(devUrl + '/getTRDphotos/' + id).then( (res)=> {
         service.photos = res.data
         console.log(service.photos);
+       
         return service.photos
     })
 

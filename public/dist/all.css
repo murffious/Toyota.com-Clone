@@ -866,7 +866,7 @@ dl {
   background: #2f3031;
   -webkit-transition: background-color .5s ease;
   transition: background-color .5s ease; }
-  .arrows .arrows:before {
+  .arrows :before {
     content: "";
     position: absolute;
     top: 50%;
@@ -877,8 +877,8 @@ dl {
     width: 16px;
     height: 16px;
     border: 2px solid #fff;
-    border-top: none;
-    border-right: none;
+    border-bottom: none;
+    border-left: none;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg); }
 
@@ -896,7 +896,7 @@ dl {
   .arrowsleft i {
     color: white;
     font-size: 45px; }
-  .arrowsleft .arrowsleft:before {
+  .arrowsleft :before {
     content: "";
     position: absolute;
     top: 50%;
