@@ -21,26 +21,29 @@ angular.module('toyota', ['ui.router']).config(function ($stateProvider, $urlRou
 angular.module('toyota').controller('buildTacoma', function ($scope, buildTacomaSvc) {
     $scope.broken = 'working';
 
-    $scope.class = "select-button";
+    // $scope.class = "select-button";
 
-    $scope.changeClass = function () {
-        if ($scope.class === "select-button") $scope.class = "selected-button";else if ($scope.class === "selected-button") $scope.class = "select-button";
-    };
-    $scope.toggle = true;
+    //     $scope.changeClass = () =>{
+    //         if ($scope.class === "select-button")
+    //             $scope.class = "selected-button";
+    //          else if ($scope.class === "selected-button")
+    //             $scope.class = "select-button";
+    //     };
+    //      $scope.toggle = true;
 
-    $scope.$watch('toggle', function () {
-        $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
-    }
+    //     $scope.$watch('toggle', () => {
+    //         $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
+    //     })
 
     // Slider or Carousel
-    );$('.variable-width').slick({
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        centerMode: true,
-        variableWidth: true
-    });
+    // $('.variable-width').slick({
+    //   dots: true,
+    //   infinite: true,
+    //   speed: 300,
+    //   slidesToShow: 1,
+    //   centerMode: true,
+    //   variableWidth: true
+    // });
 
     // Current method for changing pages....may use nested routing for more options with $locaition
     $scope.opencontent = function (num) {
@@ -163,7 +166,8 @@ angular.module('toyota').service('buildAllSvc', function ($http) {
 });
 'use strict';
 
-angular.module('toyota').service('buildTacomaSvc', function ($http) {
+angular.module('toyota').service('buildTacomaSvc', function ($http, $state) {
+    var _this = this;
 
     var devUrl = 'http://localhost:3000';
     var service = this;
@@ -205,7 +209,7 @@ angular.module('toyota').service('buildTacomaSvc', function ($http) {
         });
     };
 
-    var photos = [{
+    this.photos = [{
         src: '../../app/images/build-tacoma-home/sr-1.png',
         title: 'Pic 1'
     }, {
@@ -230,27 +234,30 @@ angular.module('toyota').service('buildTacomaSvc', function ($http) {
         src: '../../app/images/build-tacoma-home/sr-8-interior3.png',
         title: 'Pic 8'
     }];
-    // service.photos= {}
-    service.photos = photos;
-    //endpoint that is getting new photos based on what truck you clicked..... .then((res) => {
-    // service.photos = res.data pass id with it in abackend
-    // })
+    //         this.photos= {}
+    // this.photos.photos = photos;
+
+
     this.getTRDphotos = function (id) {
-        $http.get(devUrl + '/getTRDphotos/' + id).then(function (res) {
-            service.photos = res.data;
+        return $http.get(devUrl + '/getTRDphotos/' + id).then(function (res) {
+            console.log(res);
+            _this.photos.photos = res.data[0].images;
+            return res.data[0].images;
+
+            // $state.go($state.current, {}, {reload: true})
+            // console.log(JSON.stringify(res.data, null, 2))
+
             // var obj = {1: 11, 2: 22};
-            var arr = Object.keys(service.photos).map(function (key) {
-                return service.photos[key];
-            });
-            console.log(service.photos);
-            var photos = arr.reduce(function (t, c, i) {
-                t.push({ "src": c, title: "Pic " + (i + 1) });
-                return t;
-            }, []
+            // var arr = Object.keys(service.photos).map((key) =>{ return service.photos[key]; });
+            //  console.log(service.photos)
+            //   var photos = arr.reduce( (t, c, i) => {
+            //             t.push({"src": c, title: "Pic " + (i +1)})
+            //             return t
+            //     }, [])
 
             //    console.log(photos);
 
-            );return photos;
+            // return service.photos
         });
     };
 });
@@ -261,381 +268,6 @@ angular.module('toyota').service('service', function () {
     //from plenty o stuff .com tst for cart summary in product service
 
 
-});
-"use strict";
-
-angular.module('toyota').directive("accessoriesDir", function () {
-
-  return {
-
-    templateUrl: "./app/directives/accessories-dir/accessories-dir.html",
-    controller: function controller($scope, buildTacomaSvc) {
-
-      buildTacomaSvc.TRDaccessories().then(function (res) {
-        //  console.log(res);
-        $scope.TRDacc = res.data;
-      });
-
-      $scope.itemClicked = function ($index) {
-        // console.log($index);
-        // console.log("clicked")
-        $scope.selectedIndex = $index;
-      };
-    }
-
-  };
-});
-"use strict";
-
-angular.module("toyota").directive("build-all-cars-minivans", function () {
-    return {
-        restrict: "E",
-        templateUrl: "build-all-cars-minivans.html"
-    };
-});
-"use strict";
-
-angular.module('toyota').directive("tacomaColor", function () {
-
-    return {
-
-        templateUrl: "./app/directives/colors_tacoma/tacoma-colors.html",
-        controller: function controller($scope, buildTacomaSvc) {
-
-            buildTacomaSvc.trdcolors().then(function (res) {
-                //  console.log(res);
-                $scope.trdcolors = res;
-                //  console.log($scope.trdcolors)
-            });
-        }
-    };
-});
-"use strict";
-
-angular.module('toyota').directive("cabsBeds", function () {
-
-    return {
-
-        templateUrl: "./app/directives/cabs_beds/cabs_beds.html",
-        // link: function (scope, element, attribute) {
-
-        // }
-        controller: function controller($scope, buildTacomaSvc) {
-
-            buildTacomaSvc.trdcabsbeds().then(function (res) {
-                //  console.log(res);
-                $scope.trdcabsbeds = res.data;
-            });
-
-            $scope.selectedIndex = 0;
-            $scope.itemClicked = function ($index) {
-                console.log($index);
-                $scope.selectedIndex = $index;
-            };
-
-            // These methods are for builidng a cart or summary page  
-            // $scope.summmary = {}
-            $scope.addToSummary = function (product) {
-                console.log(cabbed + " + product"
-                //     console.log(`Going to service with ${product}`)
-                );buildTacomaSvc.addToSummary(product).then(function () {
-                    // Get the latest cart from the server. It has been updated.
-                    buildTacomaSvc.getSummary().then(function (res) {
-                        $scope.summary = res.data;
-                    });
-                });
-            };
-
-            // buildTacomaSvc.getSummary().then((res) => {
-            //     console.log(res);
-            //     $scope.summary = res.data;
-            // })
-        }
-    };
-});
-"use strict";
-
-angular.module('toyota').directive("configureMotor", function () {
-
-    return {
-
-        templateUrl: "./app/directives/configuration/configuremotor.html",
-        controller: function controller($scope, buildTacomaSvc) {
-
-            buildTacomaSvc.trdconfiguration().then(function (res) {
-                //  console.log(res);
-                $scope.trdconfiguration = res.data;
-            });
-
-            $scope.selectedIndex = 0;
-            $scope.itemClicked = function ($index) {
-                console.log($index);
-                $scope.selectedIndex = $index;
-            };
-
-            // These methods are for builidng a cart or summary page  
-            // $scope.summmary = {}
-            $scope.addToSummary = function (product) {
-                console.log(product
-                //     console.log(`Going to service with ${product}`)
-                );buildTacomaSvc.addToSummary(product).then(function () {
-                    // Get the latest cart from the server. It has been updated.
-                    // buildTacomaSvc.getSummary().then((res) => {
-                    //     $scope.summary = res.data;
-                    // })
-
-                });
-            };
-
-            // buildTacomaSvc.getSummary().then((res) => {
-            //     console.log(res);
-            //     $scope.summary = res.data;
-            // })
-        }
-    };
-});
-"use strict";
-
-angular.module('toyota').directive("gradesInitial", function () {
-
-            return {
-
-                        templateUrl: "./app/directives/grades/gradesInitial.html",
-                        // link: function (scope, element, attribute) {
-
-                        // }
-                        controller: function controller($scope, buildTacomaSvc) {
-                                    //   get info for grades selection cards for ng repeat
-                                    buildTacomaSvc.tacomagrades().then(function (res) {
-                                                //  console.log(res);
-                                                $scope.tacomagrades = res.data;
-                                    }
-
-                                    // zero in on ng repeat to have class chagne on button click etc
-                                    );$scope.selectedIndex = 0;
-                                    $scope.itemClicked = function ($index) {
-                                                // console.log($index);
-                                                $scope.selectedIndex = $index;
-                                    };
-                                    //  all this below is code for chaning class that I originally was using save for reference
-                                    // $scope.selected = 0;
-
-                                    // $scope.select = function (index) {
-                                    //     $scope.selected = index;
-                                    // };
-
-                                    // $scope.class = "select-button";
-
-                                    // $scope.changeClass = () => {
-                                    //     if ($scope.class === "select-button")
-                                    //         $scope.class = "selected-button";
-                                    //     else if ($scope.class === "selected-button")
-                                    //         $scope.class = "select-button";
-                                    // };
-                                    // $scope.toggle = true;
-                                    //  $scope.toggleObject = {item: -1};
-                                    //  $scope.$watch('toggle', () => {
-                                    //     $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
-                                    // })
-
-
-                                    // grab photos for changint the slider
-
-                                    buildTacomaSvc.trdcolors().then(function (res) {
-                                                $scope.photos = res.images;
-                                    });
-
-                                    $scope.changeSliderPhotos = function (id) {
-                                                // console.log(id)
-                                                return buildTacomaSvc.getTRDphotos(id);
-                                    };
-
-                                    // These methods are for builidng a cart or summary page  
-                                    // $scope.summmary = {}
-                                    $scope.addToSummary = function (product) {
-                                                // console.log(product)
-                                                //     console.log(`Going to service with ${product}`)
-                                                buildTacomaSvc.addToSummary(product).then(function () {
-                                                            // Get the latest cart from the server. It has been updated.
-                                                            buildTacomaSvc.getSummary().then(function (res) {
-                                                                        $scope.summary = res.data;
-                                                            });
-                                                });
-                                    };
-
-                                    // buildTacomaSvc.getSummary().then((res) => {
-                                    //     console.log(res);
-                                    //     $scope.summary = res.data;
-                                    // })
-
-                        }
-
-            };
-});
-"use strict";
-
-angular.module('toyota').directive("packages", function () {
-
-    return {
-
-        templateUrl: "./app/directives/packages/tacoma_packages.html",
-        // link: function (scope, element, attribute) {
-
-        // }
-        controller: function controller($scope, buildTacomaSvc) {
-
-            buildTacomaSvc.trdpackages().then(function (res) {
-                //  console.log(res);
-                $scope.trdpackages = res.data;
-            });
-
-            $scope.selectedIndex = 0;
-            $scope.itemClicked = function ($index) {
-                console.log($index);
-                $scope.selectedIndex = $index;
-            };
-
-            // These methods are for builidng a cart or summary page  
-            // $scope.summmary = {}
-            $scope.addToSummary = function (product) {
-                console.log(product
-                //     console.log(`Going to service with ${product}`)
-                );buildTacomaSvc.addToSummary(product).then(function () {
-                    // Get the latest cart from the server. It has been updated.
-                    // buildTacomaSvc.getSummary().then((res) => {
-                    //     $scope.summary = res.data;
-                    // })
-
-                });
-            };
-
-            // buildTacomaSvc.getSummary().then((res) => {
-            //     console.log(res);
-            //     $scope.summary = res.data;
-            // })
-        }
-    };
-});
-"use strict";
-
-angular.module('toyota').directive("slider1", function () {
-
-    return {
-
-        templateUrl: "./app/directives/slider1-dir/slider1.html",
-        link: function link(scope, element, attribute) {
-            $('.single-item').slick({
-                dots: true,
-                infinite: true,
-                slidesToShow: 1,
-                centerMode: true,
-                singleItem: true,
-                accessibility: true,
-                arrows: true
-
-            });
-        }
-
-    };
-});
-"use strict";
-
-angular.module("toyota").directive("slider2", function ($timeout, buildTacomaSvc) {
-
-    return {
-        templateUrl: "./app/directives/slider2/slider2.html",
-        restrict: 'AE',
-        replace: true,
-        scope: {
-            images: '='
-        },
-        link: function link(scope, elem, attrs) {
-            scope.currentIndex = 0; // Initially the index is at the first image
-
-            scope.next = function () {
-                scope.currentIndex < scope.images.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
-            };
-
-            scope.prev = function () {
-                scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.images.length - 1;
-            };
-            scope.$watch('currentIndex', function () {
-                scope.images.forEach(function (image) {
-                    image.visible = false; // make every image invisible
-                });
-
-                scope.images[scope.currentIndex].visible = true; // make the current image visible
-            });
-            // scope.$watch('buildTacomaSvc.photos', (newVal)=> {
-            //     console.log("hi")
-            //     scope.images = buildTacomaSvc.photos
-            // })
-        },
-        controller: function controller($scope, buildTacomaSvc) {
-
-            $scope.set_size = function (image) {
-                if (image.title === "Pic 6" || image.title === "Pic 7" || image.title === "Pic 8") {
-                    return { width: "500px", "box-shadow": "0 1px 5px 2px rgba(0,0,0,.15)", top: "34px", "margin-left": "56px" };
-                }
-            };
-            $scope.images = buildTacomaSvc.photos;
-            // $scope.$apply()
-            // $scope.$watch('buildTacomaSvc.photos', (newVal)=> {
-            //     $scope.images = buildTacomaSvc.photos
-            //     console.log('hey')
-            // })
-
-            // $scope.images = [{
-            //     src: '../../app/images/build-tacoma-home/sr-1.png',
-            //     title: 'Pic 1'
-            // }, {
-            //     src: '../../app/images/build-tacoma-home/sr-2.png',
-            //     title: 'Pic 2'
-            // }, {
-            //     src: '../../app/images/build-tacoma-home/sr-3.png',
-            //     title: 'Pic 3'
-            // }, {
-            //     src: '../../app/images/build-tacoma-home/sr-4.png',
-            //     title: 'Pic 4'
-            // }, {
-            //     src: '../../app/images/build-tacoma-home/sr-5.png',
-            //     title: 'Pic 5'
-            // },
-            //  {
-            //     src: '../../app/images/build-tacoma-home/sr-6-interior1.png',
-            //     title: 'Pic 6'
-            // }, {
-            //     src: '../../app/images/build-tacoma-home/sr-7-interior2.png',
-            //     title: 'Pic 7'
-            // }, {
-            //     src: '../../app/images/build-tacoma-home/sr-8-interior3.png',
-            //     title: 'Pic 8'
-            // }];
-        }
-
-    };
-});
-"use strict";
-
-angular.module('toyota').directive("summary", function () {
-
-    return {
-
-        templateUrl: "./app/directives/summary/summary_cart.html",
-        // link: function (scope, element, attribute) {
-
-        // }
-        controller: function controller($scope, buildTacomaSvc) {
-
-            buildTacomaSvc.getSummary().then(function (res) {
-                $scope.summary = res.data;
-                console.log($scope.summary);
-                console.log("see me?"
-                // console.log("I am right here in the summary")
-                );
-            });
-        }
-    };
 });
 "use strict";
 
@@ -6995,6 +6627,527 @@ angular.module('ui.bootstrap.carousel').run(function () {
   !angular.$$csp().noInlineStyle && !angular.$$uibPositionCss && angular.element(document).find("head").prepend('<style type="text/css">.uib-position-measure{display:block !important;visibility:hidden !important;position:absolute !important;top:-9999px !important;left:-9999px !important;}.uib-position-scrollbar-measure{position:absolute !important;top:-9999px !important;width:50px !important;height:50px !important;overflow:scroll !important;}.uib-position-body-scrollbar-measure{overflow:scroll !important;}</style>'), angular.$$uibPositionCss = !0;
 }), angular.module("ui.bootstrap.carousel").run(function () {
   !angular.$$csp().noInlineStyle && !angular.$$uibCarouselCss && angular.element(document).find("head").prepend('<style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style>'), angular.$$uibCarouselCss = !0;
+});
+"use strict";
+
+angular.module('toyota').directive("accessoriesDir", function () {
+
+    return {
+
+        templateUrl: "./app/directives/accessories-dir/accessories-dir.html",
+        scope: {},
+        controller: function controller($scope, buildTacomaSvc) {
+
+            buildTacomaSvc.TRDaccessories().then(function (res) {
+                //  console.log(res);
+                $scope.TRDacc = res.data;
+            });
+
+            $scope.itemClicked = function ($index) {
+                // console.log($index);
+                // console.log("clicked")
+                $scope.selectedIndex = $index;
+            };
+
+            $scope.addToSummary = function (product) {
+                // console.log(`${cabbed}`, product)
+                //     console.log(`Going to service with ${product}`)
+                buildTacomaSvc.addToSummary(product).then(function () {
+                    // Get the latest cart from the server. It has been updated.
+                    buildTacomaSvc.getSummary().then(function (res) {
+                        $scope.summary = res.data;
+                    });
+                });
+            };
+        }
+
+    };
+});
+"use strict";
+
+angular.module("toyota").directive("build-all-cars-minivans", function () {
+    return {
+        restrict: "E",
+        templateUrl: "build-all-cars-minivans.html"
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("cabsBeds", function () {
+
+    return {
+
+        templateUrl: "./app/directives/cabs_beds/cabs_beds.html",
+        // link: function (scope, element, attribute) {
+
+        // }
+        scope: {},
+        controller: function controller($scope, buildTacomaSvc) {
+
+            buildTacomaSvc.trdcabsbeds().then(function (res) {
+                //  console.log(res);
+                $scope.trdcabsbeds = res.data;
+            });
+
+            $scope.selectedIndex = 0;
+            $scope.itemClicked = function ($index) {
+                console.log($index);
+                $scope.selectedIndex = $index;
+            };
+
+            // These methods are for builidng a cart or summary page  
+            // $scope.summmary = {}
+            $scope.addToSummary = function (product) {
+                // console.log(`${cabbed}`, product)
+                //     console.log(`Going to service with ${product}`)
+                buildTacomaSvc.addToSummary(product).then(function () {
+                    // Get the latest cart from the server. It has been updated.
+                    buildTacomaSvc.getSummary().then(function (res) {
+                        $scope.summary = res.data;
+                    });
+                });
+            };
+
+            // buildTacomaSvc.getSummary().then((res) => {
+            //     console.log(res);
+            //     $scope.summary = res.data;
+            // })
+        }
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("tacomaColor", function () {
+
+    return {
+
+        templateUrl: "./app/directives/colors_tacoma/tacoma-colors.html",
+        scope: {},
+        controller: function controller($scope, buildTacomaSvc) {
+
+            buildTacomaSvc.trdcolors().then(function (res) {
+                //  console.log(res);
+                $scope.trdcolors = res;
+                //  console.log($scope.trdcolors)
+            });
+            $scope.addToSummary = function (product) {
+                // console.log(`${cabbed}`, product)
+                //     console.log(`Going to service with ${product}`)
+                buildTacomaSvc.addToSummary(product).then(function () {
+                    // Get the latest cart from the server. It has been updated.
+                    buildTacomaSvc.getSummary().then(function (res) {
+                        $scope.summary = res.data;
+                    });
+                });
+            };
+        }
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("configureMotor", function () {
+
+    return {
+
+        templateUrl: "./app/directives/configuration/configuremotor.html",
+        scope: {},
+        controller: function controller($scope, buildTacomaSvc) {
+
+            buildTacomaSvc.trdconfiguration().then(function (res) {
+                //  console.log(res);
+                $scope.trdconfiguration = res.data;
+            });
+
+            $scope.selectedIndex = 0;
+            $scope.itemClicked = function ($index) {
+                console.log($index);
+                $scope.selectedIndex = $index;
+            };
+
+            // These methods are for builidng a cart or summary page  
+            // $scope.summmary = {}
+            $scope.addToSummary = function (product) {
+                console.log(product
+                //     console.log(`Going to service with ${product}`)
+                );buildTacomaSvc.addToSummary(product).then(function () {
+                    // Get the latest cart from the server. It has been updated.
+                    // buildTacomaSvc.getSummary().then((res) => {
+                    //     $scope.summary = res.data;
+                    // })
+
+                });
+            };
+
+            // buildTacomaSvc.getSummary().then((res) => {
+            //     console.log(res);
+            //     $scope.summary = res.data;
+            // })
+        }
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("gradesInitial", function () {
+
+    return {
+
+        templateUrl: "./app/directives/grades/gradesInitial.html",
+        // link: function (scope, element, attribute) {
+
+        // }
+        scope: {},
+        controller: function controller($scope, buildTacomaSvc, $rootScope) {
+            //   get info for grades selection cards for ng repeat
+            buildTacomaSvc.tacomagrades().then(function (res) {
+                //  console.log(res);
+                $scope.tacomagrades = res.data;
+            }
+
+            // zero in on ng repeat to have class chagne on button click etc
+            );$scope.selectedIndex = 0;
+            $scope.itemClicked = function ($index) {
+                // console.log($index);
+                $scope.selectedIndex = $index;
+            };
+            //  all this below is code for chaning class that I originally was using save for reference
+            // $scope.selected = 0;
+
+            // $scope.select = function (index) {
+            //     $scope.selected = index;
+            // };
+
+            // $scope.class = "select-button";
+
+            // $scope.changeClass = () => {
+            //     if ($scope.class === "select-button")
+            //         $scope.class = "selected-button";
+            //     else if ($scope.class === "selected-button")
+            //         $scope.class = "select-button";
+            // };
+            // $scope.toggle = true;
+            //  $scope.toggleObject = {item: -1};
+            //  $scope.$watch('toggle', () => {
+            //     $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
+            // })
+
+
+            // grab photos for changint the slider
+
+            buildTacomaSvc.trdcolors().then(function (res) {
+                $scope.photos = res.images;
+            });
+            $rootScope.images = buildTacomaSvc.photos;
+            console.log($rootScope.images);
+            $scope.changeSliderPhotos = function (id) {
+                // console.log(id)
+                buildTacomaSvc.getTRDphotos(id).then(function (res) {
+                    $rootScope.$broadcast('newImages', { images: res });
+                });
+            };
+
+            // These methods are for builidng a cart or summary page  
+            // $scope.summmary = {}
+            $scope.addToSummary = function (product) {
+                // console.log(product)
+                //     console.log(`Going to service with ${product}`)
+                buildTacomaSvc.addToSummary(product).then(function () {
+                    // Get the latest cart from the server. It has been updated.
+                    buildTacomaSvc.getSummary().then(function (res) {
+                        $scope.summary = res.data;
+                    });
+                });
+            };
+
+            // buildTacomaSvc.getSummary().then((res) => {
+            //     console.log(res);
+            //     $scope.summary = res.data;
+            // })
+
+        }
+
+    };
+});
+'use strict';
+
+angular.module('toyota').service('modalSvc', function () {
+        var modals = []; // array of modals on the page
+        var service = {};
+
+        service.Add = Add;
+        service.Remove = Remove;
+        service.Open = Open;
+        service.Close = Close;
+
+        return service;
+
+        function Add(modal) {
+                // add modal to array of active modals
+                modals.push(modal);
+        }
+
+        function Remove(id) {
+                // remove modal from array of active modals
+                var modalToRemove = _.findWhere(modals, { id: id });
+                modals = _.without(modals, modalToRemove);
+        }
+
+        function Open(id) {
+                // open modal specified by id
+                var modal = _.findWhere(modals, { id: id });
+                modal.open();
+        }
+
+        function Close(id) {
+                // close modal specified by id
+                var modal = _.findWhere(modals, { id: id });
+                modal.close();
+        }
+});
+'use strict';
+
+angular.module('toyota').directive('raqmodal', function (modalSvc) {
+    return {
+        templateUrl: "./app/directives/modal/raq.html",
+
+        link: function link(scope, element, attrs) {
+            // ensure id attribute exists
+            if (!attrs.id) {
+                console.error('modal must have an id');
+                return;
+            }
+
+            // move element to bottom of page (just before </body>) so it can be displayed above everything else
+            element.appendTo('body');
+
+            // close modal on background click
+            element.on('click', function (e) {
+                var target = $(e.target);
+                if (!target.closest('.modal-body').length) {
+                    scope.$evalAsync(Close);
+                }
+            });
+
+            // add self (this modal instance) to the modal service so it's accessible from controllers
+            var modal = {
+                id: attrs.id,
+                open: Open,
+                close: Close
+            };
+            ModalService.Add(modal);
+
+            // remove self from modal service when directive is destroyed
+            scope.$on('$destroy', function () {
+                ModalService.Remove(attrs.id);
+                element.remove();
+            });
+
+            // open modal
+            function Open() {
+                element.show();
+                $('body').addClass('modal-open');
+            }
+
+            // close modal
+            function Close() {
+                element.hide();
+                $('body').removeClass('modal-open');
+            }
+        }
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("packages", function () {
+
+    return {
+
+        templateUrl: "./app/directives/packages/tacoma_packages.html",
+        // link: function (scope, element, attribute) {
+
+        // }
+        scope: {},
+        controller: function controller($scope, buildTacomaSvc) {
+
+            buildTacomaSvc.trdpackages().then(function (res) {
+                //  console.log(res);
+                $scope.trdpackages = res.data;
+            });
+
+            $scope.selectedIndex = 0;
+            $scope.itemClicked = function ($index) {
+                console.log($index, "test");
+                $scope.selectedIndex = $index;
+            };
+
+            // These methods are for builidng a cart or summary page  
+            // $scope.summmary = {}
+            $scope.addToSummary = function (product) {
+                console.log(product
+                //     console.log(`Going to service with ${product}`)
+                );buildTacomaSvc.addToSummary(product).then(function () {
+                    // Get the latest cart from the server. It has been updated.
+                    // buildTacomaSvc.getSummary().then((res) => {
+                    //     $scope.summary = res.data;
+                    // })
+
+                });
+            };
+
+            // buildTacomaSvc.getSummary().then((res) => {
+            //     console.log(res);
+            //     $scope.summary = res.data;
+            // })
+        }
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("slider1", function () {
+
+    return {
+
+        templateUrl: "./app/directives/slider1-dir/slider1.html",
+        link: function link(scope, element, attribute) {
+            $('.single-item').slick({
+                dots: true,
+                infinite: true,
+                slidesToShow: 1,
+                centerMode: true,
+                singleItem: true,
+                accessibility: true,
+                arrows: true
+
+            });
+        }
+
+    };
+});
+"use strict";
+
+angular.module("toyota").directive("slider2", function ($timeout, buildTacomaSvc) {
+
+    return {
+        templateUrl: "./app/directives/slider2/slider2.html",
+        restrict: 'AE',
+        replace: true,
+        scope: {},
+        link: function link(scope, elem, attrs) {
+            // // if ()
+            // scope.currentIndex = 0; // Initially the index is at the first image
+
+            // scope.next =  () => {
+            //     scope.currentIndex < scope.images.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
+            // };
+
+            // scope.prev =  () => {
+            //     scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.images.length - 1;
+            // };
+            // scope.$watch('currentIndex',  () => {
+            //     scope.images.forEach( (image) => {
+            //         image.visible = false; // make every image invisible
+            //     });
+
+            //     scope.images[scope.currentIndex].visible = true; // make the current image visible
+
+            // });
+            // scope.$watch('buildTacomaSvc.photos', (newVal)=> {
+            //     console.log("hi")
+            //     scope.images = buildTacomaSvc.photos
+            // })
+        },
+        controller: function controller($scope, buildTacomaSvc, $rootScope) {
+
+            $scope.currentIndex = 0; // Initially the index is at the first image
+
+            $scope.next = function () {
+                $scope.currentIndex < $scope.images.length - 1 ? $scope.currentIndex++ : $scope.currentIndex = 0;
+            };
+
+            $scope.prev = function () {
+                $scope.currentIndex > 0 ? $scope.currentIndex-- : $scope.currentIndex = $scope.images.length - 1;
+            };
+            $scope.$watch('currentIndex', function () {
+                $scope.images.forEach(function (image) {
+                    image.visible = false; // make every image invisible
+                });
+
+                $scope.images[$scope.currentIndex].visible = true; // make the current image visible
+            });
+
+            $scope.set_size = function (image) {
+                if (image.title === "Pic 6" || image.title === "Pic 7" || image.title === "Pic 8") {
+                    return { width: "500px", "box-shadow": "0 1px 5px 2px rgba(0,0,0,.15)", top: "34px", "margin-left": "56px" };
+                }
+            };
+            $scope.images = buildTacomaSvc.photos;
+            $scope.$on('newImages', function (event, args) {
+                console.log(args);
+                $scope.images = args.images;
+                $scope.next();
+            }
+
+            //             $scope.$watchCollection('images', function(newImages, oldImages) {
+            //   $scope.images = newImages;
+            // });
+            // $scope.$watch('buildTacomaSvc.photos', (newVal)=> {
+            //     console.log(newVal)
+
+            //    console.log("hello")
+            // })
+
+            // $scope.images = [{
+            //     src: '../../app/images/build-tacoma-home/sr-1.png',
+            //     title: 'Pic 1'
+            // }, {
+            //     src: '../../app/images/build-tacoma-home/sr-2.png',
+            //     title: 'Pic 2'
+            // }, {
+            //     src: '../../app/images/build-tacoma-home/sr-3.png',
+            //     title: 'Pic 3'
+            // }, {
+            //     src: '../../app/images/build-tacoma-home/sr-4.png',
+            //     title: 'Pic 4'
+            // }, {
+            //     src: '../../app/images/build-tacoma-home/sr-5.png',
+            //     title: 'Pic 5'
+            // },
+            //  {
+            //     src: '../../app/images/build-tacoma-home/sr-6-interior1.png',
+            //     title: 'Pic 6'
+            // }, {
+            //     src: '../../app/images/build-tacoma-home/sr-7-interior2.png',
+            //     title: 'Pic 7'
+            // }, {
+            //     src: '../../app/images/build-tacoma-home/sr-8-interior3.png',
+            //     title: 'Pic 8'
+            // }];
+            );
+        }
+
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("summary", function () {
+
+    return {
+
+        templateUrl: "./app/directives/summary/summary_cart.html",
+        // link: function (scope, element, attribute) {
+
+        // }
+        scope: {},
+        controller: function controller($scope, buildTacomaSvc) {
+
+            buildTacomaSvc.getSummary().then(function (res) {
+                $scope.summary = res.data;
+                console.log($scope.summary);
+                console.log("see me?"
+                // console.log("I am right here in the summary")
+                );
+            });
+        }
+    };
 });
 'use strict';
 

@@ -2,12 +2,12 @@
 
 <div class="summary-container">
     <section class="head">
-        <h2>{{summary.year}} {{summary.model}} {{summary.grade}}<a href="#" class="edit" data-step="color">Edit</a></h2>
-        <h3>4x4, {{summary.details_1}}, 6-Speed Automatic {{cabbed.type}}</h3>
+        <h2>{{summary[0].year}} {{summary[0].model}} {{summary[0].grade}}<a href="#" class="edit" data-step="color">Edit</a></h2>
+        <h3>4x4, {{summary[0].details_1}}, 6-Speed Automatic {{summary[2].type}}</h3>
     </section>
     <section class="starting-msrp">
         <h4>STARTING MSRP</h4>
-        <div class="price">${{summary.price}}</div>
+        <div class="price">${{summary[0].price}}</div>
     </section>
     <div class="summary-colors-wrap">
         <section class="colors-exterior">

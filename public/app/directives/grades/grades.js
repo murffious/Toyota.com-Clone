@@ -6,7 +6,8 @@ angular.module('toyota').directive("gradesInitial", function () {
         // link: function (scope, element, attribute) {
 
         // }
-        controller: ($scope, buildTacomaSvc) => {
+        scope: {},
+        controller: ($scope, buildTacomaSvc, $rootScope) => {
             //   get info for grades selection cards for ng repeat
             buildTacomaSvc.tacomagrades().then((res) => {
                 //  console.log(res);
@@ -46,10 +47,14 @@ angular.module('toyota').directive("gradesInitial", function () {
             buildTacomaSvc.trdcolors().then((res) => {
                 $scope.photos = res.images
             })
-            
+            $rootScope.images = buildTacomaSvc.photos
+            console.log($rootScope.images)
             $scope.changeSliderPhotos = (id) => {
                 // console.log(id)
-                 return  buildTacomaSvc.getTRDphotos(id) 
+                 buildTacomaSvc.getTRDphotos(id).then((res) => {
+                     $rootScope.$broadcast('newImages', {images: res})
+                    
+                 }) 
 
             }
 

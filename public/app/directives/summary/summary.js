@@ -6,6 +6,7 @@ angular.module('toyota').directive("summary", function () {
         // link: function (scope, element, attribute) {
 
         // }
+        scope: {},
         controller: ($scope, buildTacomaSvc) => {
 
         

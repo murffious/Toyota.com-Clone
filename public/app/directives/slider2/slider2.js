@@ -5,43 +5,77 @@ angular.module("toyota").directive("slider2", function ($timeout, buildTacomaSvc
         restrict: 'AE',
         replace: true,
         scope: {
-            images: '='
+            
         },
         link:  (scope, elem, attrs) => {
-            scope.currentIndex = 0; // Initially the index is at the first image
+            // // if ()
+            // scope.currentIndex = 0; // Initially the index is at the first image
+            
+            // scope.next =  () => {
+            //     scope.currentIndex < scope.images.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
+            // };
 
-            scope.next =  () => {
-                scope.currentIndex < scope.images.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
-            };
+            // scope.prev =  () => {
+            //     scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.images.length - 1;
+            // };
+            // scope.$watch('currentIndex',  () => {
+            //     scope.images.forEach( (image) => {
+            //         image.visible = false; // make every image invisible
+            //     });
 
-            scope.prev =  () => {
-                scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.images.length - 1;
-            };
-            scope.$watch('currentIndex',  () => {
-                scope.images.forEach( (image) => {
-                    image.visible = false; // make every image invisible
-                });
-
-                scope.images[scope.currentIndex].visible = true; // make the current image visible
+            //     scope.images[scope.currentIndex].visible = true; // make the current image visible
                 
-            });
+            // });
             // scope.$watch('buildTacomaSvc.photos', (newVal)=> {
             //     console.log("hi")
             //     scope.images = buildTacomaSvc.photos
             // })
         },
-        controller: ($scope, buildTacomaSvc) => {
+        controller: ($scope, buildTacomaSvc, $rootScope) => {
             
+
+
+             $scope.currentIndex = 0; // Initially the index is at the first image
+            
+            $scope.next =  () => {
+                $scope.currentIndex < $scope.images.length - 1 ? $scope.currentIndex++ : $scope.currentIndex = 0;
+            };
+
+            $scope.prev =  () => {
+                $scope.currentIndex > 0 ? $scope.currentIndex-- : $scope.currentIndex = $scope.images.length - 1;
+            };
+            $scope.$watch('currentIndex',  () => {
+                $scope.images.forEach( (image) => {
+                    image.visible = false; // make every image invisible
+                });
+
+                $scope.images[$scope.currentIndex].visible = true; // make the current image visible
+                
+            });
+
+
+
             $scope.set_size = (image) => {
                     if(image.title === "Pic 6" ||image.title === "Pic 7" ||image.title=== "Pic 8" ) {
                         return {width: "500px", "box-shadow": "0 1px 5px 2px rgba(0,0,0,.15)", top: "34px", "margin-left": "56px"}
                     }
             }
             $scope.images = buildTacomaSvc.photos
-            // $scope.$apply()
+            $scope.$on('newImages', function (event, args) {
+                console.log(args)
+                $scope.images = args.images
+                $scope.next()
+                
+            })
+            
+            
+//             $scope.$watchCollection('images', function(newImages, oldImages) {
+//   $scope.images = newImages;
+// });
             // $scope.$watch('buildTacomaSvc.photos', (newVal)=> {
-            //     $scope.images = buildTacomaSvc.photos
-            //     console.log('hey')
+            //     console.log(newVal)
+               
+            //    console.log("hello")
             // })
             
             // $scope.images = [{

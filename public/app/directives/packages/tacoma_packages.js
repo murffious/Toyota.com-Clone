@@ -6,6 +6,7 @@ return {
     // link: function (scope, element, attribute) {
         
     // }
+    scope: {},
    controller: ($scope, buildTacomaSvc) => {
 
           buildTacomaSvc.trdpackages().then((res) => {
@@ -15,7 +16,7 @@ return {
             
             $scope.selectedIndex = 0;
             $scope.itemClicked = ($index) => {
-                console.log($index);
+                console.log($index, "test");
                 $scope.selectedIndex = $index;
             } 
 

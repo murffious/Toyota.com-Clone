@@ -9,7 +9,7 @@
         </div>
         <div class="main-exterior-colors">
            
-            <div ng-repeat="color in trdcolors" class="colors-item-wrapper" ng-attr-style="background-color: #{{color.inlinehexcode}};">
+            <div ng-repeat="color in trdcolors" class="colors-item-wrapper" ng-attr-style="background-color: #{{color.inlinehexcode}};" ng-click="itemClicked($index);  addToSummary(color)">
             </div>
             <!--<div style="background-color: #928466;" class="colors-item-wrapper">
             </div>

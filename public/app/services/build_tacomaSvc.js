@@ -1,4 +1,4 @@
-angular.module('toyota').service('buildTacomaSvc', function($http){
+angular.module('toyota').service('buildTacomaSvc', function($http, $state){
 
 const devUrl = 'http://localhost:3000'
 const service = this
@@ -47,13 +47,13 @@ this.addToSummary = (product) => {
     })
   }
 
-var photos = [{
+this.photos = [{
                 src: '../../app/images/build-tacoma-home/sr-1.png',
                 title: 'Pic 1'
-            }, {
+            },{
                 src: '../../app/images/build-tacoma-home/sr-2.png',
                 title: 'Pic 2'
-            }, {
+            },  {
                 src: '../../app/images/build-tacoma-home/sr-3.png',
                 title: 'Pic 3'
             }, {
@@ -73,25 +73,30 @@ var photos = [{
                 src: '../../app/images/build-tacoma-home/sr-8-interior3.png',
                 title: 'Pic 8'
             }];
-        // service.photos= {}
-service.photos = photos;
-//endpoint that is getting new photos based on what truck you clicked..... .then((res) => {
-    // service.photos = res.data pass id with it in abackend
-// })
+//         this.photos= {}
+// this.photos.photos = photos;
+
+
 this.getTRDphotos = (id) => {
-    $http.get(devUrl + '/getTRDphotos/' + id).then( (res)=> {
-        service.photos = res.data
+    return $http.get(devUrl + '/getTRDphotos/' + id).then( (res)=> {
+        console.log(res)
+        this.photos.photos = res.data[0].images
+       return res.data[0].images 
+        
+        // $state.go($state.current, {}, {reload: true})
+        // console.log(JSON.stringify(res.data, null, 2))
+        
         // var obj = {1: 11, 2: 22};
-var arr = Object.keys(service.photos).map((key) =>{ return service.photos[key]; });
-         console.log(service.photos)
-      var photos = arr.reduce( (t, c, i) => {
-                t.push({"src": c, title: "Pic " + (i +1)})
-                return t
-        }, [])
+// var arr = Object.keys(service.photos).map((key) =>{ return service.photos[key]; });
+        //  console.log(service.photos)
+    //   var photos = arr.reduce( (t, c, i) => {
+    //             t.push({"src": c, title: "Pic " + (i +1)})
+    //             return t
+    //     }, [])
         
     //    console.log(photos);
        
-        return photos
+        // return service.photos
     })
 
 } 

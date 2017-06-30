@@ -2,29 +2,29 @@ angular.module('toyota').controller('buildTacoma', function($scope, buildTacomaS
     $scope.broken = 'working'
 
 
-$scope.class = "select-button";
+// $scope.class = "select-button";
     
-    $scope.changeClass = () =>{
-        if ($scope.class === "select-button")
-            $scope.class = "selected-button";
-         else if ($scope.class === "selected-button")
-            $scope.class = "select-button";
-    };
-     $scope.toggle = true;
+//     $scope.changeClass = () =>{
+//         if ($scope.class === "select-button")
+//             $scope.class = "selected-button";
+//          else if ($scope.class === "selected-button")
+//             $scope.class = "select-button";
+//     };
+//      $scope.toggle = true;
     
-    $scope.$watch('toggle', () => {
-        $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
-    })
+//     $scope.$watch('toggle', () => {
+//         $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
+//     })
 
 // Slider or Carousel
-$('.variable-width').slick({
-  dots: true,
-  infinite: true,
-  speed: 300,
-  slidesToShow: 1,
-  centerMode: true,
-  variableWidth: true
-});
+// $('.variable-width').slick({
+//   dots: true,
+//   infinite: true,
+//   speed: 300,
+//   slidesToShow: 1,
+//   centerMode: true,
+//   variableWidth: true
+// });
 
 // Current method for changing pages....may use nested routing for more options with $locaition
 $scope.opencontent =  (num) => {

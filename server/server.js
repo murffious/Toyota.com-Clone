@@ -48,6 +48,7 @@ app.get('/getTRDphotos/:id', vehiclesCtrl.getTRDphotos)
 // summary page cart like feature
 app.post('/summary', summaryCtrl.addItemToSummary)
 app.get('/summary', summaryCtrl.getSummary)
+app.delete('/summary', summaryCtrl.removeItemFromSummary)
 //listening
 const port = 3000;
 app.listen(port, () => {

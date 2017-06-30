@@ -3,6 +3,7 @@ angular.module('toyota').directive("configureMotor", function () {
 return {
 
     templateUrl: "./app/directives/configuration/configuremotor.html",
+    scope: {},
     controller: ($scope, buildTacomaSvc) => {
 
           buildTacomaSvc.trdconfiguration().then((res) => {

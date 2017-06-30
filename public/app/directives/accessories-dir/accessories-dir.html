@@ -11,7 +11,7 @@
 </div>
 
 <div class="accessory-view-container">
-    <div ng-repeat='acc in TRDacc' ng-class="{ 'test-it-accessory-card-wrap': $index == selectedIndex }" ng-click="itemClicked($index)" class="accessory-card-wrap">
+    <div ng-repeat='acc in TRDacc' ng-class="{ 'test-it-accessory-card-wrap': $index == selectedIndex }" ng-click="itemClicked($index); addToSummary(acc)" class="accessory-card-wrap">
         <img src="{{acc.imageurl}}">
         <div class="acc-title">{{acc.model}}<sup>{{acc.disclaimer}}</sup>
         </div>
