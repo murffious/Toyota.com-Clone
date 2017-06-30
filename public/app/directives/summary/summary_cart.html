@@ -2,17 +2,17 @@
 
 <div class="summary-container">
     <section class="head">
-        <h2>{{summary.year}} {{summary.model}} {{summary.grade}}</h2>
-        <h3>4x4, {{summary.details_1}}, 6-Speed Automatic Double Cab, 5-ft. Short Bed</h3>
+        <h2>{{summary.year}} {{summary.model}} {{summary.grade}}<a href="#" class="edit" data-step="color">Edit</a></h2>
+        <h3>4x4, {{summary.details_1}}, 6-Speed Automatic {{cabbed.type}}</h3>
     </section>
     <section class="starting-msrp">
         <h4>STARTING MSRP</h4>
-        <div>${{summary.price}}</div>
+        <div class="price">${{summary.price}}</div>
     </section>
     <div class="summary-colors-wrap">
         <section class="colors-exterior">
             <h4>Exterior Color<a href="#" class="edit" data-step="color">Edit</a></h4>
-            <div style="background-color: #494848" href="" class="color-item" id="1001171" data-code="01G3" title="MAGNETIC GRAY METALLIC"></div>
+            <div style="background-color: #494848" href="" class="color-item" data-code="01G3" title="MAGNETIC GRAY METALLIC"></div>
             <span class="title" itemprop="color">MAGNETIC GRAY METALLIC</span>
 
             <div class="price">
@@ -36,7 +36,7 @@
         </div>
         <div class="package_list">
             <div class="package_item">
-                <span class="package_title">V6 Tow Package<sup data-code="tow" data-disclaimer="tow">49</sup></span>
+                <span class="package_title">V6 Tow Package<sup >49</sup></span>
                 <span class="package_price">$650</span>
             </div>
         </div>
@@ -58,19 +58,19 @@
         </div>
     </section>
     <section class="model-msrp">
-        <h4>MSRP</h4><div>$36,605</div>
+        <h4>MSRP</h4><div class="price">$36,605</div>
     </section>
     <section class="delivery-price">
-        <h4>DELIVERY, PROCESSING & HANDLING FEE</h4><div>$960</div>
+        <h4>DELIVERY, PROCESSING & HANDLING FEE</h4><div class="price">$960</div>
     </section>
     <section class="total-msrp">
-        <h4>TOTAL MSRP (MSRP) (AS BUILT)12</h4>
-        <div>$36,123</div>
+        <h4>TOTAL MSRP (MSRP) (AS BUILT)<sup>12</sup></h4>
+        <div id="total-msrp" class="price">$36,123</div>
     </section>
-    <nav>
-        <div><a>Search Inventory</a></div>
+    <nav class="summary-buttons">
+        <div><a></a>Search Inventory</a></div>
         <div>Local Specials</div>
-        <div>Request a Quote</div>
+        <div id="raq">Request a Quote</div>
     </nav>
 
 <!--this is test for cart-->

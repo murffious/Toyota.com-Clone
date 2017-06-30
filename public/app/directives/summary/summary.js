@@ -12,7 +12,8 @@ angular.module('toyota').directive("summary", function () {
             buildTacomaSvc.getSummary().then((res) => {
                 $scope.summary = res.data;
                 console.log($scope.summary)
-                console.log("I am right here in the summary")
+                console.log("see me?")
+                // console.log("I am right here in the summary")
             })
 
 

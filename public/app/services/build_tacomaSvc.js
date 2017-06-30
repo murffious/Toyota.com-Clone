@@ -4,10 +4,7 @@ const devUrl = 'http://localhost:3000'
 const service = this
 // build tacoma 
 this.tacomagrades = () => {
-    return $http.get(devUrl + '/tacomagrades').then( (res) => {
-        service.tacgrades = res.data
-        return res.data
-    })
+    return $http.get(devUrl + '/tacomagrades')
 
 } 
 this.trdcabsbeds = () => {
@@ -37,12 +34,12 @@ this.TRDaccessories = () => {
 
 
 // cart or summary
-this.addToSummary = function(product) {
+this.addToSummary = (product) => {
     console.log(`Adding ${product} to cart`)
     return $http.post('/summary', product)
   }
 
-  this.getSummary = function() {
+  this.getSummary = ()=>{
       console.log("hello there pal")
     return $http.get('/summary').then( (res) => {
         console.log(res.data)
@@ -84,9 +81,17 @@ service.photos = photos;
 this.getTRDphotos = (id) => {
     $http.get(devUrl + '/getTRDphotos/' + id).then( (res)=> {
         service.photos = res.data
-        console.log(service.photos);
+        // var obj = {1: 11, 2: 22};
+var arr = Object.keys(service.photos).map((key) =>{ return service.photos[key]; });
+         console.log(service.photos)
+      var photos = arr.reduce( (t, c, i) => {
+                t.push({"src": c, title: "Pic " + (i +1)})
+                return t
+        }, [])
+        
+    //    console.log(photos);
        
-        return service.photos
+        return photos
     })
 
 } 

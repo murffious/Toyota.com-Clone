@@ -988,6 +988,100 @@ dl {
     position: relative;
     width: 100%;
     padding: 30px 0; }
+  .summary-container h2 {
+    margin-bottom: 7px;
+    margin-left: 1px;
+    max-width: 400px;
+    color: #252525;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: .05em; }
+  .summary-container h3 {
+    padding-left: 4px;
+    max-width: 400px;
+    font-size: 20px;
+    letter-spacing: .033em;
+    line-height: 1.25em;
+    color: #2b2b2b; }
+  .summary-container h4 {
+    padding-left: 3px;
+    color: #666;
+    font-size: 13px;
+    line-height: 22px;
+    text-transform: uppercase; }
+  .summary-container a {
+    margin-left: 8px;
+    color: #c00;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase; }
+  .summary-container .price {
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 4px;
+    color: #252525;
+    font-size: 16px;
+    line-height: 36px; }
+  .summary-container span {
+    width: 70%;
+    margin: 3px 0;
+    padding-left: 3px;
+    color: #252525;
+    font-size: 16px;
+    line-height: 36px; }
+  .summary-container .accessory_price,
+  .summary-container .package_price {
+    float: right;
+    color: #666;
+    text-align: right;
+    margin: 3px 0;
+    padding-right: 2px; }
+
+.model-msrp {
+  border-top: 1px solid #ccc; }
+
+#total-msrp {
+  color: #09f;
+  font-size: 24px; }
+
+.summary-buttons {
+  margin-top: 33px;
+  padding-right: 4px;
+  padding-left: 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .summary-buttons div {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 291px;
+    margin-right: 20px;
+    height: auto;
+    background: #161616;
+    border-color: #1f1f1f;
+    background-position: 0 0;
+    background-size: 100% 400%;
+    -webkit-transition: background-position .5s;
+    transition: background-position .5s;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#414141), color-stop(25%, #2d2d2d), color-stop(50%, #2d2d2d), to(#2d2d2d));
+    background-image: linear-gradient(180deg, #414141, #2d2d2d 25%, #2d2d2d 50%, #2d2d2d);
+    display: block;
+    width: 100%;
+    color: #fff;
+    font-family: Helvetica Bold, Arial Bold, sans-serif;
+    font-size: 13px;
+    line-height: 52px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase; }
+
+#raq {
+  background-color: #f00000;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f00000), to(#cd0000));
+  background-image: linear-gradient(#f00000, #cd0000); }
 
 .colors-header {
   margin-bottom: 40px;

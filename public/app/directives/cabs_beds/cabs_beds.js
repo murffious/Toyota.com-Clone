@@ -24,13 +24,13 @@ return {
             // These methods are for builidng a cart or summary page  
             // $scope.summmary = {}
             $scope.addToSummary = (product) => {
-                console.log(product)
+                console.log(`${cabbed}`, product)
                 //     console.log(`Going to service with ${product}`)
                 buildTacomaSvc.addToSummary(product).then(() => {
                     // Get the latest cart from the server. It has been updated.
-                    // buildTacomaSvc.getSummary().then((res) => {
-                    //     $scope.summary = res.data;
-                    // })
+                    buildTacomaSvc.getSummary().then((res) => {
+                        $scope.summary = res.data;
+                    })
 
                 })
             }

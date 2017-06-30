@@ -40,10 +40,13 @@ $scope.viewSummary = () => {
             })
 }
 
-$scope.startingMSRP = 24,320
+$scope.startingMSRP = "24,320"
+$scope.startingTitle = "2017 Tacoma SR"
 $scope.getPriceandTitleChange = (grade) => {
    $scope.startingMSRP = (grade.price)
+   $scope.startingTitle = (grade.year + " "+ grade.model + " " + grade.grade) 
 }
+
 
  // make shift cart for summary  
 // $scope.options = buildTacomaSvc.getSummary(); 

@@ -56,7 +56,7 @@ angular.module('toyota').directive("gradesInitial", function () {
             // These methods are for builidng a cart or summary page  
             // $scope.summmary = {}
             $scope.addToSummary = (product) => {
-                console.log(product)
+                // console.log(product)
                 //     console.log(`Going to service with ${product}`)
                 buildTacomaSvc.addToSummary(product).then(() => {
                     // Get the latest cart from the server. It has been updated.
