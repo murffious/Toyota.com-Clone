@@ -54,6 +54,16 @@ module.exports = {
             console.log(error)
         })
     },
+    gettrdred:(req, res) => {
+   var id = req.params.id
+        // if 
+        req.app.get('db').gettrdred(id).then((items) => {
+            res.send(items)
+            console.log(items)
+        }).catch(function (error) {
+            console.log(error)
+        })
+    },
     getTacomacabsbeds: (req, res) => {
 
         req.app.get('db').tacomacabsbeds().then((items) => {

@@ -4,7 +4,7 @@ return {
 
     templateUrl: "./app/directives/colors_tacoma/tacoma-colors.html",
     scope: {},
-    controller: ($scope, buildTacomaSvc) => {
+    controller: ($scope, buildTacomaSvc, $rootScope) => {
 
           buildTacomaSvc.trdcolors().then((res) => {
             //  console.log(res);
@@ -22,6 +22,18 @@ return {
 
                 })
             }
+
+                $rootScope.images = buildTacomaSvc.photos
+            console.log($rootScope.images)
+            $scope.changeSliderPhotos = (id) => {
+                // console.log(id)
+                 buildTacomaSvc.gettrdred(id).then((res) => {
+                     $rootScope.$broadcast('newImages', {images: res})
+                    
+                 }) 
+
+            } 
+
         }
 }
 

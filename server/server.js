@@ -43,7 +43,7 @@ app.get('/trdcolors', vehiclesCtrl.getTacomaColors)
 app.get('/tacomapackages', vehiclesCtrl.getTacomapackages)
 app.get('/TRDaccessories', vehiclesCtrl.getTRDacc)
 app.get('/getTRDphotos/:id', vehiclesCtrl.getTRDphotos)
-
+app.get('/gettrdred/:id', vehiclesCtrl.gettrdred)
 
 // summary page cart like feature
 app.post('/summary', summaryCtrl.addItemToSummary)

@@ -79,7 +79,7 @@ this.photos = [{
 
 this.getTRDphotos = (id) => {
     return $http.get(devUrl + '/getTRDphotos/' + id).then( (res)=> {
-        console.log(res)
+        // console.log(res)
         this.photos.photos = res.data[0].images
        return res.data[0].images 
         
@@ -98,8 +98,16 @@ this.getTRDphotos = (id) => {
        
         // return service.photos
     })
+    
 
 } 
-
-
+this.gettrdred = (id) => {
+    return $http.get(devUrl + '/gettrdred/' + id).then( (res)=> {
+        console.log(res)
+        console.log("color change")
+        this.photos.photos = res.data[0].images
+       return res.data[0].images 
+        
+    })
+}
 })

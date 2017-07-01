@@ -1,8 +1,8 @@
 module.exports = {
 addItemToSummary: (req, res) => {
   const addedItem = req.body;
-  console.log("Item to be added: ", addedItem)
-  console.log("SESSION: ", req.session.summary)
+  // console.log("Item to be added: ", addedItem)
+  // console.log("SESSION: ", req.session.summary)
 
 if (!req.session.summary) {
   req.session.summary = []
@@ -12,7 +12,7 @@ if (!req.session.summary) {
 // }
 
  req.session.summary.push(addedItem)
- console.log("SESSION PART2: ", req.session.summary)
+//  console.log("SESSION PART2: ", req.session.summary)
 
 return res.status(200).send(req.session.summary)
 },
