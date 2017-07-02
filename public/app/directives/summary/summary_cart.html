@@ -58,24 +58,63 @@
         </div>
     </section>
     <section class="model-msrp">
-        <h4>MSRP</h4><div class="price">$36,605</div>
+        <h4>MSRP</h4>
+        <div class="price">$36,605</div>
     </section>
     <section class="delivery-price">
-        <h4>DELIVERY, PROCESSING & HANDLING FEE</h4><div class="price">$960</div>
+        <h4>DELIVERY, PROCESSING & HANDLING FEE</h4>
+        <div class="price">$960</div>
     </section>
     <section class="total-msrp">
         <h4>TOTAL MSRP (MSRP) (AS BUILT)<sup>12</sup></h4>
         <div id="total-msrp" class="price">$36,123</div>
     </section>
     <nav class="summary-buttons">
-        <div><a></a>Search Inventory</a></div>
+        <div><a></a>Search Inventory</a>
+        </div>
         <div>Local Specials</div>
-        
-            <div ng-click="vm.openModal('custom-modal-1')" id="raq">Request a Quote</div>
-           
-            
+
+        <div ng-click='toggleModal()' id="raq">Request a Quote</div>
+
+
     </nav>
-<!--<raqmodal id="custom-modal-1">
+    <modal-dialog show='modalShown' width='750px' height='90%'>
+        <div>
+            <h2>Contact A Dealer</h2>
+        </div>
+        <div class"raq-main">
+            <div class"summary-content-container">
+    <p>Your 2017 Tacoma SR</p>
+
+            </div>
+            <div class "dealer-select">
+                <h3>SELECT A DEALER</h3><input placeholder="Enter Zip">
+                <div>
+                    <dealer><span>Brent Brown Toyota</span></dealer>
+                    <a>VIEW MORE DEALERS</a>
+                </div>
+            </div>
+            <div>
+                <h3>Your Contact Information</h3>
+                <div><span>*Required</span></div>
+                <div class="input-section">
+                    <input class="input-textarea" placeholder="FIRST NAME*">
+                    <input class="input-textarea" placeholder="LAST NAME*">
+                    <input class="input-textarea" placeholder="EMAIL*">
+                    <input class="input-textarea" placeholder="PHONE">
+                    <input class="input-textarea" placeholder="ADDRESS">
+                    <input class="input-textarea" placeholder="CITY">
+                    <input class="comments-input" placeholder="COMMENTS">
+                </div>
+            </div>
+
+            <button id="quote-submitbtn">SUBMIT</button>
+        </div>
+
+
+    </modal-dialog>
+    <!--   ng-click="vm.openModal('custom-modal-1')"
+<raqmodal id="custom-modal-1">
     <div class="modal">
         <div class="modal-body">
             <h1>A Custom Modal!</h1>
@@ -87,7 +126,7 @@
     </div>
     <div class="modal-background"></div>
 </raqmodal>-->
-<!--this is test for cart-->
+    <!--this is test for cart-->
     <!--<div ng-repeat="product in products">
     <div ng-click="addToCart(product)">
       <h1>Name: {{product.name}}</h1>
@@ -100,5 +139,3 @@
     <li>Name: {{product.name}}</li>
   </ul>-->
 </div>
-
-

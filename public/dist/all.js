@@ -368,48 +368,6 @@ angular.module('toyota').directive("cabsBeds", function () {
 });
 "use strict";
 
-angular.module('toyota').directive("configureMotor", function () {
-
-    return {
-
-        templateUrl: "./app/directives/configuration/configuremotor.html",
-        scope: {},
-        controller: function controller($scope, buildTacomaSvc) {
-
-            buildTacomaSvc.trdconfiguration().then(function (res) {
-                //  console.log(res);
-                $scope.trdconfiguration = res.data;
-            });
-
-            $scope.selectedIndex = 0;
-            $scope.itemClicked = function ($index) {
-                console.log($index);
-                $scope.selectedIndex = $index;
-            };
-
-            // These methods are for builidng a cart or summary page  
-            // $scope.summmary = {}
-            $scope.addToSummary = function (product) {
-                console.log(product
-                //     console.log(`Going to service with ${product}`)
-                );buildTacomaSvc.addToSummary(product).then(function () {
-                    // Get the latest cart from the server. It has been updated.
-                    // buildTacomaSvc.getSummary().then((res) => {
-                    //     $scope.summary = res.data;
-                    // })
-
-                });
-            };
-
-            // buildTacomaSvc.getSummary().then((res) => {
-            //     console.log(res);
-            //     $scope.summary = res.data;
-            // })
-        }
-    };
-});
-"use strict";
-
 angular.module('toyota').directive("tacomaColor", function () {
 
     return {
@@ -448,6 +406,48 @@ angular.module('toyota').directive("tacomaColor", function () {
                     });
                 });
             };
+        }
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("configureMotor", function () {
+
+    return {
+
+        templateUrl: "./app/directives/configuration/configuremotor.html",
+        scope: {},
+        controller: function controller($scope, buildTacomaSvc) {
+
+            buildTacomaSvc.trdconfiguration().then(function (res) {
+                //  console.log(res);
+                $scope.trdconfiguration = res.data;
+            });
+
+            $scope.selectedIndex = 0;
+            $scope.itemClicked = function ($index) {
+                console.log($index);
+                $scope.selectedIndex = $index;
+            };
+
+            // These methods are for builidng a cart or summary page  
+            // $scope.summmary = {}
+            $scope.addToSummary = function (product) {
+                console.log(product
+                //     console.log(`Going to service with ${product}`)
+                );buildTacomaSvc.addToSummary(product).then(function () {
+                    // Get the latest cart from the server. It has been updated.
+                    // buildTacomaSvc.getSummary().then((res) => {
+                    //     $scope.summary = res.data;
+                    // })
+
+                });
+            };
+
+            // buildTacomaSvc.getSummary().then((res) => {
+            //     console.log(res);
+            //     $scope.summary = res.data;
+            // })
         }
     };
 });
@@ -666,6 +666,38 @@ angular.module('toyota').directive("packages", function () {
         }
     };
 });
+'use strict';
+
+angular.module('toyota').directive('modalDialog', function () {
+
+    return {
+
+        restrict: 'E',
+        scope: {
+            show: '='
+        },
+        // controller: ($scope) => {
+        //     $scope.modalShown = false;
+        //     $scope.toggleModal = function () {
+        //         console.log('click check')
+        //         $scope.modalShown = !$scope.modalShown;
+        //     };
+        // },
+        replace: true, // Replace with the template below
+        transclude: true, // we want to insert custom content inside the directive
+        link: function link(scope, element, attrs) {
+            scope.dialogStyle = {};
+            if (attrs.width) scope.dialogStyle.width = attrs.width;
+            if (attrs.height) scope.dialogStyle.height = attrs.height;
+            scope.hideModal = function () {
+                scope.show = false;
+            };
+        },
+        // templateUrl: "./app/directives/quotemodal/modal.html"
+        template: "<div class='ng-modal' ng-show='show'><div class='ng-modal-overlay' ng-click='hideModal()'></div><div class='ng-modal-dialog' ng-style='dialogStyle'><div class='ng-modal-close' ng-click='hideModal()'>X</div><div class='ng-modal-dialog-content' ng-transclude></div></div></div>"
+
+    };
+});
 "use strict";
 
 angular.module('toyota').directive("slider1", function () {
@@ -798,42 +830,51 @@ angular.module("toyota").directive("slider2", function ($timeout, buildTacomaSvc
 
 angular.module('toyota').directive("summary", function () {
 
-        return {
+            return {
 
-                templateUrl: "./app/directives/summary/summary_cart.html",
-                // link: function (scope, element, attribute) {
+                        templateUrl: "./app/directives/summary/summary_cart.html",
+                        // link: function (scope, element, attribute) {
 
-                // }
-                scope: {},
-                controller: function controller($scope, buildTacomaSvc, modalSvc) {
-
-                        buildTacomaSvc.getSummary().then(function (res) {
-                                $scope.summary = res.data;
-                                console.log($scope.summary);
-                                console.log("see me?"
-                                // console.log("I am right here in the summary")
-                                );
-                        }
-                        // var vm = this;
-
-                        // vm.openModal = openModal;
-                        // vm.closeModal = closeModal;
-
-                        // $scope.initController();
-
-                        // $scope.initController = function () {
-                        //     vm.bodyText = 'This text can be updated in modal 1';
                         // }
+                        scope: {},
+                        controller: function controller($scope, buildTacomaSvc, modalSvc) {
 
-                        );$scope.openModal = function (id) {
-                                modalSvc.Open(id);
-                        };
+                                    buildTacomaSvc.getSummary().then(function (res) {
+                                                $scope.summary = res.data;
+                                                console.log($scope.summary);
+                                                console.log("see me?"
+                                                // console.log("I am right here in the summary")
+                                                );
+                                    });
 
-                        $scope.closeModal = function (id) {
-                                modalSvc.Close(id);
-                        };
-                }
-        };
+                                    $scope.modalShown = false;
+                                    $scope.toggleModal = function () {
+                                                console.log($scope.modalShown);
+                                                $scope.modalShown = !$scope.modalShown;
+                                    };
+
+                                    // var vm = this;
+
+                                    // vm.openModal = openModal;
+                                    // vm.closeModal = closeModal;
+
+                                    // $scope.initController();
+
+                                    // $scope.initController = function () {
+                                    //     vm.bodyText = 'This text can be updated in modal 1';
+                                    // }
+                                    //    $scope.openModal =  (id) =>{
+                                    //         modalSvc.Open(id);
+                                    //     }
+
+                                    //     $scope.closeModal = (id) =>{
+                                    //         modalSvc.Close(id);
+                                    //     }
+
+                                    //     }
+
+                        }
+            };
 });
 "use strict";
 
