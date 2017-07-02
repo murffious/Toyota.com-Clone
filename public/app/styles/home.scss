@@ -63,8 +63,15 @@ a {
     font-size: 14px;
     padding-right: 8px;
     img {
-        width: 131px;
+        width: 227px;
         cursor: pointer;
+    }
+    button {
+        border: none;
+        background: none;
+        width: 200px;
+        font-size:  14px;
+        margin-left:2px;
     }
     .toy-logo-nav-wrapper {
         width: $site-width;
@@ -74,12 +81,13 @@ a {
         align-items: center;
         img {
             align-self: initial;
-            margin-right: 190px;
+            margin-right: 138px;
         }
     }
     li {
         list-style: none;
         padding: 0 18px;
+        width: 175px;
         letter-spacing: normal;
         word-spacing: normal;
         &:hover {
@@ -95,12 +103,13 @@ a {
     i {
         color: #CB2027;
         font-size: 1em;
+    
     }
 } //================ Build all View ===============
 .build-all-header-wrapper {
     margin: 0 auto;
     width: $site-width;
-    padding-top: 20px;
+    padding-top: 42px;
     h1 {
         font-size: 1.625rem;
         margin-top: 8px;
@@ -135,6 +144,7 @@ a {
         flex-direction: column;
         border: 1px solid white;
         padding: 20px 30px;
+    
         cursor: pointer;
         &:hover {
             border: 1px solid red;
@@ -153,6 +163,7 @@ a {
             }
         }
         .msrp-build-all {
+            width: 163px;
             padding-left: 7%;
             margin-top: 5px;
             margin-bottom: 4px;
@@ -167,7 +178,6 @@ a {
         }
         .as-shown {
             padding-left: 7%;
-            margin-top: 5px;
             color: #999;
             font-size: 10px;
         }
@@ -193,6 +203,7 @@ a {
     height: 329px;
    
     .your-build {
+        top: -12px;
         position: absolute;
         text-align: left;
         font-size: 1.1rem;
@@ -218,7 +229,7 @@ a {
         letter-spacing: -.02em;
         color: #000;
         left: 303px;
-        top: 34px;
+        top: 29px;
         font-size: 40px;
         max-width: 180px;
     }
@@ -247,24 +258,30 @@ a {
     color: #000;
     transition: color .3s ease 1s;
     width: auto;
+    font-size: 24px;
+    line-height: 24px;
     text-align: left;
     position: absolute;
-    right: 318px;
-    top: 20px;
+    right: 305px;
+    top: 27px;
 }
 
 .opening-build-msrp {
     text-align: left;
     position: absolute;
-    right: 318px;
+    right: 304px;
     top: 40px;
+    font-size: 13px;
+    color: #999;
+    letter-spacing: .025em;
+    padding-top: 13px;
 }
 
 .build-request-top {
     text-align: left;
     position: absolute;
-    right: 318px;
-    top: 61px;
+    right: 305px;
+    top: 87px;
     width: 130px;
     height: 40px;
     text-align: center;
@@ -637,6 +654,100 @@ dl {
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg);
     }
+}
+.nav .dot, .nav .dot a {
+    display: inline-block;
+    zoom: 1;
+}
+.dots .dot {
+    position: relative;
+    margin: 0 8px;
+    width: 12px;
+    height: 12px;
+}
+
+.dots .dot a {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 6px;
+    height: 6px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: #FFF;
+    border: 1px solid transparent;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-transition: background-color 0.25s, border-color 0.25s;
+    -moz-transition: background-color 0.25s, border-color 0.25s;
+    transition: background-color 0.25s, border-color 0.25s;
+   :after{content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    box-sizing: content-box;
+    height: 8px;
+    width: 8px;
+    z-index: 1;
+    background-color: #a2a2a2;
+    border: 2px solid #a2a2a2;
+    border-radius: 8px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: scale(.5);
+    transform: scale(.5);
+    } 
+}
+.dots .dot a.active {
+    border-color: #FFF;
+    background-color: transparent;
+    background: none;
+    border-color: #09f;
+    -webkit-transform: scale(1);
+    transform: scale(1)
+}
+.nav {
+    text-align: center;
+    display: block;
+    position: absolute;
+    z-index: 1002;
+    left: 0;
+    bottom: -4px;
+    right: 0;
+    height: 48px;
+}
+
+.nonDraggableImage{
+    -webkit-user-drag: none;
+}
+
+.nav .wrapper {
+    margin: 0 auto;
+    width: 100%;
+    padding: 1em 0 .8em;
+}
+
+.nav ul {
+    margin: 0;
+    width: 100%;
+}
+
+.nav .dot, .nav .dot a {
+    display: inline-block;
+    zoom: 1;
+}
+
+.dots .dot {
+    position: relative;
+    margin: 0 8px;
+    width: 12px;
+    height: 12px;
 }
 
 /*h1 {

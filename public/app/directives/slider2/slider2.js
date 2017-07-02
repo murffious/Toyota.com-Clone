@@ -62,9 +62,11 @@ angular.module("toyota").directive("slider2", function ($timeout, buildTacomaSvc
             }
             $scope.images = buildTacomaSvc.photos
             $scope.$on('newImages', function (event, args) {
-                console.log(args)
+                // console.log(args)
                 $scope.images = args.images
-                $scope.next()
+                // $scope.next()
+                //  $scope.currentIndex = 0
+                 $scope.images[$scope.currentIndex].visible = true
                 
             })
             

@@ -374,8 +374,14 @@ a {
   font-size: 14px;
   padding-right: 8px; }
   .toy-logo-nav img {
-    width: 131px;
+    width: 227px;
     cursor: pointer; }
+  .toy-logo-nav button {
+    border: none;
+    background: none;
+    width: 200px;
+    font-size: 14px;
+    margin-left: 2px; }
   .toy-logo-nav .toy-logo-nav-wrapper {
     width: 977px;
     display: -webkit-box;
@@ -391,10 +397,11 @@ a {
     .toy-logo-nav .toy-logo-nav-wrapper img {
       -ms-flex-item-align: initial;
       align-self: initial;
-      margin-right: 190px; }
+      margin-right: 138px; }
   .toy-logo-nav li {
     list-style: none;
     padding: 0 18px;
+    width: 175px;
     letter-spacing: normal;
     word-spacing: normal; }
     .toy-logo-nav li:hover {
@@ -410,7 +417,7 @@ a {
 .build-all-header-wrapper {
   margin: 0 auto;
   width: 977px;
-  padding-top: 20px; }
+  padding-top: 42px; }
   .build-all-header-wrapper h1 {
     font-size: 1.625rem;
     margin-top: 8px;
@@ -464,6 +471,7 @@ a {
         padding-top: 15px;
         font-weight: normal; }
     .build-all-section-container .build-all-wrap .msrp-build-all {
+      width: 163px;
       padding-left: 7%;
       margin-top: 5px;
       margin-bottom: 4px;
@@ -475,7 +483,6 @@ a {
           font-size: smaller; }
     .build-all-section-container .build-all-wrap .as-shown {
       padding-left: 7%;
-      margin-top: 5px;
       color: #999;
       font-size: 10px; }
 
@@ -496,6 +503,7 @@ a {
   position: relative;
   height: 329px; }
   .tacoma-build-top-wrap .your-build {
+    top: -12px;
     position: absolute;
     text-align: left;
     font-size: 1.1rem;
@@ -519,7 +527,7 @@ a {
     letter-spacing: -.02em;
     color: #000;
     left: 303px;
-    top: 34px;
+    top: 29px;
     font-size: 40px;
     max-width: 180px; }
 
@@ -544,22 +552,28 @@ a {
   -webkit-transition: color .3s ease 1s;
   transition: color .3s ease 1s;
   width: auto;
+  font-size: 24px;
+  line-height: 24px;
   text-align: left;
   position: absolute;
-  right: 318px;
-  top: 20px; }
+  right: 305px;
+  top: 27px; }
 
 .opening-build-msrp {
   text-align: left;
   position: absolute;
-  right: 318px;
-  top: 40px; }
+  right: 304px;
+  top: 40px;
+  font-size: 13px;
+  color: #999;
+  letter-spacing: .025em;
+  padding-top: 13px; }
 
 .build-request-top {
   text-align: left;
   position: absolute;
-  right: 318px;
-  top: 61px;
+  right: 305px;
+  top: 87px;
   width: 130px;
   height: 40px;
   text-align: center;
@@ -911,6 +925,91 @@ dl {
     border-right: none;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg); }
+
+.nav .dot, .nav .dot a {
+  display: inline-block;
+  zoom: 1; }
+
+.dots .dot {
+  position: relative;
+  margin: 0 8px;
+  width: 12px;
+  height: 12px; }
+
+.dots .dot a {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background: #FFF;
+  border: 1px solid transparent;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.25s, border-color 0.25s;
+  transition: background-color 0.25s, border-color 0.25s; }
+  .dots .dot a :after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 8px;
+    width: 8px;
+    z-index: 1;
+    background-color: #a2a2a2;
+    border: 2px solid #a2a2a2;
+    border-radius: 8px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5); }
+
+.dots .dot a.active {
+  border-color: #FFF;
+  background-color: transparent;
+  background: none;
+  border-color: #09f;
+  -webkit-transform: scale(1);
+  transform: scale(1); }
+
+.nav {
+  text-align: center;
+  display: block;
+  position: absolute;
+  z-index: 1002;
+  left: 0;
+  bottom: -4px;
+  right: 0;
+  height: 48px; }
+
+.nonDraggableImage {
+  -webkit-user-drag: none; }
+
+.nav .wrapper {
+  margin: 0 auto;
+  width: 100%;
+  padding: 1em 0 .8em; }
+
+.nav ul {
+  margin: 0;
+  width: 100%; }
+
+.nav .dot, .nav .dot a {
+  display: inline-block;
+  zoom: 1; }
+
+.dots .dot {
+  position: relative;
+  margin: 0 8px;
+  width: 12px;
+  height: 12px; }
 
 /*h1 {
   text-align: center;

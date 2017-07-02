@@ -2,6 +2,42 @@
   <div class="slide" ng-repeat="image in images" ng-show="image.visible">
     <img ng-style="set_size(image)" ng-src="{{image.src}}" />
   </div>
+
+  <!--this is for the dots on the slider -->
+  <!--<nav class="nav">
+        <div class="wrapper">
+            <ul class="dots">
+              <span>Exterior</span>
+                <li class="dot" >
+                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                       ng-click="setCurrentSlideIndex($index);"></a></li>
+                       <li class="dot" >
+                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                       ng-click="setCurrentSlideIndex($index);"></a></li>
+                       <li class="dot" >
+                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                       ng-click="setCurrentSlideIndex($index);"></a></li>
+                       <li class="dot" >
+                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                       ng-click="setCurrentSlideIndex($index);"></a></li>
+                       <li class="dot" >
+                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                       ng-click="setCurrentSlideIndex($index);"></a></li>
+                       </ul>
+                       <li class="dot" >
+                         
+                         <ul><span>Interior</span>
+                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                       ng-click="setCurrentSlideIndex($index);"></a></li>
+                       <li class="dot" >
+                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                       ng-click="setCurrentSlideIndex($index);"></a></li>
+                       <li class="dot" >
+                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                       ng-click="setCurrentSlideIndex($index);"></a></li>
+            </ul>
+        </div>
+    </nav>-->
   <div class="arrows" ng-click="prev()">
     	<i class="fa fa-caret-right" aria-hidden="true"></i>
     <!--<a  >

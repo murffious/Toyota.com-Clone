@@ -70,9 +70,23 @@
     <nav class="summary-buttons">
         <div><a></a>Search Inventory</a></div>
         <div>Local Specials</div>
-        <div id="raq">Request a Quote</div>
+        
+            <div ng-click="vm.openModal('custom-modal-1')" id="raq">Request a Quote</div>
+           
+            
     </nav>
-
+<!--<raqmodal id="custom-modal-1">
+    <div class="modal">
+        <div class="modal-body">
+            <h1>A Custom Modal!</h1>
+            <p>
+                Home page text: <input type="text" ng-model="vm.bodyText" />
+            </p>
+            <button >Close</button>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</raqmodal>-->
 <!--this is test for cart-->
     <!--<div ng-repeat="product in products">
     <div ng-click="addToCart(product)">
