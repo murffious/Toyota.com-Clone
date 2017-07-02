@@ -651,6 +651,8 @@ a {
   -webkit-box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.025);
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.025);
   margin-bottom: 24px; }
+  #tacoma-grade-build-card dl {
+    height: 58px; }
   #tacoma-grade-build-card img {
     width: 100%;
     padding: 15px; }
@@ -759,7 +761,7 @@ dl {
 
 .selected-button {
   margin-top: 0px;
-  margin-bottom: 33px;
+  margin-bottom: 39px;
   margin-right: 28px;
   margin-left: 22px;
   height: 48px;
@@ -870,6 +872,7 @@ dl {
   z-index: -5; }
 
 .arrows {
+  display: none;
   position: absolute;
   top: 68px;
   right: 0;
@@ -897,6 +900,7 @@ dl {
     transform: rotate(45deg); }
 
 .arrowsleft {
+  display: none;
   position: absolute;
   top: 68px;
   left: 0px;
@@ -925,6 +929,9 @@ dl {
     border-right: none;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg); }
+
+.tacoma-build-top-wrap:hover .arrowsleft, .tacoma-build-top-wrap:hover .arrows {
+  display: block; }
 
 .nav .dot, .nav .dot a {
   display: inline-block;
@@ -1267,24 +1274,40 @@ body.modal-open {
   -webkit-box-shadow: 2px 2px 3px 0 rgba(43, 43, 43, 0.3);
   box-shadow: 2px 2px 3px 0 rgba(43, 43, 43, 0.3); }
 
+.colors-item-selected {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  background-size: auto 100%;
+  transition: -webkit-transform .1s ease-in;
+  -webkit-transition: -webkit-transform .1s ease-in;
+  transition: transform .1s ease-in;
+  transition: transform .1s ease-in, -webkit-transform .1s ease-in;
+  border: 3px solid #09f;
+  border-radius: 4px;
+  -webkit-box-shadow: 2px 2px 3px 0 rgba(43, 43, 43, 0.3);
+  box-shadow: 2px 2px 3px 0 rgba(43, 43, 43, 0.3); }
+  .colors-item-selected .colors-item-selected:after {
+    content: url("../../images/svg/colorscheck.svg");
+    display: block;
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    bottom: -3px;
+    left: -3px;
+    background-color: transparent;
+    z-index: 1; }
+
 .interior-image {
   background-image: url("https://www.toyota.com/config/pub/static/images/TOY/2016/tacoma/interiorcolor/onswatchimage/f3a0384cb7d8c9a55dbfc88254c201a333f054806342ccd8f8cfb2a8bb29877e90d8aeb6353d937e805feeb200af39a5a944524053c149550474b3949a0a0419_my16-tacoma-DC-interior-on-TRD_OFFROAD_Graphite_FD15_v149_002.jpg"); }
 
 .orange-int {
   background-image: url("https://www.toyota.com/config/pub/static/images/TOY/2016/tacoma/interiorcolor/onswatchimage/fe7fefd019e7ade080e279f7f4eef3d1ee6d4f357008d405c5d55c6db4e6d041896c417fd8da9bd487bc840654b990b9eb9e983eb6c2d8a22359372d7c6e2d9f_my16-tacoma-DC-interior-on-TRD_OFFROAD_Black_FD24_v149_002.jpg"); }
 
-.color-item.selected:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: -3px;
-  right: -3px;
-  bottom: -3px;
-  left: -3px;
-  background-color: transparent;
+.color-item-selected {
   border: 3px solid #09f;
-  border-radius: 8px;
-  z-index: 1; }
+  border-radius: 8px; }
 
 .color-title {
   color: #999;

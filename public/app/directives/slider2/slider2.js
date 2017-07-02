@@ -57,7 +57,7 @@ angular.module("toyota").directive("slider2", function ($timeout, buildTacomaSvc
 
             $scope.set_size = (image) => {
                     if(image.title === "Pic 6" ||image.title === "Pic 7" ||image.title=== "Pic 8" ) {
-                        return {width: "500px", "box-shadow": "0 1px 5px 2px rgba(0,0,0,.15)", top: "34px", "margin-left": "56px"}
+                        return {width: "500px", "box-shadow": "0 1px 5px 2px rgba(0,0,0,.15)", top: "-12px", "margin-left": "56px"}
                     }
             }
             $scope.images = buildTacomaSvc.photos

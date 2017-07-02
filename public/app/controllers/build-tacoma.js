@@ -44,6 +44,8 @@ $scope.startingMSRP = "24,320"
 $scope.startingTitle = "2017 Tacoma SR"
 $scope.getPriceandTitleChange = (grade) => {
    $scope.startingMSRP = (grade.price)
+   console.log("price check")
+   console.log($scope.startingMSRP)
    $scope.startingTitle = (grade.year + " "+ grade.model + " " + grade.grade) 
 }
 

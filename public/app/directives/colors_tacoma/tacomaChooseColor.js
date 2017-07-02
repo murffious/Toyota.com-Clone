@@ -1,15 +1,15 @@
 angular.module('toyota').directive("tacomaColor", function () {
 
-return {
+    return {
 
-    templateUrl: "./app/directives/colors_tacoma/tacoma-colors.html",
-    scope: {},
-    controller: ($scope, buildTacomaSvc, $rootScope) => {
+        templateUrl: "./app/directives/colors_tacoma/tacoma-colors.html",
+        scope: {},
+        controller: ($scope, buildTacomaSvc, $rootScope) => {
 
-          buildTacomaSvc.trdcolors().then((res) => {
-            //  console.log(res);
-             $scope.trdcolors = res
-            //  console.log($scope.trdcolors)
+            buildTacomaSvc.trdcolors().then((res) => {
+                //  console.log(res);
+                $scope.trdcolors = res
+                //  console.log($scope.trdcolors)
             })
             $scope.addToSummary = (product) => {
                 // console.log(`${cabbed}`, product)
@@ -22,20 +22,26 @@ return {
 
                 })
             }
-
-                $rootScope.images = buildTacomaSvc.photos
+            $scope.selectedIndex = 0;
+            $scope.itemClicked = ($index) => {
+                console.log($index);
+                $scope.selectedIndex = $index;
+            }
+            $rootScope.images = buildTacomaSvc.photos
             console.log($rootScope.images)
             $scope.changeSliderPhotos = (id) => {
                 // console.log(id)
-                 buildTacomaSvc.gettrdred(id).then((res) => {
-                     $rootScope.$broadcast('newImages', {images: res})
-                    
-                 }) 
+                buildTacomaSvc.gettrdred(id).then((res) => {
+                    $rootScope.$broadcast('newImages', {
+                        images: res
+                    })
 
-            } 
+                })
+
+            }
 
         }
-}
+    }
 
 
 

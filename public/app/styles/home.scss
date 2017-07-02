@@ -201,7 +201,7 @@ a {
 .tacoma-build-top-wrap {
     position: relative;
     height: 329px;
-   
+  
     .your-build {
         top: -12px;
         position: absolute;
@@ -352,6 +352,9 @@ a {
     background-color: white;
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, .025); // width: calc(33% -12px);
     margin-bottom: 24px;
+    dl {
+        height: 58px;
+    }
     img {
         width: 100%;
         padding: 15px;
@@ -474,7 +477,7 @@ dl {
 
 .selected-button {
     margin-top: 0px;
-    margin-bottom: 33px;
+    margin-bottom: 39px;
     margin-right: 28px;
     margin-left: 22px;
     height: 48px;
@@ -600,6 +603,7 @@ dl {
 }     
 
 .arrows {
+    display: none;
     position: absolute;
     top: 68px;
     right: 0;
@@ -626,6 +630,7 @@ dl {
     }
 }
 .arrowsleft {
+    display: none;
     position: absolute;
     top: 68px;
     left: 0px;
@@ -655,6 +660,12 @@ dl {
         transform: rotate(45deg);
     }
 }
+.tacoma-build-top-wrap:hover  {
+    .arrowsleft, .arrows {
+        display: block;
+    }
+}
+
 .nav .dot, .nav .dot a {
     display: inline-block;
     zoom: 1;

@@ -6,7 +6,7 @@ angular.module('toyota').directive("gradesInitial", function () {
         // link: function (scope, element, attribute) {
 
         // }
-        scope: {},
+        
         controller: ($scope, buildTacomaSvc, $rootScope) => {
             //   get info for grades selection cards for ng repeat
             buildTacomaSvc.tacomagrades().then((res) => {
