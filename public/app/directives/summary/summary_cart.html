@@ -13,7 +13,7 @@
         <section class="colors-exterior">
             <h4>Exterior Color<a href="#" class="edit" data-step="color">Edit</a></h4>
             <div style="background-color: #494848" href="" class="color-item" data-code="01G3" title="MAGNETIC GRAY METALLIC"></div>
-            <span class="title" itemprop="color">MAGNETIC GRAY METALLIC</span>
+            <span class="title" itemprop="color">{{summary[3].exteriorname}}</span>
 
             <div class="price">
                 $0
@@ -32,12 +32,12 @@
     <section class="packages">
         <h4>Packages<a href="#" class="edit" data-step="package">Edit</a></h4>
         <div class="price">
-            $650
+            ${{summary[4].price}}
         </div>
         <div class="package_list">
             <div class="package_item">
-                <span class="package_title">V6 Tow Package<sup >49</sup></span>
-                <span class="package_price">$650</span>
+                <span class="package_title">{{summary[4].package}}<sup >49</sup></span>
+                <span class="package_price">${{summary[4].price}}</span>
             </div>
         </div>
     </section>
@@ -48,26 +48,29 @@
         </div>
         <div class="accessory_list">
             <div class="accessory_item">
-                <span class="accessory_title">Alloy Wheel Locks<sup data-code="installed_msrp" data-disclaimer="installed_msrp">44</sup></span>
-                <span class="accessory_price">$80</span>
+                <span class="accessory_title">{{summary[5].model}}<sup data-code="installed_msrp" data-disclaimer="installed_msrp">44</sup></span>
+                <span class="accessory_price">${{summary[5].price}}</span>
             </div>
-            <div class="accessory_item">
+            <!-- FIX THIS for more maybe ng repeat <div class="accessory_item">
                 <span class="accessory_title">Bed Mat<sup data-code="installed_msrp" data-disclaimer="installed_msrp">44</sup></span>
                 <span class="accessory_price">$120</span>
-            </div>
+            </div>-->
         </div>
     </section>
     <section class="model-msrp">
         <h4>MSRP</h4>
-        <div class="price">$36,605</div>
-    </section>
+        <div class="price">$33,560</div>
+        <!--{{summaryTotal}}-->
+    </section> 
     <section class="delivery-price">
         <h4>DELIVERY, PROCESSING & HANDLING FEE</h4>
         <div class="price">$960</div>
+        <!--This is something I would have to add to my data base an item on each vehicle this is based on type see disclosures on t com site-->
     </section>
     <section class="total-msrp">
         <h4>TOTAL MSRP (MSRP) (AS BUILT)<sup>12</sup></h4>
-        <div id="total-msrp" class="price">$36,123</div>
+        <div id="total-msrp" class="price">$34,900</div>
+        <!--{{summary[0].price + summary[4].price + summary[5].price + 960}}-->
     </section>
     <nav class="summary-buttons">
         <div><a></a>Search Inventory</a>
@@ -78,37 +81,41 @@
 
 
     </nav>
-    <modal-dialog show='modalShown' width='750px' height='90%'>
-        <div>
+    <modal-dialog show='modalShown' width='900px' height='83.5%'>
+        <div class="header-contact">
             <h2>Contact A Dealer</h2>
         </div>
-        <div class"raq-main">
-            <div class"summary-content-container">
-    <p>Your 2017 Tacoma SR</p>
+        <div class="raq-main">
+            <div class="summary-content-container">
+                <p>Your 2017 Tacoma SR</p>
 
             </div>
-            <div class "dealer-select">
-                <h3>SELECT A DEALER</h3><input placeholder="Enter Zip">
-                <div>
-                    <dealer><span>Brent Brown Toyota</span></dealer>
-                    <a>VIEW MORE DEALERS</a>
+            <div class="modal-dealer-contact-wrap">
+                <div class="dealer-select">
+                    <h3>SELECT A DEALER</h3><input placeholder="Enter Zip">
+                    <div class="dealers-wrap">
+                        <dealer><span>Brent Brown Toyota</span></dealer>
+                        <div><a>VIEW MORE DEALERS</a></div>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <h3>Your Contact Information</h3>
-                <div><span>*Required</span></div>
-                <div class="input-section">
-                    <input class="input-textarea" placeholder="FIRST NAME*">
-                    <input class="input-textarea" placeholder="LAST NAME*">
-                    <input class="input-textarea" placeholder="EMAIL*">
-                    <input class="input-textarea" placeholder="PHONE">
-                    <input class="input-textarea" placeholder="ADDRESS">
-                    <input class="input-textarea" placeholder="CITY">
-                    <input class="comments-input" placeholder="COMMENTS">
-                </div>
-            </div>
+                <div class="contact-container">
+                    <div>
+                        <h3>Your Contact Information</h3>
+                        <div><span>*Required</span></div>
+                        <div class="input-section">
+                            <input class="input-textarea" placeholder="FIRST NAME*">
+                            <input class="input-textarea" placeholder="LAST NAME*">
+                            <input class="input-textarea" placeholder="EMAIL*">
+                            <input class="input-textarea" placeholder="PHONE">
+                            <input class="input-textarea" placeholder="ADDRESS">
+                            <input class="input-textarea" placeholder="CITY">
+                            <input class="comments-input" placeholder="COMMENTS">
+                        </div>
+                    </div>
 
-            <button id="quote-submitbtn">SUBMIT</button>
+                    <button id="quote-submitbtn">SUBMIT</button>
+                </div>
+            </div>
         </div>
 
 

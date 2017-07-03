@@ -117,8 +117,11 @@
             text-transform: uppercase;
     }
 }
-
+.colors-exterior {
+    text-transform: uppercase;
+}
 #raq {
     background-color: #f00000;
     background-image: linear-gradient(#f00000, #cd0000);
+    font-weight: 800;
 }

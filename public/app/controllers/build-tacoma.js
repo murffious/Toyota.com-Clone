@@ -33,11 +33,12 @@ $scope.opencontent =  (num) => {
   
 }
 $scope.viewSummary = () => {
-    buildTacomaSvc.getSummary().then((res) => {
-                $scope.summary = res.data;
-                console.log($scope.summary)
-                console.log("I am right here in the summary")
-            })
+    // buildTacomaSvc.getSummary().then((res) => {
+    //             $scope.summary = res.data;
+    //             console.log($scope.summary)
+                
+    //             console.log("I am right here in the summary")
+    //         })
 }
 
 $scope.startingMSRP = "24,320"

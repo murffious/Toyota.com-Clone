@@ -2,7 +2,7 @@ angular.module('toyota').directive('modalDialog', function () {
 
     return {
 
-        restrict: 'E',
+        restrict: 'E', 
         scope: {
             show: '='
         },

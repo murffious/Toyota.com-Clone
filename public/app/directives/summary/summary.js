@@ -6,13 +6,25 @@ angular.module('toyota').directive("summary", function () {
         // link: function (scope, element, attribute) {
 
         // }
-        scope: {},
+        
         controller: ($scope, buildTacomaSvc, modalSvc) => {
 
 
             buildTacomaSvc.getSummary().then((res) => {
                 $scope.summary = res.data;
-                console.log($scope.summary)
+
+               
+                // console.log($scope.summary)
+                // $scope.summaryTotal =  $scope.summary.filter(product => {  if (product.price) {
+                //     return Number(product.price)
+                //      }
+                // }).reduce((sum, val) => {
+                //     return sum + val
+                // })  
+                // console.log($scope.summaryTotal)
+                // $scope.summaryTotal = summary[0].price + summary[4].price + summary[5].price;
+                
+                
                 console.log("see me?")
                 // console.log("I am right here in the summary")
             })
@@ -25,6 +37,8 @@ angular.module('toyota').directive("summary", function () {
                 $scope.modalShown = !$scope.modalShown;
 
             }
+
+
 
 
 

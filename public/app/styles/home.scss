@@ -70,8 +70,8 @@ a {
         border: none;
         background: none;
         width: 200px;
-        font-size:  14px;
-        margin-left:2px;
+        font-size: 14px;
+        margin-left: 2px;
     }
     .toy-logo-nav-wrapper {
         width: $site-width;
@@ -103,7 +103,6 @@ a {
     i {
         color: #CB2027;
         font-size: 1em;
-    
     }
 } //================ Build all View ===============
 .build-all-header-wrapper {
@@ -144,7 +143,6 @@ a {
         flex-direction: column;
         border: 1px solid white;
         padding: 20px 30px;
-    
         cursor: pointer;
         &:hover {
             border: 1px solid red;
@@ -201,7 +199,6 @@ a {
 .tacoma-build-top-wrap {
     position: relative;
     height: 329px;
-  
     .your-build {
         top: -12px;
         position: absolute;
@@ -234,7 +231,8 @@ a {
         max-width: 180px;
     }
 }
- .gray-half-top-wrap {
+
+.gray-half-top-wrap {
     height: 202px;
     width: 100%;
     background-color: #EDF0F5;
@@ -242,6 +240,7 @@ a {
     z-index: -100;
     top: -40px;
 }
+
 .slider-wrap {
     width: $site-width;
     margin: 0 auto;
@@ -251,8 +250,6 @@ a {
     width: $site-width;
     margin: 0 auto;
 }
-
-
 
 .opening-build-price {
     color: #000;
@@ -288,12 +285,16 @@ a {
     border: 2px solid #666;
     font-size: 13px;
     background-color: transparent;
+    z-index: 6;
+    .build-request-top:hover {
+        border: 2px solid red;
+        color: red;
+    }
 }
 
 .build-tacoma {
     background-color: #252525;
     height: 85px;
-    
     .tacoma-nav-container {
         width: $site-width;
         display: flex;
@@ -318,11 +319,28 @@ a {
             &:last-child {
                 border-right: 1px solid #444444;
             }
+            &:nth-last-child(2) {
+                border-right: none;
+            }
             img {
                 margin-bottom: 3px;
             }
             svg {
                 fill: #FCEFEF;
+            }
+            #summary-style {
+                color: white;
+                padding-top: 16px;
+                padding-bottom: 15px;
+                padding-right: 24px;
+                padding-left: 24px;
+                color: #fff;
+                background-color: red;
+                background-image: linear-gradient(red, #cd0000, #cd0000, #cd0000);
+                background-position: 0 0;
+                background-size: 100% 400%;
+                transition: background-position .3s;
+                 border-bottom: 2px solid #8f0000;
             }
         }
     }
@@ -598,9 +616,8 @@ dl {
         top: -98px;
         margin-left: -124px;
         z-index: -5;
-        
     }
-}     
+}
 
 .arrows {
     display: none;
@@ -612,7 +629,7 @@ dl {
     box-sizing: border-box;
     background: #2f3031;
     transition: background-color .5s ease;
-    :before {
+     :before {
         content: "";
         position: absolute;
         top: 50%;
@@ -629,6 +646,7 @@ dl {
         transform: rotate(45deg);
     }
 }
+
 .arrowsleft {
     display: none;
     position: absolute;
@@ -643,7 +661,7 @@ dl {
         color: white;
         font-size: 45px;
     }
-    :before {
+     :before {
         content: "";
         position: absolute;
         top: 50%;
@@ -660,16 +678,20 @@ dl {
         transform: rotate(45deg);
     }
 }
-.tacoma-build-top-wrap:hover  {
-    .arrowsleft, .arrows {
+
+.tacoma-build-top-wrap:hover {
+    .arrowsleft,
+    .arrows {
         display: block;
     }
 }
 
-.nav .dot, .nav .dot a {
+.nav .dot,
+.nav .dot a {
     display: inline-block;
     zoom: 1;
 }
+
 .dots .dot {
     position: relative;
     margin: 0 8px;
@@ -698,23 +720,25 @@ dl {
     -webkit-transition: background-color 0.25s, border-color 0.25s;
     -moz-transition: background-color 0.25s, border-color 0.25s;
     transition: background-color 0.25s, border-color 0.25s;
-   :after{content: "";
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    box-sizing: content-box;
-    height: 8px;
-    width: 8px;
-    z-index: 1;
-    background-color: #a2a2a2;
-    border: 2px solid #a2a2a2;
-    border-radius: 8px;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform: scale(.5);
-    transform: scale(.5);
-    } 
+     :after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        box-sizing: content-box;
+        height: 8px;
+        width: 8px;
+        z-index: 1;
+        background-color: #a2a2a2;
+        border: 2px solid #a2a2a2;
+        border-radius: 8px;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: scale(.5);
+        transform: scale(.5);
+    }
 }
+
 .dots .dot a.active {
     border-color: #FFF;
     background-color: transparent;
@@ -723,6 +747,7 @@ dl {
     -webkit-transform: scale(1);
     transform: scale(1)
 }
+
 .nav {
     text-align: center;
     display: block;
@@ -734,7 +759,7 @@ dl {
     height: 48px;
 }
 
-.nonDraggableImage{
+.nonDraggableImage {
     -webkit-user-drag: none;
 }
 
@@ -749,7 +774,8 @@ dl {
     width: 100%;
 }
 
-.nav .dot, .nav .dot a {
+.nav .dot,
+.nav .dot a {
     display: inline-block;
     zoom: 1;
 }
@@ -760,6 +786,7 @@ dl {
     width: 12px;
     height: 12px;
 }
+
 
 /*h1 {
   text-align: center;
