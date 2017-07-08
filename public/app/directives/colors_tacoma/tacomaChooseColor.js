@@ -24,11 +24,11 @@ angular.module('toyota').directive("tacomaColor", function () {
             }
             $scope.selectedIndex = 0;
             $scope.itemClicked = ($index) => {
-                console.log($index);
+                // console.log($index);
                 $scope.selectedIndex = $index;
             }
             $rootScope.images = buildTacomaSvc.photos
-            console.log($rootScope.images)
+            // console.log($rootScope.images)
             $scope.changeSliderPhotos = (id) => {
                 // console.log(id)
                 buildTacomaSvc.gettrdred(id).then((res) => {

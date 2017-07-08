@@ -1,3 +1,4 @@
-select images 
+select trdcolors.images 
 from trdcolors 
-where vehicleid = $1 AND exteriorname ='Black'
+join tacomagrades on trdcolors.vehicleid = tacomagrades.id 
+where trdcolors.vehicleid = $1 AND trdcolors.exteriorname ='Black'

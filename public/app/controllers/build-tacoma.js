@@ -33,20 +33,40 @@ $scope.opencontent =  (num) => {
   
 }
 $scope.viewSummary = () => {
-    // buildTacomaSvc.getSummary().then((res) => {
-    //             $scope.summary = res.data;
-    //             console.log($scope.summary)
-                
-    //             console.log("I am right here in the summary")
-    //         })
+    buildTacomaSvc.getSummary().then((res) => {
+    
+                $scope.summary = res.data;
+                console.log('RES: ', res)
+                console.log($scope.summary.length)
+                $scope.sumPageTotal = []
+                $scope.summary.map(e => {
+                    if(e.price){
+                         console.log("E price: ", e.price)
+                    let newPrice = e.price.replace(',', '')
+                    $scope.sumPageTotal.push(Number(newPrice)) 
+                }
+                })
+                let totalPrice = $scope.sumPageTotal.reduce((a, b) => (a + b)).toLocaleString()
+                console.log("total: ", totalPrice)
+               $scope.total4Summary = totalPrice
+
+               $scope.final = $scope.total4Summary.forEach(() => {
+                    (Number($scope.total4Summary) + Number(960))
+                    console.log($scope.final)
+                })
+                // var y = $scope.numbers.reduce((a, b) => (a + b)).toLocaleString()
+                // y = $scope.sumPageTotal;
+                // console.log($scope.sumPageTotal)
+                // console.log("I am right here in the summary")
+            })
 }
 
 $scope.startingMSRP = "24,320"
 $scope.startingTitle = "2017 Tacoma SR"
 $scope.getPriceandTitleChange = (grade) => {
    $scope.startingMSRP = (grade.price)
-   console.log("price check")
-   console.log($scope.startingMSRP)
+//    console.log("price check")
+//    console.log($scope.startingMSRP)
    $scope.startingTitle = (grade.year + " "+ grade.model + " " + grade.grade) 
 }
 

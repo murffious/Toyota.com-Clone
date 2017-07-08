@@ -48,7 +48,7 @@ angular.module('toyota').directive("gradesInitial", function () {
                 $scope.photos = res.images
             })
             $rootScope.images = buildTacomaSvc.photos
-            console.log($rootScope.images)
+            // console.log($rootScope.images)
             $scope.changeSliderPhotos = (id) => {
                 // console.log(id)
                  buildTacomaSvc.getTRDphotos(id).then((res) => {

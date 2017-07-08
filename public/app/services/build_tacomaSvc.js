@@ -35,14 +35,14 @@ this.TRDaccessories = () => {
 
 // cart or summary
 this.addToSummary = (product) => {
-    console.log(`Adding ${product} to cart`)
+    // console.log(`Adding ${product} to cart`)
     return $http.post('/summary', product)
   }
 
   this.getSummary = ()=>{
-      console.log("hello there pal")
+    //   console.log("hello there pal")
     return $http.get('/summary').then( (res) => {
-        console.log(res.data)
+        // console.log(res.data)
         return res
     })
   }
@@ -103,8 +103,8 @@ this.getTRDphotos = (id) => {
 } 
 this.gettrdred = (id) => {
     return $http.get(devUrl + '/gettrdred/' + id).then( (res)=> {
-        console.log(res)
-        console.log("color change")
+        // console.log(res)
+        // console.log("color change")
         this.photos.photos = res.data[0].images
        return res.data[0].images 
         
