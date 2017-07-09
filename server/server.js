@@ -8,19 +8,19 @@ const session = require('express-session')
 const vehiclesCtrl = require('./vehiclesCtrl');
 const summaryCtrl = require('./summaryCtrl')
 const path = require("path")
-
+// .env file all caps: no quotes 
 const app = express();
 //middleware
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, "..", "/public")))
 app.use(cors());
 app.use(session ({
-   secret: config.secret,
+   secret: process.env.secret,
    resave: false,
    saveUninitialized: false 
 }))
 
-massive(config.database).then(db => {
+massive(process.env.connectionString).then(db => {
     app.set('db', db)
 }).catch((err) => {
     console.log(err)
@@ -51,6 +51,6 @@ app.get('/summary', summaryCtrl.getSummary)
 app.delete('/summary', summaryCtrl.removeItemFromSummary)
 //listening
 const port = 3000;
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Listening on port: ${port}`);
 })

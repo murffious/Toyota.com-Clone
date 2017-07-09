@@ -50,10 +50,10 @@ $scope.viewSummary = () => {
                 console.log("total: ", totalPrice)
                $scope.total4Summary = totalPrice
 
-               $scope.final = $scope.total4Summary.forEach(() => {
-                    (Number($scope.total4Summary) + Number(960))
-                    console.log($scope.final)
-                })
+            //    $scope.final = $scope.total4Summary.forEach(() => {
+            //         (Number($scope.total4Summary) + Number(960))
+            //         console.log($scope.final)
+            //     })
                 // var y = $scope.numbers.reduce((a, b) => (a + b)).toLocaleString()
                 // y = $scope.sumPageTotal;
                 // console.log($scope.sumPageTotal)

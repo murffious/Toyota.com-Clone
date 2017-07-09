@@ -1,33 +1,34 @@
 angular.module('toyota').service('buildTacomaSvc', function($http, $state){
 
 const devUrl = 'http://localhost:3000'
+const hostedUrl = 'https://git.heroku.com/paulmurff.git'
 const service = this
 // build tacoma 
 this.tacomagrades = () => {
-    return $http.get(devUrl + '/tacomagrades')
+    return $http.get(hostedUrl + '/tacomagrades')
 
 } 
 this.trdcabsbeds = () => {
-    return $http.get(devUrl + '/tacomacabsbeds')
+    return $http.get(hostedUrl + '/tacomacabsbeds')
 
 } 
 this.trdconfiguration = () => {
-    return $http.get(devUrl + '/tacomaconfiguration')
+    return $http.get(hostedUrl + '/tacomaconfiguration')
 
 } 
 this.trdcolors = () => {
-    return $http.get(devUrl + '/trdcolors').then( (res) => {
+    return $http.get(hostedUrl + '/trdcolors').then( (res) => {
         service.colors = res.data
         return res.data
     })
 } 
 this.trdpackages = () => {
-    return $http.get(devUrl + '/tacomapackages')
+    return $http.get(hostedUrl + '/tacomapackages')
 
 } 
 
 this.TRDaccessories = () => {
-    return $http.get(devUrl + '/TRDaccessories')
+    return $http.get(hostedUrl + '/TRDaccessories')
 
 } 
 
@@ -78,7 +79,7 @@ this.photos = [{
 
 
 this.getTRDphotos = (id) => {
-    return $http.get(devUrl + '/getTRDphotos/' + id).then( (res)=> {
+    return $http.get(hostedUrl + '/getTRDphotos/' + id).then( (res)=> {
         // console.log(res)
         this.photos.photos = res.data[0].images
        return res.data[0].images 
@@ -102,7 +103,7 @@ this.getTRDphotos = (id) => {
 
 } 
 this.gettrdred = (id) => {
-    return $http.get(devUrl + '/gettrdred/' + id).then( (res)=> {
+    return $http.get(hostedUrl + '/gettrdred/' + id).then( (res)=> {
         // console.log(res)
         // console.log("color change")
         this.photos.photos = res.data[0].images
