@@ -179,7 +179,7 @@ angular.module('toyota').service('buildAllSvc', function ($http) {
     var hostedUrl = 'https://git.heroku.com/paulmurff.git';
 
     this.getCarsAndVans1 = function () {
-        return $http.get(hostedUrll + '/carsandvans');
+        return $http.get(hostedUrl + '/carsandvans');
     };
     this.gettrucks1 = function () {
         return $http.get(hostedUrl + '/trucks');
@@ -342,14 +342,6 @@ angular.module('toyota').directive("accessoriesDir", function () {
 });
 "use strict";
 
-angular.module("toyota").directive("build-all-cars-minivans", function () {
-    return {
-        restrict: "E",
-        templateUrl: "build-all-cars-minivans.html"
-    };
-});
-"use strict";
-
 angular.module('toyota').directive("cabsBeds", function () {
 
     return {
@@ -394,44 +386,10 @@ angular.module('toyota').directive("cabsBeds", function () {
 });
 "use strict";
 
-angular.module('toyota').directive("configureMotor", function () {
-
+angular.module("toyota").directive("build-all-cars-minivans", function () {
     return {
-
-        templateUrl: "./app/directives/configuration/configuremotor.html",
-        scope: {},
-        controller: function controller($scope, buildTacomaSvc) {
-
-            buildTacomaSvc.trdconfiguration().then(function (res) {
-                //  console.log(res);
-                $scope.trdconfiguration = res.data;
-            });
-
-            $scope.selectedIndex = 0;
-            $scope.itemClicked = function ($index) {
-                console.log($index);
-                $scope.selectedIndex = $index;
-            };
-
-            // These methods are for builidng a cart or summary page  
-            // $scope.summmary = {}
-            $scope.addToSummary = function (product) {
-                console.log(product
-                //     console.log(`Going to service with ${product}`)
-                );buildTacomaSvc.addToSummary(product).then(function () {
-                    // Get the latest cart from the server. It has been updated.
-                    // buildTacomaSvc.getSummary().then((res) => {
-                    //     $scope.summary = res.data;
-                    // })
-
-                });
-            };
-
-            // buildTacomaSvc.getSummary().then((res) => {
-            //     console.log(res);
-            //     $scope.summary = res.data;
-            // })
-        }
+        restrict: "E",
+        templateUrl: "build-all-cars-minivans.html"
     };
 });
 "use strict";
@@ -474,6 +432,48 @@ angular.module('toyota').directive("tacomaColor", function () {
                     });
                 });
             };
+        }
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("configureMotor", function () {
+
+    return {
+
+        templateUrl: "./app/directives/configuration/configuremotor.html",
+        scope: {},
+        controller: function controller($scope, buildTacomaSvc) {
+
+            buildTacomaSvc.trdconfiguration().then(function (res) {
+                //  console.log(res);
+                $scope.trdconfiguration = res.data;
+            });
+
+            $scope.selectedIndex = 0;
+            $scope.itemClicked = function ($index) {
+                console.log($index);
+                $scope.selectedIndex = $index;
+            };
+
+            // These methods are for builidng a cart or summary page  
+            // $scope.summmary = {}
+            $scope.addToSummary = function (product) {
+                console.log(product
+                //     console.log(`Going to service with ${product}`)
+                );buildTacomaSvc.addToSummary(product).then(function () {
+                    // Get the latest cart from the server. It has been updated.
+                    // buildTacomaSvc.getSummary().then((res) => {
+                    //     $scope.summary = res.data;
+                    // })
+
+                });
+            };
+
+            // buildTacomaSvc.getSummary().then((res) => {
+            //     console.log(res);
+            //     $scope.summary = res.data;
+            // })
         }
     };
 });
@@ -557,6 +557,51 @@ angular.module('toyota').directive("gradesInitial", function () {
 
         }
 
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("packages", function () {
+
+    return {
+
+        templateUrl: "./app/directives/packages/tacoma_packages.html",
+        // link: function (scope, element, attribute) {
+
+        // }
+        scope: {},
+        controller: function controller($scope, buildTacomaSvc) {
+
+            buildTacomaSvc.trdpackages().then(function (res) {
+                //  console.log(res);
+                $scope.trdpackages = res.data;
+            });
+
+            $scope.selectedIndex = 0;
+            $scope.itemClicked = function ($index) {
+                console.log($index, "test");
+                $scope.selectedIndex = $index;
+            };
+
+            // These methods are for builidng a cart or summary page  
+            // $scope.summmary = {}
+            $scope.addToSummary = function (product) {
+                console.log(product
+                //     console.log(`Going to service with ${product}`)
+                );buildTacomaSvc.addToSummary(product).then(function () {
+                    // Get the latest cart from the server. It has been updated.
+                    // buildTacomaSvc.getSummary().then((res) => {
+                    //     $scope.summary = res.data;
+                    // })
+
+                });
+            };
+
+            // buildTacomaSvc.getSummary().then((res) => {
+            //     console.log(res);
+            //     $scope.summary = res.data;
+            // })
+        }
     };
 });
 'use strict';
@@ -644,51 +689,6 @@ angular.module('toyota').directive('raqmodal', function (modalSvc) {
                 element.hide();
                 $('body').removeClass('modal-open');
             }
-        }
-    };
-});
-"use strict";
-
-angular.module('toyota').directive("packages", function () {
-
-    return {
-
-        templateUrl: "./app/directives/packages/tacoma_packages.html",
-        // link: function (scope, element, attribute) {
-
-        // }
-        scope: {},
-        controller: function controller($scope, buildTacomaSvc) {
-
-            buildTacomaSvc.trdpackages().then(function (res) {
-                //  console.log(res);
-                $scope.trdpackages = res.data;
-            });
-
-            $scope.selectedIndex = 0;
-            $scope.itemClicked = function ($index) {
-                console.log($index, "test");
-                $scope.selectedIndex = $index;
-            };
-
-            // These methods are for builidng a cart or summary page  
-            // $scope.summmary = {}
-            $scope.addToSummary = function (product) {
-                console.log(product
-                //     console.log(`Going to service with ${product}`)
-                );buildTacomaSvc.addToSummary(product).then(function () {
-                    // Get the latest cart from the server. It has been updated.
-                    // buildTacomaSvc.getSummary().then((res) => {
-                    //     $scope.summary = res.data;
-                    // })
-
-                });
-            };
-
-            // buildTacomaSvc.getSummary().then((res) => {
-            //     console.log(res);
-            //     $scope.summary = res.data;
-            // })
         }
     };
 });
