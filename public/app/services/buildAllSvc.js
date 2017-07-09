@@ -4,7 +4,7 @@ const devUrl = 'http://localhost:3000'
 const hostedUrl = 'https://git.heroku.com/paulmurff.git'
 
 this.getCarsAndVans1 = () => {
-    return $http.get(hostedUrll + '/carsandvans')
+    return $http.get(hostedUrl + '/carsandvans')
 } 
 this.gettrucks1 = () => {
     return $http.get(hostedUrl + '/trucks')
