@@ -5,30 +5,30 @@ const hostedUrl = 'https://git.heroku.com/paulmurff.git'
 const service = this
 // build tacoma 
 this.tacomagrades = () => {
-    return $http.get(hostedUrl + '/tacomagrades')
+    return $http.get('/tacomagrades')
 
 } 
 this.trdcabsbeds = () => {
-    return $http.get(hostedUrl + '/tacomacabsbeds')
+    return $http.get('/tacomacabsbeds')
 
 } 
 this.trdconfiguration = () => {
-    return $http.get(hostedUrl + '/tacomaconfiguration')
+    return $http.get('/tacomaconfiguration')
 
 } 
 this.trdcolors = () => {
-    return $http.get(hostedUrl + '/trdcolors').then( (res) => {
+    return $http.get('/trdcolors').then( (res) => {
         service.colors = res.data
         return res.data
     })
 } 
 this.trdpackages = () => {
-    return $http.get(hostedUrl + '/tacomapackages')
+    return $http.get('/tacomapackages')
 
 } 
 
 this.TRDaccessories = () => {
-    return $http.get(hostedUrl + '/TRDaccessories')
+    return $http.get('/TRDaccessories')
 
 } 
 
@@ -79,7 +79,7 @@ this.photos = [{
 
 
 this.getTRDphotos = (id) => {
-    return $http.get(hostedUrl + '/getTRDphotos/' + id).then( (res)=> {
+    return $http.get('/getTRDphotos/' + id).then( (res)=> {
         // console.log(res)
         this.photos.photos = res.data[0].images
        return res.data[0].images 
@@ -103,7 +103,7 @@ this.getTRDphotos = (id) => {
 
 } 
 this.gettrdred = (id) => {
-    return $http.get(hostedUrl + '/gettrdred/' + id).then( (res)=> {
+    return $http.get('/gettrdred/' + id).then( (res)=> {
         // console.log(res)
         // console.log("color change")
         this.photos.photos = res.data[0].images
