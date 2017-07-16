@@ -49,14 +49,18 @@ $scope.viewSummary = () => {
                 let totalPrice = $scope.sumPageTotal.reduce((a, b) => (a + b)).toLocaleString()
                 console.log("total: ", totalPrice)
                $scope.total4Summary = totalPrice
-
-            //    $scope.final = $scope.total4Summary.forEach(() => {
-            //         (Number($scope.total4Summary) + Number(960))
-            //         console.log($scope.final)
-            //     })
-                // var y = $scope.numbers.reduce((a, b) => (a + b)).toLocaleString()
-                // y = $scope.sumPageTotal;
-                // console.log($scope.sumPageTotal)
+                
+               
+               $scope.finalTemp = $scope.total4Summary.replace(',', '')
+               console.log("final: ", $scope.finalTemp) 
+            
+               let finalFunc= function () {
+                    var final =  (Number($scope.finalTemp) + Number(960))
+                    console.log (final)
+                    return final
+                    }
+                   
+                    $scope.final=finalFunc().toLocaleString()
                 // console.log("I am right here in the summary")
             })
 }
