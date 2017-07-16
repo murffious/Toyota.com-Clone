@@ -38,8 +38,8 @@ module.exports = {
     getTacomaGrades: (req, res) => {
 
         // if 
-        req.app.get('db').tacomagrades().then((items) => {
-            res.send(items)
+        req.app.get('db').tacomagrades().then((grades) => {
+            res.send(grades)
         }).catch(function (error) {
             console.log(error)
         })
