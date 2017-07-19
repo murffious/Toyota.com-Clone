@@ -51,16 +51,16 @@ $scope.viewSummary = () => {
                $scope.total4Summary = totalPrice
                 
                
-               $scope.finalTemp = $scope.total4Summary.replace(',', '')
-               console.log("final: ", $scope.finalTemp) 
+            //    $scope.finalTemp = $scope.total4Summary.replace(',', '')
+            //    console.log("final: ", $scope.finalTemp) 
             
-               let finalFunc= function () {
-                    var final =  (Number($scope.finalTemp) + Number(960))
-                    console.log (final)
-                    return final
-                    }
+            //    let finalFunc= function () {
+            //         var final =  (Number($scope.finalTemp) + Number(960))
+            //         console.log (final)
+            //         return final
+            //         }
                    
-                    $scope.final=finalFunc().toLocaleString()
+            //         $scope.final=finalFunc().toLocaleString()
                 // console.log("I am right here in the summary")
             })
 }
