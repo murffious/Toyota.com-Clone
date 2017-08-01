@@ -15,12 +15,13 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, "..", "/public")))
 app.use(cors());
 app.use(session ({
-   secret: process.env.secret,
+   secret: config.secret,
+//    process.env.secret
    resave: false,
    saveUninitialized: false 
 }))
-
-massive(process.env.connectionString).then(db => {
+// process.env.connectionString
+massive(config.database).then(db => {
     app.set('db', db)
 }).catch((err) => {
     console.log(err)

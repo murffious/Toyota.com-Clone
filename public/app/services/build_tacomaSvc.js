@@ -5,11 +5,11 @@ const hostedUrl = 'https://git.heroku.com/paulmurff.git'
 const service = this
 // build tacoma 
 this.tacomagrades = () => {
-    return $http.get('/tacomagrades')
+    return $http.get('/tacomagrades').catch((error)=> console.log(error))
 
 } 
 this.trdcabsbeds = () => {
-    return $http.get('/tacomacabsbeds')
+    return $http.get('/tacomacabsbeds').catch((error)=> console.log(error))
 
 } 
 this.trdconfiguration = () => {
@@ -20,7 +20,7 @@ this.trdcolors = () => {
     return $http.get('/trdcolors').then( (res) => {
         service.colors = res.data
         return res.data
-    })
+    }).catch((error)=> console.log(error))
 } 
 this.trdpackages = () => {
     return $http.get('/tacomapackages')
