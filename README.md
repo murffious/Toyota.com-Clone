@@ -1,7 +1,5 @@
 [Toyota.com Clone] </br>
 
-Table of Contents</br>
-
 
 About the Project</br>
 
@@ -70,4 +68,6 @@ I decided not to use Bootstrap but then later realized I needed it. Instead of b
 [Select a Package] ![pasted image at 2017_08_01 09_33 am](https://user-images.githubusercontent.com/25558342/28834921-f43ab926-76a0-11e7-9d37-6580031faf95.png)</br>
 
 [Select Accessories] ![pasted image at 2017_08_01 09_33 am 1](https://user-images.githubusercontent.com/25558342/28834933-fd5ffc3c-76a0-11e7-8fbf-f12650522ea0.png)</br>
-[View a Summary] (http://i.imgur.com/etLpMdy.png)
+[View a Summary] ![pasted image at 2017_08_01 10_49 am](https://user-images.githubusercontent.com/25558342/28836681-337dd860-76a7-11e7-8020-5386de0afc75.png)</br>
+[Click on Request a Quote]![pasted image at 2017_08_01 10_49 am 1](https://user-images.githubusercontent.com/25558342/28836692-3ea01e88-76a7-11e7-8d7c-54a9c2871481.png)
+
