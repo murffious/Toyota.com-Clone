@@ -42,7 +42,7 @@ The dynamic changes that occur throughout the site were the hardest part.  First
 The select button changes classes and adds new content, the blue checkmark, upon clicking a specific option. This actually was tricky because I was using ng-repeat. To make it work I used the $index and ng-class to change only one at a time.</br>
 
 2.6 Summary </br>
-On each item selection I sent a post to the summary page on the back-end so that it functions similar to a cart. I ng-repeated over the sumary object to display the info.  </br>
+On each item selection I sent a post to the summary page on the back-end so that it functions similar to a cart. I ng-repeated over the sumary object to display the info. There was some really tricky stuff I had to do to get the totals to show up right and show up at all.  I had to use a controller that was over all the views to track all the data.  The numbers were strings from the database and the commas caused them to not be easy to work with in terms of math functions.  So I had to turn them into a number, do the math, then back to a string for display. </br>
 
 2.7 Truck Color Changes OnClick</br>
 Reverse engineering Toyota's site was not easy as I thought it would be.  This part was a challange mainly because my tables were not set up properly to handle the photos in a different way than I origianlly set up the carousel to handle them. </br>
