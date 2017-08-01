@@ -16,12 +16,13 @@ Javscript </br>
 
 1.2 Back-end</br>
 Node.js</br>
+MassiveJS</br>
 Express</br>
 Express-sessions</br>
 SQL Postgres (ElephantSQL)</br>
 
 1.3 Other tools</br>
-GULP</br></br>
+GULP/Babel</br></br>
 
 
 ### 2.  Features and How I did it</br>
