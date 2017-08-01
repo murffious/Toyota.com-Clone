@@ -1,4 +1,4 @@
-[Toyota.com Clone] (http://www.paulmurff.com)
+[Toyota.com Clone] 
 
 Table of Contents
 
@@ -9,33 +9,33 @@ About the Project
 The Toyota.com Clone is a full stack application focused on allowing a user to click on a vehicle and follow the 'build and pirce' feature of the Toyota website.  
 Currently the demo allows for the user to click on a 2017 Toyota Tacoma.
 
-1. Technical Description
-####1.1 Front-end
+1. Technical Description</br>
+####1.1 Front-end</br>
  
-HTML/SASS
-AngularJS
-Javscript 
+HTML/SASS</br>
+AngularJS</br>
+Javscript </br>
 
-####1.2 Back-end
-Node.js
-Express
-Express-sessions
-SQL Postgres (ElephantSQL)
+####1.2 Back-end</br>
+Node.js</br>
+Express</br>
+Express-sessions</br>
+SQL Postgres (ElephantSQL)</br>
 
-####1.3 Other tools
-GULP
+####1.3 Other tools</br>
+GULP</br></br>
 
 
-2.  Features and How I did it
-####1.2 Features and How I did it
+2.  Features and How I did it</br>
+####1.2 Features and How I did it</br>
 
-Reverse Engineering Toyota's site was not easy.  
-I built out 7 different views in which the user goes through to build and price a vehicle.  
-The home screen consists of using ng-repeat to load from my bac
+Reverse Engineering Toyota's site was not easy.  </br>
+I built out 7 different views in which the user goes through to build and price a vehicle. </br> 
+The home screen consists of using ng-repeat to load from my back-end</br></br>
 
-3. Screenshots
+3. Screenshots</br>
 
-[Build and Price - All Vehicles Page] (http://i.imgur.com/RCPq8i4.png)
+[Build and Price - All Vehicles Page] ![pasted image at 2017_07_14 04_42 pm](https://user-images.githubusercontent.com/25558342/28834250-fa393fd4-769e-11e7-966b-43451e7eac44.png)![pasted image at 2017_08_01 09_27 am](https://user-images.githubusercontent.com/25558342/28834147-bd4b0a6c-769e-11e7-8635-be0942faae28.png)
 [Build and Price a 2017 Tacoma ] (http://i.imgur.com/qmrKUOb.jpg)
 [Select a Grade] (http://i.imgur.com/2uzRlbv.jpg)
 [Select Cab & Bed] (http://i.imgur.com/hHGu20v.png)
