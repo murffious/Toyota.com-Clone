@@ -3,7 +3,7 @@
 
 About the Project</br>
 
-The Toyota.com Clone is a full stack application focused on allowing a user to click on a vehicle and follow the 'build and pirce' feature of the Toyota website. Currently the demo only allows for the user to click on a 2017 Toyota Tacoma. You are able to choose a grade, cab & bed, configuration(motor), color, package, and accessories>  the summary tab shows all of your selections with the total price at the bottom.  You can select 'request a quote' and send the info to a dealer.  The dealer info is not currently hooked up but everything else is functional. 
+The Toyota.com Clone(partial clone of site) is a full stack application focused on allowing a user to click on a vehicle from the build and price tab(on top right of real site). Currently the demo only allows for the user to click on a 2017 Toyota Tacoma. You are able to choose a grade, cab & bed, configuration(motor), color, package, and accessories. The summary tab shows all of your selections with the total price at the bottom.  You can select 'request a quote' and send the info to a dealer.  The dealer info is not currently hooked up but everything else is functional. 
 </br></br>
 
 
