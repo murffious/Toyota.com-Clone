@@ -32,13 +32,13 @@ I first used some Google Chorme extensions to scrape the site for photos and dat
 I built out 7 separate views using anuglar custom directives(components).  Using ng-show/hide with ng-init to initiate the grades pages as the first view, users can go back and forth between pages seamlessly with no reloading.  My site is much faster than Toyota's site. </br>  
 
 ###### 2.3 ng-repeat</br>
-For each view you see nice boxes with all the possible options to select from.  I used ng-repeat to display data from teh back-end and then generate all the remaining boxes with that info.  This was useful but did cause some interesting challenges.  Some of the bullet points had 5 options and some 4 or 6.  I used ng-if to basically not have empty slots. </br> 
+For each view you see nice boxes with all the possible options to select from.  I used ng-repeat to display data from the back-end and then generate all the remaining boxes with that info.  This was useful but did cause some interesting challenges.  Some of the bullet points had 5 options and some 4 or 6.  I used ng-if to basically not have empty slots. </br> 
 
-###### 2.4 Dynamic Data</br>
-The dynamic changes that occur throughout the site were the hardest part.  First of all, scope became an issue.  You can select options on each page view and so I had to isolate the scope using custom directive scope isolation.  I used teh controller scope to start off with the base information of the SR-5 grade then updated scope to whatever the user clicks on. In this case I hooked up the TRD with photos too.  </br>
+###### 2.4 Dynamic Data- Price and Title</br>
+The dynamic changes that occur throughout the site were the hardest part.  First of all, scope became an issue.  You can select options on each page view and so I had to isolate the scope using custom directive scope isolation to not have the clicks activating the button on all views.  I used the main view controller scope to start off with the base information of the SR-5 grade then updated scope to whatever the user clicks on. In this case I hooked up the TRD with photos too.  </br>
 
 ###### 2.5 Select Button</br>
-The select button changes classes and adds new content, the blue checkmark, upon clicking a specific option. This actually was tricky because I was using ng-repeat. To make it work I used the $index and ng-class to change only one at a time.</br>
+The select button changes classes onClick and adds new content, the blue checkmark, as well. This actually was tricky because I was using ng-repeat. To make it work I used the $index and ng-class to solve for this and allow only one at a time to change.</br>
 
 ###### 2.6 Summary </br>
 On each item selection I sent a post to the summary page on the back-end so that it functions similar to a cart. I ng-repeated over the sumary object to display the info. There was some really tricky stuff I had to do to get the totals to show up right and show up at all.  I had to use a controller that was over all the views to track all the data.  The numbers were strings from the database and the commas caused them to not be easy to work with in terms of math functions.  So I had to turn them into a number, do the math, then back to a string for display. </br>
