@@ -62,11 +62,11 @@ I decided not to use Bootstrap but then later realized I needed it. Instead of b
 ![pasted image at 2017_08_01 09_58 am](https://user-images.githubusercontent.com/25558342/28834656-1b978964-76a0-11e7-8c39-3835ee5cd2c0.png)</br>
 ###### [Select a Grade] 
 ![pasted image at 2017_08_01 09_29 am](https://user-images.githubusercontent.com/25558342/28834431-6f3b9f3e-769f-11e7-9150-22e774367d2a.png)</br>
-###### [Select TRD Grade   - changes the pictures dynamically from backend and price/title ]
+###### [Selecting TRD Grade   - changes the pictures dynamically from backend along with price/title on the carousel]
 ![pasted image at 2017_08_01 09_30 am](https://user-images.githubusercontent.com/25558342/28834460-88099a34-769f-11e7-9212-ea6db2ea6b15.png)</br>
 
 ###### [Select Cab & Bed - All built with dynamic info using ng-repeat]
-![pasted image at 2017_08_01 09_30 am](https://user-images.githubusercontent.com/25558342/28834817-a66e0964-76a0-11e7-8610-c5f293f5d96f.png)</br>
+![pasted image at 2017_08_01 11_07 am](https://user-images.githubusercontent.com/25558342/28837322-9a264398-76a9-11e7-8b3f-fb3d9efc1403.png)</br>
 
 ###### [Select a Configuration]
 ![pasted image at 2017_08_01 09_31 am](https://user-images.githubusercontent.com/25558342/28834886-d5633e56-76a0-11e7-995e-c0707f5bf4ba.png)</br>
