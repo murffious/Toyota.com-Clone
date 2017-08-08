@@ -1,12 +1,12 @@
 angular.module('toyota', ['ui.router']) 
 .config(function ($stateProvider, $urlRouterProvider){
-$urlRouterProvider.when('', '/')
+$urlRouterProvider.when('', '/build-all')
 
 $stateProvider
-.state('home', {
-    url: '/',
-    templateUrl: "./app/views/home.html" 
-})
+// .state('home', {
+//     url: '/',
+//     templateUrl: "./app/views/home.html" 
+// })
 .state('build-all', {
     url: '/build-all',
     templateUrl: './app/views/build-all.html',

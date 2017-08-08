@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('toyota', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('', '/');
+    $urlRouterProvider.when('', '/build-all');
 
-    $stateProvider.state('home', {
-        url: '/',
-        templateUrl: "./app/views/home.html"
-    }).state('build-all', {
+    $stateProvider
+    // .state('home', {
+    //     url: '/',
+    //     templateUrl: "./app/views/home.html" 
+    // })
+    .state('build-all', {
         url: '/build-all',
         templateUrl: './app/views/build-all.html',
         controller: 'buildAllCtrl'
@@ -18,157 +20,13 @@ angular.module('toyota', ['ui.router']).config(function ($stateProvider, $urlRou
 });
 'use strict';
 
-angular.module('toyota').controller('buildTacoma', function ($scope, buildTacomaSvc) {
-    $scope.broken = 'working';
-
-    // $scope.class = "select-button";
-
-    //     $scope.changeClass = () =>{
-    //         if ($scope.class === "select-button")
-    //             $scope.class = "selected-button";
-    //          else if ($scope.class === "selected-button")
-    //             $scope.class = "select-button";
-    //     };
-    //      $scope.toggle = true;
-
-    //     $scope.$watch('toggle', () => {
-    //         $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
-    //     })
-
-    // Slider or Carousel
-    // $('.variable-width').slick({
-    //   dots: true,
-    //   infinite: true,
-    //   speed: 300,
-    //   slidesToShow: 1,
-    //   centerMode: true,
-    //   variableWidth: true
-    // });
-
-    // Current method for changing pages....may use nested routing for more options with $locaition
-    $scope.opencontent = function (num) {
-        $scope.item = num;
-        //  console.log($scope.item)
-    };
-    $scope.viewSummary = function () {
-        buildTacomaSvc.getSummary().then(function (res) {
-
-            $scope.summary = res.data;
-            console.log('RES: ', res);
-            console.log($scope.summary.length);
-            $scope.sumPageTotal = [];
-            $scope.summary.map(function (e) {
-                if (e.price) {
-                    console.log("E price: ", e.price);
-                    var newPrice = e.price.replace(',', '');
-                    $scope.sumPageTotal.push(Number(newPrice));
-                }
-            });
-            var totalPrice = $scope.sumPageTotal.reduce(function (a, b) {
-                return a + b;
-            }).toLocaleString();
-            console.log("total: ", totalPrice);
-            $scope.total4Summary = totalPrice;
-
-            //    $scope.final = $scope.total4Summary.forEach(() => {
-            //         (Number($scope.total4Summary) + Number(960))
-            //         console.log($scope.final)
-            //     })
-            // var y = $scope.numbers.reduce((a, b) => (a + b)).toLocaleString()
-            // y = $scope.sumPageTotal;
-            // console.log($scope.sumPageTotal)
-            // console.log("I am right here in the summary")
-        });
-    };
-
-    $scope.startingMSRP = "24,320";
-    $scope.startingTitle = "2017 Tacoma SR";
-    $scope.getPriceandTitleChange = function (grade) {
-        $scope.startingMSRP = grade.price;
-        //    console.log("price check")
-        //    console.log($scope.startingMSRP)
-        $scope.startingTitle = grade.year + " " + grade.model + " " + grade.grade;
-    };
-
-    // make shift cart for summary  
-    // $scope.options = buildTacomaSvc.getSummary(); 
-    // $scope.addToSummary = (product) => {
-    //     console.log(`Going to service with ${product}`)
-    //     console.log(product)
-    //     buildTacomaSvc.addToSummary(product).then(() => {
-    //       Get the latest cart from the server. It has been updated.
-    //       buildTacomaSvc.getSummary().then((res)=> {
-    //         $scope.summary = res.data;
-    //       })
-    //     })
-    //   }
-
-    // buildTacomaSvc.getSummary().then((res) => {
-    //     console.log(res);
-    //     $scope.summary = res.data;
-    //   })
-
-    // Psuedo-code: when I click on grade it changes 1. the price 2. the picture set and 3. the title  (it flashed blue as it changes not that important) 4. if not button one then it will change to the selected button class
-
-    // it also pushes that item to the summary sheet and totals price  
-
-    // on leaving the view page for that selected tab the tab will put in a blue check mark 
-
-    // there is a next button at them bottom which has the same affect as clicking the tab section above
-    // the problem is that there are some set defaults that correlate with price 
-
-
-    //    $scope.myInterval = 5000;
-    //   var slides = $scope.slides = ["https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/1/864_477_PNG/af00b31-ed3b036-d5b169f-88ac67c-e7e9359-fe3c93a-4048061-cb4bfdb-75ff6b4-1cce8f3-0e3ddd3-0e44209-c9df76a-096cb71-30f9e80-54f8546-c13d5e1-90455cf-265e76d-ec56c89.png", "https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/2/864_477_PNG/ff8551f-ba459c1-3e65d71-954aca8-9c7d687-1d1b70b-e39f3ed-0f5b482-aa06481-7f50678-120b780-98e5b37-0db9f89-5c6bef0-98c10f3-6fb64ca-b21c68f-264e4f4-b5fcbaf-4146097-7394438.png"];
-    //   $scope.addSlide = function() {
-    //     var newWidth = 600 + slides.length + 1;
-    //     slides.push({
-    //       image: 'http://lorempixel.com/400/200/people' + newWidth + '/300',
-    //       text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
-    //         ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
-    //     });
-    //   };
-    //   for (var i=0; i<4; i++) {
-    //     $scope.addSlide();
-    //   }
-});
-'use strict';
-
-angular.module('toyota').controller('buildAllCtrl', function ($scope, buildAllSvc) {
-
-    buildAllSvc.getCarsAndVans1().then(function (res) {
-        // console.log(res);
-        $scope.getCarsAndVans1 = res.data;
-        console.log(res);
-    });
-
-    buildAllSvc.gettrucks1().then(function (res) {
-        // console.log(res);
-        $scope.gettrucks1 = res.data;
-    });
-    buildAllSvc.gethybrids1().then(function (res) {
-        // console.log(res);
-        $scope.gethybrids1 = res.data;
-    });
-    buildAllSvc.getcrossovers1().then(function (res) {
-        // console.log(res);
-        $scope.getcrossovers1 = res.data;
-    });
-});
-'use strict';
-
-angular.module('toyota').controller('mainCtrl', function ($scope) {
-    $scope.broken = 'working';
-});
-'use strict';
-
 angular.module('toyota').service('accessories_dirSvc', function ($http) {
 
     var devUrl = 'http://localhost:3000';
     var hostedUrl = 'https://git.heroku.com/paulmurff.git';
 
     this.TRDaccessories = function () {
-        return $http.get(hostedUrl + '/TRDaccessories');
+        return $http.get('/TRDaccessories');
     };
 });
 'use strict';
@@ -201,10 +59,14 @@ angular.module('toyota').service('buildTacomaSvc', function ($http, $state) {
     var service = this;
     // build tacoma 
     this.tacomagrades = function () {
-        return $http.get('/tacomagrades');
+        return $http.get('/tacomagrades').catch(function (error) {
+            return console.log(error);
+        });
     };
     this.trdcabsbeds = function () {
-        return $http.get('/tacomacabsbeds');
+        return $http.get('/tacomacabsbeds').catch(function (error) {
+            return console.log(error);
+        });
     };
     this.trdconfiguration = function () {
         return $http.get('/tacomaconfiguration');
@@ -213,6 +75,8 @@ angular.module('toyota').service('buildTacomaSvc', function ($http, $state) {
         return $http.get('/trdcolors').then(function (res) {
             service.colors = res.data;
             return res.data;
+        }).catch(function (error) {
+            return console.log(error);
         });
     };
     this.trdpackages = function () {
@@ -305,6 +169,153 @@ angular.module('toyota').service('service', function () {
 
 
 });
+'use strict';
+
+angular.module('toyota').controller('buildTacoma', function ($scope, buildTacomaSvc) {
+    $scope.broken = 'working';
+
+    // $scope.class = "select-button";
+
+    //     $scope.changeClass = () =>{
+    //         if ($scope.class === "select-button")
+    //             $scope.class = "selected-button";
+    //          else if ($scope.class === "selected-button")
+    //             $scope.class = "select-button";
+    //     };
+    //      $scope.toggle = true;
+
+    //     $scope.$watch('toggle', () => {
+    //         $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
+    //     })
+
+    // Slider or Carousel
+    // $('.variable-width').slick({
+    //   dots: true,
+    //   infinite: true,
+    //   speed: 300,
+    //   slidesToShow: 1,
+    //   centerMode: true,
+    //   variableWidth: true
+    // });
+
+    // Current method for changing pages....may use nested routing for more options with $locaition
+    $scope.opencontent = function (num) {
+        $scope.item = num;
+        //  console.log($scope.item)
+    };
+    $scope.viewSummary = function () {
+        buildTacomaSvc.getSummary().then(function (res) {
+
+            $scope.summary = res.data;
+            console.log('RES: ', res);
+            console.log($scope.summary.length);
+            $scope.sumPageTotal = [];
+            $scope.summary.map(function (e) {
+                if (e.price) {
+                    console.log("E price: ", e.price);
+                    var newPrice = e.price.replace(',', '');
+                    $scope.sumPageTotal.push(Number(newPrice));
+                }
+            });
+            var totalPrice = $scope.sumPageTotal.reduce(function (a, b) {
+                return a + b;
+            }).toLocaleString();
+            console.log("total: ", totalPrice);
+            $scope.total4Summary = totalPrice;
+
+            $scope.finalTemp = $scope.total4Summary.replace(',', '');
+            console.log("final: ", $scope.finalTemp);
+
+            var finalFunc = function finalFunc() {
+                var final = Number($scope.finalTemp) + Number(960);
+                console.log(final);
+                return final;
+            };
+
+            $scope.final = finalFunc().toLocaleString();
+            console.log("TEST", $scope.final);
+        });
+    };
+
+    $scope.startingMSRP = "24,320";
+    $scope.startingTitle = "2017 Tacoma SR";
+    $scope.getPriceandTitleChange = function (grade) {
+        $scope.startingMSRP = grade.price;
+        //    console.log("price check")
+        //    console.log($scope.startingMSRP)
+        $scope.startingTitle = grade.year + " " + grade.model + " " + grade.grade;
+    };
+
+    // make shift cart for summary  
+    // $scope.options = buildTacomaSvc.getSummary(); 
+    // $scope.addToSummary = (product) => {
+    //     console.log(`Going to service with ${product}`)
+    //     console.log(product)
+    //     buildTacomaSvc.addToSummary(product).then(() => {
+    //       Get the latest cart from the server. It has been updated.
+    //       buildTacomaSvc.getSummary().then((res)=> {
+    //         $scope.summary = res.data;
+    //       })
+    //     })
+    //   }
+
+    // buildTacomaSvc.getSummary().then((res) => {
+    //     console.log(res);
+    //     $scope.summary = res.data;
+    //   })
+
+    // Psuedo-code: when I click on grade it changes 1. the price 2. the picture set and 3. the title  (it flashed blue as it changes not that important) 4. if not button one then it will change to the selected button class
+
+    // it also pushes that item to the summary sheet and totals price  
+
+    // on leaving the view page for that selected tab the tab will put in a blue check mark 
+
+    // there is a next button at them bottom which has the same affect as clicking the tab section above
+    // the problem is that there are some set defaults that correlate with price 
+
+
+    //    $scope.myInterval = 5000;
+    //   var slides = $scope.slides = ["https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/1/864_477_PNG/af00b31-ed3b036-d5b169f-88ac67c-e7e9359-fe3c93a-4048061-cb4bfdb-75ff6b4-1cce8f3-0e3ddd3-0e44209-c9df76a-096cb71-30f9e80-54f8546-c13d5e1-90455cf-265e76d-ec56c89.png", "https://www.toyota.com/config/pub/3d/toyota/1005243/1000867/Exterior/2/864_477_PNG/ff8551f-ba459c1-3e65d71-954aca8-9c7d687-1d1b70b-e39f3ed-0f5b482-aa06481-7f50678-120b780-98e5b37-0db9f89-5c6bef0-98c10f3-6fb64ca-b21c68f-264e4f4-b5fcbaf-4146097-7394438.png"];
+    //   $scope.addSlide = function() {
+    //     var newWidth = 600 + slides.length + 1;
+    //     slides.push({
+    //       image: 'http://lorempixel.com/400/200/people' + newWidth + '/300',
+    //       text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
+    //         ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
+    //     });
+    //   };
+    //   for (var i=0; i<4; i++) {
+    //     $scope.addSlide();
+    //   }
+});
+'use strict';
+
+angular.module('toyota').controller('buildAllCtrl', function ($scope, buildAllSvc) {
+
+    buildAllSvc.getCarsAndVans1().then(function (res) {
+        // console.log(res);
+        $scope.getCarsAndVans1 = res.data;
+        console.log(res);
+    });
+
+    buildAllSvc.gettrucks1().then(function (res) {
+        // console.log(res);
+        $scope.gettrucks1 = res.data;
+    });
+    buildAllSvc.gethybrids1().then(function (res) {
+        // console.log(res);
+        $scope.gethybrids1 = res.data;
+    });
+    buildAllSvc.getcrossovers1().then(function (res) {
+        // console.log(res);
+        $scope.getcrossovers1 = res.data;
+    });
+});
+'use strict';
+
+angular.module('toyota').controller('mainCtrl', function ($scope) {
+    $scope.broken = 'working';
+});
 "use strict";
 
 angular.module('toyota').directive("accessoriesDir", function () {
@@ -338,6 +349,50 @@ angular.module('toyota').directive("accessoriesDir", function () {
             };
         }
 
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("cabsBeds", function () {
+
+    return {
+
+        templateUrl: "./app/directives/cabs_beds/cabs_beds.html",
+        // link: function (scope, element, attribute) {
+
+        // }
+        scope: {},
+        controller: function controller($scope, buildTacomaSvc) {
+
+            buildTacomaSvc.trdcabsbeds().then(function (res) {
+                //  console.log(res);
+                $scope.trdcabsbeds = res.data;
+            });
+
+            $scope.selectedIndex = 0;
+            $scope.itemClicked = function ($index) {
+                console.log($index);
+                $scope.selectedIndex = $index;
+            };
+
+            // These methods are for builidng a cart or summary page  
+            // $scope.summmary = {}
+            $scope.addToSummary = function (product) {
+                // console.log(`${cabbed}`, product)
+                //     console.log(`Going to service with ${product}`)
+                buildTacomaSvc.addToSummary(product).then(function () {
+                    // Get the latest cart from the server. It has been updated.
+                    buildTacomaSvc.getSummary().then(function (res) {
+                        $scope.summary = res.data;
+                    });
+                });
+            };
+
+            // buildTacomaSvc.getSummary().then((res) => {
+            //     console.log(res);
+            //     $scope.summary = res.data;
+            // })
+        }
     };
 });
 "use strict";
@@ -393,50 +448,6 @@ angular.module('toyota').directive("tacomaColor", function () {
 });
 "use strict";
 
-angular.module('toyota').directive("cabsBeds", function () {
-
-    return {
-
-        templateUrl: "./app/directives/cabs_beds/cabs_beds.html",
-        // link: function (scope, element, attribute) {
-
-        // }
-        scope: {},
-        controller: function controller($scope, buildTacomaSvc) {
-
-            buildTacomaSvc.trdcabsbeds().then(function (res) {
-                //  console.log(res);
-                $scope.trdcabsbeds = res.data;
-            });
-
-            $scope.selectedIndex = 0;
-            $scope.itemClicked = function ($index) {
-                console.log($index);
-                $scope.selectedIndex = $index;
-            };
-
-            // These methods are for builidng a cart or summary page  
-            // $scope.summmary = {}
-            $scope.addToSummary = function (product) {
-                // console.log(`${cabbed}`, product)
-                //     console.log(`Going to service with ${product}`)
-                buildTacomaSvc.addToSummary(product).then(function () {
-                    // Get the latest cart from the server. It has been updated.
-                    buildTacomaSvc.getSummary().then(function (res) {
-                        $scope.summary = res.data;
-                    });
-                });
-            };
-
-            // buildTacomaSvc.getSummary().then((res) => {
-            //     console.log(res);
-            //     $scope.summary = res.data;
-            // })
-        }
-    };
-});
-"use strict";
-
 angular.module('toyota').directive("configureMotor", function () {
 
     return {
@@ -475,88 +486,6 @@ angular.module('toyota').directive("configureMotor", function () {
             //     $scope.summary = res.data;
             // })
         }
-    };
-});
-"use strict";
-
-angular.module('toyota').directive("gradesInitial", function () {
-
-    return {
-
-        templateUrl: "./app/directives/grades/gradesInitial.html",
-        // link: function (scope, element, attribute) {
-
-        // }
-
-        controller: function controller($scope, buildTacomaSvc, $rootScope) {
-            //   get info for grades selection cards for ng repeat
-            buildTacomaSvc.tacomagrades().then(function (res) {
-                //  console.log(res);
-                $scope.tacomagrades = res.data;
-            }
-
-            // zero in on ng repeat to have class chagne on button click etc
-            );$scope.selectedIndex = 0;
-            $scope.itemClicked = function ($index) {
-                // console.log($index);
-                $scope.selectedIndex = $index;
-            };
-            //  all this below is code for chaning class that I originally was using save for reference
-            // $scope.selected = 0;
-
-            // $scope.select = function (index) {
-            //     $scope.selected = index;
-            // };
-
-            // $scope.class = "select-button";
-
-            // $scope.changeClass = () => {
-            //     if ($scope.class === "select-button")
-            //         $scope.class = "selected-button";
-            //     else if ($scope.class === "selected-button")
-            //         $scope.class = "select-button";
-            // };
-            // $scope.toggle = true;
-            //  $scope.toggleObject = {item: -1};
-            //  $scope.$watch('toggle', () => {
-            //     $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
-            // })
-
-
-            // grab photos for changint the slider
-
-            buildTacomaSvc.trdcolors().then(function (res) {
-                $scope.photos = res.images;
-            });
-            $rootScope.images = buildTacomaSvc.photos;
-            // console.log($rootScope.images)
-            $scope.changeSliderPhotos = function (id) {
-                // console.log(id)
-                buildTacomaSvc.getTRDphotos(id).then(function (res) {
-                    $rootScope.$broadcast('newImages', { images: res });
-                });
-            };
-
-            // These methods are for builidng a cart or summary page  
-            // $scope.summmary = {}
-            $scope.addToSummary = function (product) {
-                // console.log(product)
-                //     console.log(`Going to service with ${product}`)
-                buildTacomaSvc.addToSummary(product).then(function () {
-                    // Get the latest cart from the server. It has been updated.
-                    buildTacomaSvc.getSummary().then(function (res) {
-                        $scope.summary = res.data;
-                    });
-                });
-            };
-
-            // buildTacomaSvc.getSummary().then((res) => {
-            //     console.log(res);
-            //     $scope.summary = res.data;
-            // })
-
-        }
-
     };
 });
 'use strict';
@@ -692,38 +621,6 @@ angular.module('toyota').directive("packages", function () {
         }
     };
 });
-'use strict';
-
-angular.module('toyota').directive('modalDialog', function () {
-
-    return {
-
-        restrict: 'E',
-        scope: {
-            show: '='
-        },
-        // controller: ($scope) => {
-        //     $scope.modalShown = false;
-        //     $scope.toggleModal = function () {
-        //         console.log('click check')
-        //         $scope.modalShown = !$scope.modalShown;
-        //     };
-        // },
-        replace: true, // Replace with the template below
-        transclude: true, // we want to insert custom content inside the directive
-        link: function link(scope, element, attrs) {
-            scope.dialogStyle = {};
-            if (attrs.width) scope.dialogStyle.width = attrs.width;
-            if (attrs.height) scope.dialogStyle.height = attrs.height;
-            scope.hideModal = function () {
-                scope.show = false;
-            };
-        },
-        // templateUrl: "./app/directives/quotemodal/modal.html"
-        template: "<div class='ng-modal' ng-show='show'><div class='ng-modal-overlay' ng-click='hideModal()'></div><div class='ng-modal-dialog' ng-style='dialogStyle'><div class='ng-modal-close' ng-click='hideModal()'>X</div><div class='ng-modal-dialog-content' ng-transclude></div></div></div>"
-
-    };
-});
 "use strict";
 
 angular.module('toyota').directive("slider1", function () {
@@ -849,6 +746,120 @@ angular.module("toyota").directive("slider2", function ($timeout, buildTacomaSvc
             // }];
             );
         }
+
+    };
+});
+"use strict";
+
+angular.module('toyota').directive("gradesInitial", function () {
+
+    return {
+
+        templateUrl: "./app/directives/grades/gradesInitial.html",
+        // link: function (scope, element, attribute) {
+
+        // }
+
+        controller: function controller($scope, buildTacomaSvc, $rootScope) {
+            //   get info for grades selection cards for ng repeat
+            buildTacomaSvc.tacomagrades().then(function (res) {
+                //  console.log(res);
+                $scope.tacomagrades = res.data;
+            }
+
+            // zero in on ng repeat to have class chagne on button click etc
+            );$scope.selectedIndex = 0;
+            $scope.itemClicked = function ($index) {
+                // console.log($index);
+                $scope.selectedIndex = $index;
+            };
+            //  all this below is code for chaning class that I originally was using save for reference
+            // $scope.selected = 0;
+
+            // $scope.select = function (index) {
+            //     $scope.selected = index;
+            // };
+
+            // $scope.class = "select-button";
+
+            // $scope.changeClass = () => {
+            //     if ($scope.class === "select-button")
+            //         $scope.class = "selected-button";
+            //     else if ($scope.class === "selected-button")
+            //         $scope.class = "select-button";
+            // };
+            // $scope.toggle = true;
+            //  $scope.toggleObject = {item: -1};
+            //  $scope.$watch('toggle', () => {
+            //     $scope.toggleText = $scope.toggle ? 'SELECT' : 'SELECTED';
+            // })
+
+
+            // grab photos for changint the slider
+
+            buildTacomaSvc.trdcolors().then(function (res) {
+                $scope.photos = res.images;
+            });
+            $rootScope.images = buildTacomaSvc.photos;
+            // console.log($rootScope.images)
+            $scope.changeSliderPhotos = function (id) {
+                // console.log(id)
+                buildTacomaSvc.getTRDphotos(id).then(function (res) {
+                    $rootScope.$broadcast('newImages', { images: res });
+                });
+            };
+
+            // These methods are for builidng a cart or summary page  
+            // $scope.summmary = {}
+            $scope.addToSummary = function (product) {
+                // console.log(product)
+                //     console.log(`Going to service with ${product}`)
+                buildTacomaSvc.addToSummary(product).then(function () {
+                    // Get the latest cart from the server. It has been updated.
+                    buildTacomaSvc.getSummary().then(function (res) {
+                        $scope.summary = res.data;
+                    });
+                });
+            };
+
+            // buildTacomaSvc.getSummary().then((res) => {
+            //     console.log(res);
+            //     $scope.summary = res.data;
+            // })
+
+        }
+
+    };
+});
+'use strict';
+
+angular.module('toyota').directive('modalDialog', function () {
+
+    return {
+
+        restrict: 'E',
+        scope: {
+            show: '='
+        },
+        // controller: ($scope) => {
+        //     $scope.modalShown = false;
+        //     $scope.toggleModal = function () {
+        //         console.log('click check')
+        //         $scope.modalShown = !$scope.modalShown;
+        //     };
+        // },
+        replace: true, // Replace with the template below
+        transclude: true, // we want to insert custom content inside the directive
+        link: function link(scope, element, attrs) {
+            scope.dialogStyle = {};
+            if (attrs.width) scope.dialogStyle.width = attrs.width;
+            if (attrs.height) scope.dialogStyle.height = attrs.height;
+            scope.hideModal = function () {
+                scope.show = false;
+            };
+        },
+        // templateUrl: "./app/directives/quotemodal/modal.html"
+        template: "<div class='ng-modal' ng-show='show'><div class='ng-modal-overlay' ng-click='hideModal()'></div><div class='ng-modal-dialog' ng-style='dialogStyle'><div class='ng-modal-close' ng-click='hideModal()'>X</div><div class='ng-modal-dialog-content' ng-transclude></div></div></div>"
 
     };
 });

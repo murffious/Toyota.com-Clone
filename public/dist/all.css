@@ -214,6 +214,21 @@ sup {
     vertical-align: baseline;
         color: #900;*/
 
+.alert {
+  margin: 10%;
+  font-size: 1.3em;
+  position: absolute;
+  background-color: #D63838;
+  padding: 15px;
+  border-radius: 12px;
+  font-family: Helvetica, sans-serif; }
+
+.close {
+  text-align: right;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  float: right;
+  padding-right: 15px; }
 
 * {
   -webkit-box-sizing: border-box;
