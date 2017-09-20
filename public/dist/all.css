@@ -1064,6 +1064,80 @@ dl {
   color: #222;
 }
 */
+@media (min-width: 1280px) {
+  .tacoma-build-top-wrap {
+    position: relative;
+    height: 329px; }
+    .tacoma-build-top-wrap .your-build {
+      top: -12px;
+      position: absolute;
+      text-align: left;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #2b2b2b;
+      left: 151px; }
+    .tacoma-build-top-wrap .your-build:after {
+      display: block;
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 1px;
+      top: 26px;
+      background: red; }
+    .tacoma-build-top-wrap .build-grab-title {
+      position: absolute;
+      text-align: left;
+      font-size: 1.1rem;
+      font-weight: 500;
+      font-weight: 300;
+      letter-spacing: -.02em;
+      color: #000;
+      left: 151px;
+      top: 29px;
+      font-size: 40px;
+      max-width: 180px; }
+  .opening-build-price {
+    color: #000;
+    -webkit-transition: color .3s ease 1s;
+    transition: color .3s ease 1s;
+    width: auto;
+    font-size: 24px;
+    line-height: 24px;
+    text-align: left;
+    position: absolute;
+    right: 166px;
+    top: 27px; }
+  .opening-build-msrp {
+    text-align: left;
+    position: absolute;
+    right: 166px;
+    top: 40px;
+    font-size: 13px;
+    color: #999;
+    letter-spacing: .025em;
+    padding-top: 13px; }
+  .build-request-top {
+    text-align: left;
+    position: absolute;
+    right: 166px;
+    top: 87px;
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    border: 2px solid #666;
+    font-size: 13px;
+    background-color: transparent;
+    z-index: 6; }
+    .build-request-top .build-request-top:hover {
+      border: 2px solid red;
+      color: red; } }
+
+.noSelect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
 /* MODAL STYLES
 -------------------------------*/
