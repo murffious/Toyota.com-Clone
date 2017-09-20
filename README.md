@@ -11,7 +11,7 @@ The Toyota.com Clone(partial clone of the real site) is a full stack application
 ###### 1.1 Front-end</br>
 HTML/SASS</br>
 AngularJS</br>
-Javscript </br>
+JavaScript </br>
 
 ###### 1.2 Back-end</br>
 Node.js</br>
